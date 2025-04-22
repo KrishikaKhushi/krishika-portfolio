@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/krishika-portfolio/static/css/main.e93ec688.css",
+    "main.js": "/krishika-portfolio/static/js/main.9dadfd95.js",
+    "static/js/453.d124ee96.chunk.js": "/krishika-portfolio/static/js/453.d124ee96.chunk.js",
+    "static/media/Berger_Paints_logo-removebg-preview.png": "/krishika-portfolio/static/media/Berger_Paints_logo-removebg-preview.d84cdc9629b2e70c1a54.png",
+    "index.html": "/krishika-portfolio/index.html",
+    "main.e93ec688.css.map": "/krishika-portfolio/static/css/main.e93ec688.css.map",
+    "main.9dadfd95.js.map": "/krishika-portfolio/static/js/main.9dadfd95.js.map",
+    "453.d124ee96.chunk.js.map": "/krishika-portfolio/static/js/453.d124ee96.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e93ec688.css",
+    "static/js/main.9dadfd95.js"
+  ]
+}
