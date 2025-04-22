@@ -1,0 +1,237 @@
+/* General Styles */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0d0d0d;
+  font-family: 'Arial Black', Gadget, sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Creative Background */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 15% 15%, rgba(60, 40, 80, 0.1) 0%, transparent 25%),
+    radial-gradient(circle at 85% 25%, rgba(90, 70, 120, 0.05) 0%, transparent 30%),
+    radial-gradient(circle at 75% 75%, rgba(70, 50, 100, 0.08) 0%, transparent 30%),
+    radial-gradient(circle at 25% 85%, rgba(80, 60, 110, 0.07) 0%, transparent 25%),
+    linear-gradient(135deg, rgba(20, 15, 30, 0.95) 0%, rgba(13, 13, 13, 1) 100%);
+  z-index: -10; /* Lower z-index to ensure it stays behind all content */
+}
+
+/* Subtle Grid Pattern */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(100, 100, 100, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(100, 100, 100, 0.02) 1px, transparent 1px);
+  background-size: 30px 30px;
+  z-index: -9; /* Just above the main background */
+}
+
+/* Floating Particles */
+@keyframes float {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0.3; }
+  50% { transform: translateY(-15px) rotate(180deg); opacity: 0.6; }
+  100% { transform: translateY(0) rotate(360deg); opacity: 0.3; }
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 20%;
+  right: 10%;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(172, 148, 214, 0.05) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(5px);
+  animation: float 15s infinite ease-in-out;
+  z-index: -1;
+}
+
+.hero-section::after {
+  content: "";
+  position: absolute;
+  bottom: 20%;
+  left: 15%;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(214, 193, 255, 0.04) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(5px);
+  animation: float 18s infinite ease-in-out reverse;
+  z-index: -1;
+}
+
+/* Hero Section */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  padding-left: 10%;
+  background-color: transparent;
+  overflow: hidden;
+  position: relative;
+  z-index: 0; /* Ensure it's above background but below navbar when open */
+}
+
+.hero-title, .hero-subtitle {
+  font-weight: bold;
+  background: linear-gradient(90deg, #d6c1ff, #AC94D6, #7c5da6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300%;
+  background-position: left;
+  transition: background-position 0.5s ease-in-out;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-title {
+  font-size: 5rem;
+  margin: 0;
+  text-shadow: 0 0 30px rgba(172, 148, 214, 0.1);
+}
+
+.hero-subtitle {
+  font-size: 2rem;
+  margin-top: 1rem;
+  white-space: pre-line;
+  color: #AC94D6;
+  font-family: "Bahnschrift SemiBold SemiCondensed", sans-serif;
+}
+
+/* Hover effect for title */
+.hero-title:hover, .hero-subtitle:hover {
+  background-position: right;
+}
+
+/* Hamburger Menu Styles - Increased z-index */
+.hamburger-menu {
+  position: absolute;
+  top: 30px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  z-index: 100; /* Ensure hamburger is always clickable */
+}
+
+.hamburger-menu .bar {
+  width: 25px;
+  height: 3px;
+  background: linear-gradient(135deg, #ffffff, #cccccc);
+  border-radius: 5px;
+}
+
+/* Navbar Styles - Fixed z-index issues */
+.navbar {
+  position: absolute;
+  top: 53px;
+  left: 0;
+  width: 350px;
+  height: 55vh;
+  background: linear-gradient(135deg, rgba(30, 25, 40, 0.95) 0%, rgba(20, 15, 30, 0.95) 100%);
+  backdrop-filter: blur(5px);
+  border-right: 1px solid rgba(172, 148, 214, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  padding-top: 5px;
+  z-index: 90; /* High but below hamburger */
+  box-shadow: 5px 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.navbar.open {
+  transform: translateX(0);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: 'Arial Black', Gadget, sans-serif;
+  background: linear-gradient(135deg, #ffffff, #cccccc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 0;
+  margin-left: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+
+/* Enhanced hover effect for menu items */
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #d6c1ff, #AC94D6);
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+/* Current Section Title */
+.section-name {
+  position: absolute;
+  top: 26px;
+  left: 65px;
+  font-size: 18px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #ffffff, #cccccc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  padding: 0;
+  transition: left 0.3s ease;
+  z-index: 99; /* High but below hamburger */
+}
+
+/* Ensure links are clickable */
+a, button, .hamburger-menu {
+  cursor: pointer;
+  position: relative;
+  z-index: 100;
+}
+
+/* Gradient Background for Hero Section */
+.hero-section.gradient-background {
+  background: linear-gradient(135deg, rgba(30, 25, 40, 0.95), rgba(20, 15, 30, 0.95));
+  backdrop-filter: blur(3px);
+  border-left: 2px solid rgba(172, 148, 214, 0.08);
+  border-right: 2px solid rgba(172, 148, 214, 0.08);
+  box-shadow: 0 0 25px rgba(172, 148, 214, 0.05);
+}
