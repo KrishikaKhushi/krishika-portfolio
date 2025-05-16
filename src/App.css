@@ -332,11 +332,3 @@ a, button, .hamburger-menu {
   }
 }
 
-svg, img {
-  max-width: 100%;
-  height: auto;
-}
-
-html, body {
-  overflow-x: hidden !important;
-}
