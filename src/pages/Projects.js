@@ -5,11 +5,16 @@ function Projects() {
   return (
     <div className="projects-section">
       <h1 className="section-heading">Projects</h1>
-      
+
       {/* First Project */}
       <div className="project-card">
         <h3 className="project-title">
-          <span className="gradient-text">Clinic Database Web Application (MERN Stack, MongoDB, Node.js, Express.js)</span>
+          <button
+            className="gradient-text project-button"
+            disabled
+          >
+            Clinic Database Web Application (MERN Stack, MongoDB, Node.js, Express.js)
+          </button>
         </h3>
         <ul className="project-description">
           <li>Designed a CRUD-based clinic management system using MongoDB, Express.js, and Node.js, enabling efficient and scalable data storage and retrieval.</li>
@@ -21,7 +26,14 @@ function Projects() {
       {/* Second Project */}
       <div className="project-card">
         <h3 className="project-title">
-          <span className="gradient-text">AI-Driven Enhancements in Remote Doctor Consultation (AI, Python, OpenCV, TensorFlow)</span>
+          <a
+            href="https://github.com/KrishikaKhushi/AI-Driven-Enhancements"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="gradient-text"
+          >
+            AI-Driven Enhancements in Remote Doctor Consultation (AI, Python, OpenCV, TensorFlow)
+          </a>
         </h3>
         <ul className="project-description">
           <li>Built an AI-powered telemedicine platform that analyses patient emotions and physical state using facial expression analysis.</li>
@@ -33,7 +45,12 @@ function Projects() {
       {/* Third Project */}
       <div className="project-card">
         <h3 className="project-title">
-          <span className="gradient-text">AI-Powered Smart Home Automation System (Python, Flask, REST APIs, MySQL, Docker, AWS/GCP, Git/GitHub)</span>
+          <button
+            className="gradient-text project-button"
+            disabled
+          >
+            AI-Powered Smart Home Automation System (Python, Flask, REST APIs, MySQL, Docker, AWS/GCP, Git/GitHub)
+          </button>
         </h3>
         <ul className="project-description">
           <li>Developed a smart home solution using AI and ML technologies.</li>
@@ -46,7 +63,14 @@ function Projects() {
       {/* Fourth Project */}
       <div className="project-card">
         <h3 className="project-title">
-          <span className="gradient-text">Hyperparameter Visualization in Generative ML Models (Ongoing)</span>
+          <a
+            href="https://github.com/KrishikaKhushi/Hyperparameter-Visualization"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="gradient-text"
+          >
+            Hyperparameter Visualization in Generative ML Models (Ongoing)
+          </a>
         </h3>
         <ul className="project-description">
           <li>Explored the effect of hyperparameter variations (learning rates, batch sizes, weight decay) on generative model outputs.</li>
@@ -58,7 +82,14 @@ function Projects() {
       {/* Fifth Project */}
       <div className="project-card">
         <h3 className="project-title">
-          <span className="gradient-text">Krishika's Dev Portfolio (React, JavaScript, HTML, CSS, Git, GitHub, Node.js, Express.js, SQL)</span>
+          <a
+            href="https://github.com/KrishikaKhushi/krishika-portfolio"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="gradient-text"
+          >
+            Krishika's Dev Portfolio (React, JavaScript, HTML, CSS, Git, GitHub, Node.js, Express.js, SQL)
+          </a>
         </h3>
         <ul className="project-description">
           <li>Developed a personal portfolio website to showcase skills, projects, and experience.</li>
@@ -70,7 +101,12 @@ function Projects() {
       {/* Sixth Project */}
       <div className="project-card">
         <h3 className="project-title">
-          <span className="gradient-text">Smart Resume Screening & Feedback System (Python, FastAPI, Java with Spring Boot, Docker, GitHub, AWS/GCP, SQL)</span>
+          <button
+            className="gradient-text project-button"
+            disabled
+          >
+            Smart Resume Screening & Feedback System (Python, FastAPI, Java with Spring Boot, Docker, GitHub, AWS/GCP, SQL)
+          </button>
         </h3>
         <ul className="project-description">
           <li>Developed a resume parser to extract key information such as skills and experience from uploaded resumes.</li>

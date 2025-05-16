@@ -6,10 +6,10 @@
     position: relative;
     z-index: 0;
     padding-top: 75px;
-}
-
-/* Background particles and effects */
-.experience-section::before {
+  }
+  
+  /* Background particles and effects */
+  .experience-section::before {
     content: "";
     position: absolute;
     top: 20%;
@@ -21,9 +21,9 @@
     filter: blur(8px);
     animation: float 22s infinite ease-in-out;
     z-index: -1;
-}
-
-.experience-section::after {
+  }
+  
+  .experience-section::after {
     content: "";
     position: absolute;
     bottom: 15%;
@@ -35,258 +35,51 @@
     filter: blur(8px);
     animation: float 26s infinite ease-in-out reverse;
     z-index: -1;
-}
-
-@keyframes float {
-    0% { transform: translateY(0) rotate(0deg); opacity: 0.3; }
-    50% { transform: translateY(-15px) rotate(180deg); opacity: 0.6; }
-    100% { transform: translateY(0) rotate(360deg); opacity: 0.3; }
-}
-
-/* Reusable Gradient Text Class with Enhancement */
-.gradient-text {
-    background: linear-gradient(135deg, #dccbff, #AC94D6, #7c5da6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 300%;
-    background-position: left;
-    transition: background-position 0.5s ease-in-out;
-    text-shadow: 0 0 30px rgba(172, 148, 214, 0.15);
-}
-
-.gradient-text:hover {
-    background-position: right;
-}
-
-/* Section Heading (Professional Experience) - Further Reduced Size */
-.section-heading {
-    text-align: center;
-    font-size: 2.2rem; /* Further reduced size */
-    margin-bottom: 2.5rem;
-    font-weight: bold;
-    position: relative;
-}
-
-.section-heading::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px; /* Slightly reduced to match the heading size */
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #d6c1ff, transparent);
-}
-
-/* Experience Card Container - Updated for "text box" effect */
-.experience-card {
-    background: rgba(20, 15, 30, 0.3); /* Same background color and opacity as other boxes */
-    border-radius: 8px; /* Same border radius */
-    backdrop-filter: blur(5px); /* Same blur effect */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Similar shadow */
-    padding: 2rem;
-    margin-bottom: 3rem;
-    border-left: 1px solid rgba(172, 148, 214, 0.1); /* Same left border */
-    border-top: 1px solid rgba(172, 148, 214, 0.1); /* Same top border */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.experience-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Enhanced hover shadow */
-}
-
-/* Glossy highlight effect */
-.experience-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 30px;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.05), transparent);
-    border-radius: 8px 8px 0 0; /* Matching top border radius */
-}
-
-/* Subheadings with Enhanced Style - Further Reduced Size */
-.subheading {
-    font-size: 1.5rem; /* Further reduced size */
-    margin-top: 0.7rem;
-    font-weight: bold;
-    position: relative;
-    display: inline-block;
-    padding-bottom: 0.01rem;
-}
-
-.subheading::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 40px;
-    height: 2px;
-    background: linear-gradient(90deg, #d6c1ff, transparent);
-    transition: width 0.3s ease;
-}
-
-.subheading:hover::after {
-    width: 100%;
-}
-
-/* Company Header: logo + name */
-.company-header {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 1.5rem;
-}
-
-/* Company Logo with Enhancement */
-.company-logo {
-    width: 50px; /* Slightly reduced from 60px */
-    height: auto;
-    border-radius: 8px;
-    padding: 5px;
-    background: rgba(30, 25, 40, 0.4);
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease;
-}
-
-.company-logo:hover {
-    transform: scale(1.05);
-}
-
-/* Company Name - Further Reduced Size */
-.company-name {
-    font-size: 1.7rem; /* Further reduced size */
-    margin: 0;
-    text-align: left;
-    font-weight: bold;
-}
-
-/* Subheading content style */
-.subheading-content {
-    font-family: 'Bahnschrift Condensed', sans-serif;
-    font-size: 1.1rem;
-    text-align: justify;
-    line-height: 1.7;
-    margin-left: 2rem;
-    margin-right: 2rem;
-    margin-top: 0.01rem;
-}
-
-/* Lists inside sections with Enhancement */
-ul {
-    list-style-type: disc;
-    padding-left: 2.5rem;
-}
-
-ul li {
-    margin-bottom: 0.7rem;
-    position: relative;
-    transition: transform 0.2s ease;
-}
-
-ul li:hover {
-    transform: translateX(5px);
-}
-
-/* Key Learning, Application, and Skills sections */
-.key-learning, .application, .skills-developed {
-    margin-top: 2rem;
-    position: relative;
-}
-
-/* Skill Tag Style */
-.skill-tag {
-    display: inline-block;
-    background: rgba(124, 93, 166, 0.15);
-    border-radius: 15px;
-    padding: 4px 12px;
-    margin: 5px;
-    font-size: 0.9rem;
-    color: #d6c1ff;
-    border: 1px solid rgba(172, 148, 214, 0.2);
-    transition: all 0.3s ease;
-}
-
-.skill-tag:hover {
-    background: rgba(124, 93, 166, 0.3);
-    transform: translateY(-2px);
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Timeline element (optional) */
-.timeline {
-    position: absolute;
-    left: -30px;
-    top: 0;
-    height: 100%;
-    width: 2px;
-    background: linear-gradient(to bottom, #d6c1ff, transparent);
-    z-index: -1;
-}
-
-/* Date Badge (optional) */
-.date-badge {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    background: rgba(124, 93, 166, 0.2);
-    padding: 5px 12px;
-    border-radius: 15px;
-    font-size: 0.85rem;
-    letter-spacing: 0.5px;
-    border: 1px solid rgba(172, 148, 214, 0.2);
-}/* General Styles with Enhanced Background for Experience Section */
-.experience-section {
-    background-color: transparent;
-    color: white;
-    padding: 5%;
-    position: relative;
-    z-index: 0;
-    padding-top: 75px;
-}
-
-/* Background particles and effects */
-.experience-section::before {
-    content: "";
-    position: absolute;
-    top: 20%;
-    right: 10%;
-    width: 200px;
+  }
+  
+  /* Glowing Vignette Corners */
+  .experience-section::before,
+  .experience-section::after {
+    /* keep original properties but also add these: */
+    width: 200px; /* override if needed */
     height: 200px;
-    background: radial-gradient(circle, rgba(172, 148, 214, 0.04) 0%, transparent 70%);
     border-radius: 50%;
-    filter: blur(8px);
-    animation: float 22s infinite ease-in-out;
+    filter: blur(80px);
     z-index: -1;
-}
-
-.experience-section::after {
-    content: "";
-    position: absolute;
-    bottom: 15%;
-    left: 8%;
-    width: 160px;
-    height: 160px;
-    background: radial-gradient(circle, rgba(214, 193, 255, 0.03) 0%, transparent 70%);
-    border-radius: 50%;
-    filter: blur(8px);
-    animation: float 26s infinite ease-in-out reverse;
-    z-index: -1;
-}
-
-@keyframes float {
+    opacity: 0.5;
+    animation: glowPulse 5s infinite alternate;
+  }
+  
+  .experience-section::before {
+    top: -50px;
+    left: -50px;
+    background: radial-gradient(circle, #d6c1ff, transparent);
+  }
+  
+  .experience-section::after {
+    bottom: -50px;
+    right: -50px;
+    background: radial-gradient(circle, #7c5da6, transparent);
+  }
+  
+  /* Optionally animate the glow for a smoother effect */
+  @keyframes glowPulse {
+    0%, 100% {
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+  
+  @keyframes float {
     0% { transform: translateY(0) rotate(0deg); opacity: 0.3; }
     50% { transform: translateY(-15px) rotate(180deg); opacity: 0.6; }
     100% { transform: translateY(0) rotate(360deg); opacity: 0.3; }
-}
-
-/* Reusable Gradient Text Class with Enhancement */
-.gradient-text {
+  }
+  
+  /* Reusable Gradient Text Class with Enhancement */
+  .gradient-text {
     background: linear-gradient(135deg, #dccbff, #AC94D6, #7c5da6);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -294,22 +87,22 @@ ul li:hover {
     background-position: left;
     transition: background-position 0.5s ease-in-out;
     text-shadow: 0 0 30px rgba(172, 148, 214, 0.15);
-}
-
-.gradient-text:hover {
+  }
+  
+  .gradient-text\:hover {
     background-position: right;
-}
-
-/* Section Heading (Professional Experience) - Further Reduced Size */
-.section-heading {
+  }
+  
+  /* Section Heading (Professional Experience) - Further Reduced Size */
+  .section-heading {
     text-align: center;
     font-size: 2.2rem; /* Further reduced size */
     margin-bottom: 2.5rem;
     font-weight: bold;
     position: relative;
-}
-
-.section-heading::after {
+  }
+  
+  .section-heading::after {
     content: '';
     position: absolute;
     bottom: -10px;
@@ -318,10 +111,10 @@ ul li:hover {
     width: 80px; /* Slightly reduced to match the heading size */
     height: 2px;
     background: linear-gradient(90deg, transparent, #d6c1ff, transparent);
-}
-
-/* Experience Card Container - Updated for "text box" effect */
-.experience-card {
+  }
+  
+  /* Experience Card Container - Updated for "text box" effect */
+  .experience-card {
     background: rgba(20, 15, 30, 0.3); /* Same background color and opacity as other boxes */
     border-radius: 8px; /* Same border radius */
     backdrop-filter: blur(5px); /* Same blur effect */
@@ -333,15 +126,15 @@ ul li:hover {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     overflow: hidden;
-}
-
-.experience-card:hover {
+  }
+  
+  .experience-card\:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Enhanced hover shadow */
-}
-
-/* Glossy highlight effect */
-.experience-card::before {
+  }
+  
+  /* Glossy highlight effect */
+  .experience-card::before {
     content: '';
     position: absolute;
     top: 0;
@@ -350,19 +143,19 @@ ul li:hover {
     height: 30px;
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0.05), transparent);
     border-radius: 8px 8px 0 0; /* Matching top border radius */
-}
-
-/* Subheadings with Enhanced Style - Further Reduced Size */
-.subheading {
+  }
+  
+  /* Subheadings with Enhanced Style - Further Reduced Size */
+  .subheading {
     font-size: 1.5rem; /* Further reduced size */
     margin-top: 0.7rem;
     font-weight: bold;
     position: relative;
     display: inline-block;
     padding-bottom: 0.01rem;
-}
-
-.subheading::after {
+  }
+  
+  .subheading::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -371,22 +164,22 @@ ul li:hover {
     height: 2px;
     background: linear-gradient(90deg, #d6c1ff, transparent);
     transition: width 0.3s ease;
-}
-
-.subheading:hover::after {
+  }
+  
+  .subheading\:hover::after {
     width: 100%;
-}
-
-/* Company Header: logo + name */
-.company-header {
+  }
+  
+  /* Company Header: logo + name */
+  .company-header {
     display: flex;
     align-items: center;
     gap: 15px;
     margin-bottom: 1.5rem;
-}
-
-/* Company Logo with Enhancement */
-.company-logo {
+  }
+  
+  /* Company Logo with Enhancement */
+  .company-logo {
     width: 50px; /* Slightly reduced from 60px */
     height: auto;
     border-radius: 8px;
@@ -394,22 +187,22 @@ ul li:hover {
     background: rgba(30, 25, 40, 0.4);
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease;
-}
-
-.company-logo:hover {
+  }
+  
+  .company-logo\:hover {
     transform: scale(1.05);
-}
-
-/* Company Name - Further Reduced Size */
-.company-name {
+  }
+  
+  /* Company Name - Further Reduced Size */
+  .company-name {
     font-size: 1.7rem; /* Further reduced size */
     margin: 0;
     text-align: left;
     font-weight: bold;
-}
-
-/* Subheading content style */
-.subheading-content {
+  }
+  
+  /* Subheading content style */
+  .subheading-content {
     font-family: 'Bahnschrift Condensed', sans-serif;
     font-size: 1.1rem;
     text-align: justify;
@@ -417,32 +210,32 @@ ul li:hover {
     margin-left: 2rem;
     margin-right: 2rem;
     margin-top: 0.01rem;
-}
-
-/* Lists inside sections with Enhancement */
-ul {
+  }
+  
+  /* Lists inside sections with Enhancement */
+  ul {
     list-style-type: disc;
     padding-left: 2.5rem;
-}
-
-ul li {
+  }
+  
+  ul li {
     margin-bottom: 0.7rem;
     position: relative;
     transition: transform 0.2s ease;
-}
-
-ul li:hover {
+  }
+  
+  ul li\:hover {
     transform: translateX(5px);
-}
-
-/* Key Learning, Application, and Skills sections */
-.key-learning, .application, .skills-developed {
+  }
+  
+  /* Key Learning, Application, and Skills sections */
+  .key-learning, .application, .skills-developed {
     margin-top: 2rem;
     position: relative;
-}
-
-/* Skill Tag Style */
-.skill-tag {
+  }
+  
+  /* Skill Tag Style */
+  .skill-tag {
     display: inline-block;
     background: rgba(124, 93, 166, 0.15);
     border-radius: 15px;
@@ -452,16 +245,16 @@ ul li:hover {
     color: #d6c1ff;
     border: 1px solid rgba(172, 148, 214, 0.2);
     transition: all 0.3s ease;
-}
-
-.skill-tag:hover {
+  }
+  
+  .skill-tag\:hover {
     background: rgba(124, 93, 166, 0.3);
     transform: translateY(-2px);
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Timeline element (optional) */
-.timeline {
+  }
+  
+  /* Timeline element (optional) */
+  .timeline {
     position: absolute;
     left: -30px;
     top: 0;
@@ -469,10 +262,10 @@ ul li:hover {
     width: 2px;
     background: linear-gradient(to bottom, #d6c1ff, transparent);
     z-index: -1;
-}
-
-/* Date Badge (optional) */
-.date-badge {
+  }
+  
+  /* Date Badge (optional) */
+  .date-badge {
     position: absolute;
     top: 10px;
     right: 20px;
@@ -482,4 +275,126 @@ ul li:hover {
     font-size: 0.85rem;
     letter-spacing: 0.5px;
     border: 1px solid rgba(172, 148, 214, 0.2);
-}
+  }
+  
+/* Responsive Design for Mobile Devices */
+@media (max-width: 768px) {
+    .experience-section {
+      padding-top: 60px;
+      padding-bottom: 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .experience-card {
+      width: 90%;
+      max-width: 450px;
+      margin: 20px auto;
+      padding: 1.5rem;
+    }
+  
+    .subheading {
+      font-size: 1.3rem;
+    }
+  
+    .subheading-content {
+      font-size: 1rem;
+      margin-left: 0;
+      margin-right: 0;
+    }
+  
+    .company-logo {
+      width: 45px;
+    }
+  
+    .company-name {
+      font-size: 1.5rem;
+    }
+  
+    .section-heading {
+      font-size: 1.8rem;
+    }
+  
+    .section-heading::after {
+      width: 60px;
+    }
+  
+    .experience-card::before {
+      height: 25px;
+    }
+  
+    ul {
+      padding-left: 1.5rem;
+    }
+  
+    ul li {
+      font-size: 0.9rem;
+    }
+  
+    .skill-tag {
+      font-size: 0.85rem;
+      padding: 3px 10px;
+    }
+  }
+  
+  /* Further adjustments for very small screens */
+  @media (max-width: 480px) {
+    .experience-section {
+      padding-top: 60px;
+      padding-bottom: 80px;
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+    }
+  
+    .experience-card {
+      width: 80%;
+      max-width: 300px;
+      margin: 25px auto;
+      padding: 1.2rem;
+    }
+  
+    .subheading {
+      font-size: 0.8rem;
+    }
+  
+    .subheading-content {
+      font-size: 0.95rem;
+    }
+  
+    .company-logo {
+      width: 40px;
+      padding-top: 20px;
+    }
+  
+    .company-name {
+      font-size: 1rem;
+      padding-top: 20px;
+    }
+  
+    .section-heading {
+      font-size: 1.3rem;
+    }
+  
+    .section-heading::after {
+      width: 50px;
+    }
+  
+    .experience-card::before {
+      height: 20px;
+    }
+  
+    ul {
+      padding-left: 1.5rem;
+    }
+  
+    ul li {
+      font-size: 0.85rem;
+    }
+  
+    .skill-tag {
+      font-size: 0.8rem;
+      padding: 2px 8px;
+    }
+  }
+  

@@ -7,14 +7,15 @@ import ProfessionalExperience from './pages/ProfessionalExperience';
 import Projects from './pages/Projects';
 import Extracurricular from './pages/Extracurricular';
 import Blog from './pages/Blog';
-import ContactMe from './pages/ContactMe'; // ✅ New import for Contact Me page
+import ContactMe from './pages/ContactMe';
 
 function HomePage() {
   return (
-    <div className="hero-section" id="home">
+    <div className="hero-section home-background" id="home">
       <h1 className="hero-title">Krishika Khushi</h1>
       <p className="hero-subtitle">
-        Final-Year B.Tech CSE Student at VIT | Aspiring Software Engineer |{"\n"}
+        Final-Year B.Tech CSE Student at VIT {"\n"}  
+        Aspiring Software Engineer{"\n"}
         Python & Java Enthusiast
       </p>
     </div>
@@ -66,7 +67,7 @@ function App() {
           <li><Link to="/projects" onClick={toggleMenu}>Projects</Link></li>
           <li><Link to="/extracurricular" onClick={toggleMenu}>Extracurricular</Link></li>
           <li><Link to="/blog" onClick={toggleMenu}>Blog</Link></li>
-          <li><Link to="/contact" onClick={toggleMenu}>Contact Me</Link></li> {/* ✅ Linked properly */}
+          <li><Link to="/contact" onClick={toggleMenu}>Contact Me</Link></li>
         </ul>
       </nav>
 
@@ -78,7 +79,7 @@ function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/extracurricular" element={<Extracurricular />} />
         <Route path="/blog" element={<Blog />} />
-        <Route path="/contact" element={<ContactMe />} /> {/* ✅ Contact Me Route */}
+        <Route path="/contact" element={<ContactMe />} />
       </Routes>
     </div>
   );

@@ -11,7 +11,7 @@ function ProfessionalExperience() {
       <div className="company-section">
         <div className="company-header">
           <img src={companyLogo} alt="Berger Paints Logo" className="company-logo" />
-          <h2 className="company-name gradient-text">Berger Paints India Ltd. (British Paints Division)</h2>
+          <h2 className="company-name gradient-text">Berger Paints India Ltd. (British Paints Division) [Sept' 2023- Oct' 2024]</h2>
         </div>
 
         {/* Company Overview */}

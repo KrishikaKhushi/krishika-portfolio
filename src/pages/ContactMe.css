@@ -13,47 +13,42 @@
   justify-content: center;
 }
 
-/* Floating particles */
+/* Glowing Vignette Corners */
 .contact-section::before,
 .contact-section::after {
   content: "";
   position: absolute;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
-  filter: blur(8px);
+  filter: blur(80px);
   z-index: -1;
+  opacity: 0.5;
+  animation: glowPulse 5s infinite alternate;
 }
 
 .contact-section::before {
-  top: 15%;
-  right: 15%;
-  width: 180px;
-  height: 180px;
-  background: radial-gradient(circle, rgba(172, 148, 214, 0.04) 0%, transparent 70%);
-  animation: float 20s infinite ease-in-out;
+  top: -50px;
+  left: -50px;
+  background: radial-gradient(circle, #d6c1ff, transparent);
 }
 
 .contact-section::after {
-  bottom: 25%;
-  left: 10%;
-  width: 150px;
-  height: 150px;
-  background: radial-gradient(circle, rgba(214, 193, 255, 0.03) 0%, transparent 70%);
-  animation: float 25s infinite ease-in-out reverse;
+  bottom: -50px;
+  right: -50px;
+  background: radial-gradient(circle, #7c5da6, transparent);
 }
 
-/* Float animation */
-@keyframes float {
-  0% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 0.3;
+/* Float animation keyframes are no longer used here */
+/* If you want to keep floating particles as well, we can add separate elements */
+
+/* Glow pulse animation */
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.4;
   }
   50% {
-    transform: translateY(-15px) rotate(180deg);
-    opacity: 0.6;
-  }
-  100% {
-    transform: translateY(0) rotate(360deg);
-    opacity: 0.3;
+    opacity: 0.7;
   }
 }
 
@@ -104,4 +99,59 @@
 
 .contact-link:hover {
   text-decoration: underline;
+}
+
+/* Responsive Design for Mobile Devices */
+@media (max-width: 768px) {
+  .contact-section {
+    padding-top: 60px;
+    padding-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* center entire content horizontally */
+    justify-content: center;
+    text-align: center;
+  }
+
+  .contact-heading {
+    font-size: 2.2rem; /* smaller than desktop */
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-content {
+    max-width: 90%;
+    font-size: 1.2rem; /* reduced font size */
+    line-height: 1.6;
+    padding: 15px;
+    margin: 0 auto;
+  }
+
+  .contact-link {
+    font-size: 1.1rem;
+  }
+}
+
+/* Further adjustments for very small screens */
+@media (max-width: 480px) {
+  .contact-section {
+    padding-top: 200px;
+    padding-bottom: 60px;
+    align-items: center;
+  }
+
+  .contact-heading {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .contact-content {
+    font-size: 1rem;
+    max-width: 95%;
+    padding: 12px;
+    line-height: 1.5;
+  }
+
+  .contact-link {
+    font-size: 1rem;
+  }
 }

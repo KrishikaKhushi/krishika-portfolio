@@ -1,4 +1,4 @@
-/* Extras Section */
+/* ==================== Extras Section ==================== */
 .extras-section {
   background-color: transparent;
   color: white;
@@ -12,9 +12,44 @@
   justify-content: center;
 }
 
-/* Floating Particles */
+/* ==================== Glowing Vignette Corners ==================== */
 .extras-section::before,
 .extras-section::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: -1;
+  opacity: 0.5;
+  animation: glowPulse 5s infinite alternate;
+}
+
+.extras-section::before {
+  top: -50px;
+  left: -50px;
+  background: radial-gradient(circle, #d6c1ff, transparent);
+}
+
+.extras-section::after {
+  bottom: -50px;
+  right: -50px;
+  background: radial-gradient(circle, #7c5da6, transparent);
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* ==================== Floating Particles ==================== */
+.floating-particle::before,
+.floating-particle::after {
   content: "";
   position: absolute;
   border-radius: 50%;
@@ -22,7 +57,7 @@
   z-index: -1;
 }
 
-.extras-section::before {
+.floating-particle::before {
   top: 18%;
   right: 18%;
   width: 160px;
@@ -31,7 +66,7 @@
   animation: float 22s infinite ease-in-out;
 }
 
-.extras-section::after {
+.floating-particle::after {
   bottom: 22%;
   left: 12%;
   width: 140px;
@@ -46,7 +81,7 @@
   100% { transform: translateY(0) rotate(360deg); opacity: 0.3; }
 }
 
-/* Page Heading - "Extracurricular" */
+/* ==================== Page Heading ==================== */
 .section-heading {
   font-family: 'Arial Black', sans-serif;
   font-size: 2.2rem;
@@ -59,7 +94,7 @@
   align-self: center;
 }
 
-/* Section Headings */
+/* ==================== Section Headings ==================== */
 .subheading {
   font-family: 'Arial Black', sans-serif;
   font-size: 1.7rem;
@@ -83,7 +118,7 @@
   background: linear-gradient(90deg, #d6c1ff, transparent);
 }
 
-/* Subsection Headings */
+/* ==================== Subsection Headings ==================== */
 .sub-subheading {
   font-family: 'Arial Black', sans-serif;
   font-size: 1rem;
@@ -107,7 +142,7 @@
   background: linear-gradient(90deg, #AC94D6, transparent);
 }
 
-/* Card Wrapper - Matches About Page Boxes */
+/* ==================== Card Wrapper ==================== */
 .card-wrapper {
   background: rgba(20, 15, 30, 0.3);
   border-radius: 8px;
@@ -140,7 +175,7 @@
   z-index: -1;
 }
 
-/* List Items */
+/* ==================== List Items ==================== */
 .content-list {
   font-family: 'Bahnschrift Condensed', sans-serif;
   font-size: 1.1rem;
@@ -152,7 +187,7 @@
   text-align: left;
 }
 
-/* PR Section */
+/* ==================== PR Section ==================== */
 .pr-section {
   margin-left: 1.6rem;
   margin-top: 1rem;
@@ -165,7 +200,7 @@
   margin-bottom: 0.5rem;
 }
 
-/* Hobbies Text */
+/* ==================== Hobbies Text ==================== */
 .hobbies-text {
   font-family: 'Bahnschrift Condensed', sans-serif;
   font-size: 1.3rem;
@@ -174,4 +209,107 @@
   line-height: 1.7;
   text-align: left;
   margin-top: 0.05rem;
+}
+
+/* Responsive Design for Tablets and Mobile */
+@media (max-width: 768px) {
+  .extras-section {
+    padding-top: 60px;
+    padding-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* center aligns entire content */
+  }
+
+  .card-wrapper {
+    width: 90%;
+    max-width: 450px; /* prevents stretching */
+    margin: 20px auto;
+    padding: 1.5rem;
+  }
+
+  .section-heading {
+    font-size: 1.6rem; /* reduced for cleaner view */
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .subheading {
+    font-size: 1.3rem;
+    margin-top: 0.7rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .sub-subheading {
+    font-size: 0.95rem;
+    margin-top: 2rem;
+    margin-bottom: 1.3rem;
+  }
+
+  .content-list {
+    font-size: 0.95rem;
+    margin-left: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .white-bold {
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .hobbies-text {
+    font-size: 1.1rem;
+    margin-left: 1.5rem;
+    line-height: 1.5;
+    margin-top: 0.05rem;
+  }
+}
+
+/* Further adjustments for very small screens */
+@media (max-width: 480px) {
+  .extras-section {
+    padding-top: 50px;
+    padding-bottom: 60px;
+  }
+
+  .card-wrapper {
+    width: 90%;
+    max-width: 400px;
+    margin: 15px auto;
+    padding: 1.2rem;
+  }
+
+  .section-heading {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .subheading {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .sub-subheading {
+    font-size: 0.9rem;
+    margin-top: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .content-list {
+    font-size: 0.9rem;
+    margin-left: 1.2rem;
+    line-height: 1.5;
+  }
+
+  .white-bold {
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .hobbies-text {
+    font-size: 1rem;
+    margin-left: 1.2rem;
+    line-height: 1.4;
+  }
 }
