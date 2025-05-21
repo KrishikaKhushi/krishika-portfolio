@@ -45,7 +45,7 @@ function HomePage() {
       {/* Hero Text */}
       <div className="hero-text-wrapper">
         <h1 className="hero-title">
-          <Typewriter text="Krishika Khushi" speed={120} />
+          <Typewriter text="  Krishika Khushi " speed={120} />
         </h1>
         <p className="hero-subtitle">
           <Typewriter 
