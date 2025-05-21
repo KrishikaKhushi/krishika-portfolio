@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import './App.css';
 
@@ -8,16 +8,52 @@ import Projects from './pages/Projects';
 import Extracurricular from './pages/Extracurricular';
 import Blog from './pages/Blog';
 import ContactMe from './pages/ContactMe';
+import heroImage from './assets/hero-bg.png';
+
+
+// Typewriter component
+function Typewriter({ text, speed = 100, className }) {
+  const [displayedText, setDisplayedText] = useState('');
+  useEffect(() => {
+    let index = 0;
+    setDisplayedText('');
+    const interval = setInterval(() => {
+      setDisplayedText((prev) => prev + text.charAt(index));
+      index++;
+      if (index >= text.length) clearInterval(interval);
+    }, speed);
+    return () => clearInterval(interval);
+  }, [text, speed]);
+
+  return (
+    <span className={`${className} typewriter`}>
+      {displayedText}
+      <span className="cursor">|</span>
+    </span>
+  );
+}
 
 function HomePage() {
   return (
-    <div className="hero-section home-background" id="home">
-      <h1 className="hero-title">Krishika Khushi</h1>
-      <p className="hero-subtitle">
-        Final-Year B.Tech CSE Student at VIT {"\n"}  
-        Aspiring Software Engineer{"\n"}
-        Python & Java Enthusiast
-      </p>
+    <div className="hero-section" id="home">
+      {/* Background Image and Overlay */}
+      <div className="hero-bg-container">
+        <div className="hero-overlay"></div>
+        <img src={heroImage} alt="Animated Background" className="hero-bg-image" />
+      </div>
+
+      {/* Hero Text */}
+      <div className="hero-text-wrapper">
+        <h1 className="hero-title">
+          <Typewriter text="Krishika Khushi" speed={120} />
+        </h1>
+        <p className="hero-subtitle">
+          <Typewriter 
+            text={`Final-Year B.Tech CSE Student at VIT\nAspiring Software Engineer\nPython & Java Enthusiast`} 
+            speed={50} 
+          />
+        </p>
+      </div>
     </div>
   );
 }

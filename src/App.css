@@ -80,12 +80,16 @@ body::after {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100vh;
-  padding-left: 10%;
+  align-items: center; /* This centers it horizontally */
+  height: 135vh;
   background-color: transparent;
   overflow: hidden;
   position: relative;
-  z-index: 0; /* Ensure it's above background but below navbar when open */
+  z-index: 0;
+}
+
+.hero-text-wrapper {
+  text-align: center; /* This ensures the text is centered within the wrapper */
 }
 
 .hero-title, .hero-subtitle {
@@ -118,6 +122,27 @@ body::after {
 .hero-title:hover, .hero-subtitle:hover {
   background-position: right;
 }
+
+
+/* Typewriter cursor blinking */
+.typewriter .cursor {
+  display: inline-block;
+  margin-left: 2px;
+  width: 10px;
+  animation: blink 1s step-end infinite;
+  color: #AC94D6; /* Matches your gradient theme */
+  font-weight: bold;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  50.01%, 100% {
+    opacity: 0;
+  }
+}
+
 
 /* Hamburger Menu Styles - Increased z-index */
 .hamburger-menu {
@@ -236,99 +261,196 @@ a, button, .hamburger-menu {
   box-shadow: 0 0 25px rgba(172, 148, 214, 0.05);
 }
 
-/* HomePage Image Background */
-.hero-section.home-background {
-  position: relative;
-  z-index: 0;
-}
-
-/* Background image behind text */
-.hero-section.home-background::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("C:/Users/DELL-PC/Desktop/krishika-portfolio/src/assets/ChatGPT Image May 15, 2025, 11_25_51 PM.png");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
+/* HERO BACKGROUND IMAGE */
+.hero-bg-container {
+  position: fixed;           /* Changed from absolute to fixed */
+  inset: 0;
+  overflow: hidden;
   z-index: -2;
-  filter: brightness(0.6); /* Makes the image slightly darker for text readability */
-}
-
-/* Black overlay for better readability */
-.hero-section.home-background::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.3); /* 30% dark overlay */
-  z-index: -1;
 }
 
-/* Responsive Design for Mobile Devices */
+.hero-bg-container::before,
+.hero-bg-container::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  filter: blur(60px);
+  z-index: -1;
+  opacity: 1;
+  /*animation: glowPulse 5s infinite alternate;*/
+}
+
+.hero-bg-container::before {
+  top: 15px;
+  left: 15px;
+  background: radial-gradient(circle, #d6c1ff, transparent);
+}
+
+.hero-bg-container::after {
+  bottom: 15px;
+  right: 15px;
+  background: radial-gradient(circle, #b5a1d1, transparent);
+}
+
+.hero-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;              /* This crops the image */
+  opacity: 0.9;
+  animation: bgFloat 35s ease-in-out infinite, glowPulse 5s ease-in-out infinite;
+  filter: brightness(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5); /* Black overlay */
+  z-index: 1;
+}
+
+/* Subtle Floating Animation */
+@keyframes bgFloat {
+  0% {
+    transform: scale(1) translate(0px, 0px);
+  }
+  50% {
+    transform: scale(1.03) translate(-10px, 10px);
+  }
+  100% {
+    transform: scale(1) translate(0px, 0px);
+  }
+}
+
+/* Breathing Glow Animation */
+@keyframes glowPulse {
+  0%, 100% {
+    filter: brightness(0.5) drop-shadow(0 0 10px rgba(172, 148, 214, 0.2));
+  }
+  50% {
+    filter: brightness(1.15) drop-shadow(0 0 30px rgba(126, 107, 159, 0.8));
+  }
+}
+
+/* Tablets (768px and below) */
 @media (max-width: 768px) {
-  body {
-    overflow-x: hidden; /* Ensure no horizontal scrollbar */
+  .hero-bg-image {
+    transform: scale(1.1);
+  }
+
+  @keyframes bgFloat {
+    0% {
+      transform: scale(1.1) translate(0px, 0px);
+    }
+    50% {
+      transform: scale(1.15) translate(-5px, 5px);
+    }
+    100% {
+      transform: scale(1.1) translate(0px, 0px);
+    }
+  }
+}
+
+/* Smartphones (480px and below) */
+@media (max-width: 480px) {
+  .hero-bg-image {
+    transform: scale(1.0);
+  }
+
+  @keyframes bgFloat {
+    0% {
+      transform: scale(1.0) translate(0px, 0px);
+    }
+    50% {
+      transform: scale(1.05) translate(-3px, 3px);
+    }
+    100% {
+      transform: scale(1.0) translate(0px, 0px);
+    }
+  }
+}
+
+/* Responsive Design for Tablets and Mobile Devices */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.4rem;
+  }
+
+  .hamburger-menu {
+    top: 20px;
+    left: 15px;
+  }
+
+  .section-name {
+    top: 22px;
+    left: 60px;
+    font-size: 16px;
+  }
+
+  .navbar {
+    width: 85%;
+    height: 50vh;
+    top: 50px;
+  }
+
+  .nav-links li a {
+    font-size: 13px;
+    margin-left: 15px;
   }
 
   .hero-section {
-    padding-left: 5%;
-    padding-top: 60px;
-    padding-bottom: 80px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     height: auto;
-    max-width: 100vw; /* Prevents width overflow */
-    overflow-x: hidden; /* Ensures no horizontal scroll */
+    padding: 100px 20px;
   }
 
-  .hero-content-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-top: 40px;
-    width: 100%;
-    align-items: center;
-  }
-
-  .hero-title, 
-  .hero-subtitle {
-    font-size: 2.5rem;
-    text-align: center;
-  }
-
-  .hero-subtitle {
-    font-size: 1.5rem;
+  .hero-bg-image {
+    object-position: center;
+    width: 120%;
+    object-fit: cover;
   }
 }
 
 /* Further adjustments for very small screens */
 @media (max-width: 480px) {
-  body {
-    overflow-x: hidden; /* Ensure no horizontal scrollbar */
-  }
-  
   .hero-title {
     font-size: 2rem;
   }
 
   .hero-subtitle {
-    font-size: 1.25rem;
-    line-height: 1.4;
+    font-size: 1.1rem;
+  }
+
+  .hamburger-menu .bar {
+    width: 20px;
+    height: 2px;
+  }
+
+  .section-name {
+    top: 20px;
+    left: 55px;
+    font-size: 13px;
+  }
+
+  .navbar {
+    width: 90%;
+    height: 45vh;
+    top: 48px;
+  }
+
+  .nav-links li a {
+    font-size: 12px;
+    margin-left: 12px;
   }
 
   .hero-section {
-    padding-left: 3%;
-    padding-top: 210px;
-    padding-bottom: 250px;
-    max-width: 100vw; /* Prevents width overflow */
-    overflow-x: hidden; /* Ensures no horizontal scroll */
+    padding: 250px 20px;
+    align-items: center;
   }
 }
-
