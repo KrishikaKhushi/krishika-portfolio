@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/krishika-portfolio/static/css/main.e02113b7.css",
-    "main.js": "/krishika-portfolio/static/js/main.fcd82a40.js",
+    "main.css": "/krishika-portfolio/static/css/main.95156a6a.css",
+    "main.js": "/krishika-portfolio/static/js/main.96711e88.js",
     "static/js/453.d124ee96.chunk.js": "/krishika-portfolio/static/js/453.d124ee96.chunk.js",
     "static/media/hero-bg.png": "/krishika-portfolio/static/media/hero-bg.d1d0a01b5ab0faa463a2.png",
     "static/media/Berger_Paints_logo-removebg-preview.png": "/krishika-portfolio/static/media/Berger_Paints_logo-removebg-preview.d84cdc9629b2e70c1a54.png",
     "index.html": "/krishika-portfolio/index.html",
-    "main.e02113b7.css.map": "/krishika-portfolio/static/css/main.e02113b7.css.map",
-    "main.fcd82a40.js.map": "/krishika-portfolio/static/js/main.fcd82a40.js.map",
+    "main.95156a6a.css.map": "/krishika-portfolio/static/css/main.95156a6a.css.map",
+    "main.96711e88.js.map": "/krishika-portfolio/static/js/main.96711e88.js.map",
     "453.d124ee96.chunk.js.map": "/krishika-portfolio/static/js/453.d124ee96.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e02113b7.css",
-    "static/js/main.fcd82a40.js"
+    "static/css/main.95156a6a.css",
+    "static/js/main.96711e88.js"
   ]
 }
