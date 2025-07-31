@@ -9,12 +9,15 @@ function Projects() {
       {/* First Project */}
       <div className="project-card">
         <h3 className="project-title">
-          <button
-            className="gradient-text project-button"
-            disabled
+          <a
+            href="https://github.com/KrishikaKhushi/Clinic-Database-Web-Application"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="gradient-text"
           >
-            Clinic Database Web Application (MERN Stack, MongoDB, Node.js, Express.js)
-          </button>
+            Clinic Database Web Application<br />
+            <span className="tech-stack">(MERN Stack, MongoDB, Node.js, Express.js)</span>
+          </a>
         </h3>
         <ul className="project-description">
           <li>Designed a CRUD-based clinic management system using MongoDB, Express.js, and Node.js, enabling efficient and scalable data storage and retrieval.</li>
@@ -32,7 +35,8 @@ function Projects() {
             rel="noopener noreferrer"
             className="gradient-text"
           >
-            AI-Driven Enhancements in Remote Doctor Consultation (AI, Python, OpenCV, TensorFlow)
+            AI-Driven Enhancements in Remote Doctor Consultation<br />
+            <span className="tech-stack">(AI, Python, OpenCV, TensorFlow)</span>
           </a>
         </h3>
         <ul className="project-description">
@@ -45,12 +49,15 @@ function Projects() {
       {/* Third Project */}
       <div className="project-card">
         <h3 className="project-title">
-          <button
-            className="gradient-text project-button"
-            disabled
+          <a
+            href="https://github.com/KrishikaKhushi/smart-home-automation"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="gradient-text"
           >
-            AI-Powered Smart Home Automation System (Python, Flask, REST APIs, MySQL, Docker, AWS/GCP, Git/GitHub)
-          </button>
+            AI-Powered Smart Home Automation System<br />
+            <span className="tech-stack">(Python, Flask, REST APIs, MySQL, Docker, AWS/GCP, Git/GitHub)</span>
+          </a>
         </h3>
         <ul className="project-description">
           <li>Developed a smart home solution using AI and ML technologies.</li>
@@ -60,7 +67,28 @@ function Projects() {
         </ul>
       </div>
 
-      {/* Fourth Project */}
+      {/* Fourth Project - NEW WanderLog Project */}
+      <div className="project-card">
+        <h3 className="project-title">
+          <a
+            href="https://github.com/KrishikaKhushi/wanderlog"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="gradient-text"
+          >
+            WanderLog – Dream Destination Explorer [IN PROGRESS]<br />
+            <span className="tech-stack">(React.js, TailwindCSS, Leaflet.js/Mapbox)</span>
+          </a>
+        </h3>
+        <ul className="project-description">
+          <li>A globe-based travel journal app to pin dream destinations and visited places.</li>
+          <li>Adding features for photo uploads, journal entries, and smooth navigation transitions.</li>
+          <li>Implementing a social media layout with responsive design for users to connect and explore.</li>
+          <li>Focused on creating an immersive, visually engaging frontend experience.</li>
+        </ul>
+      </div>
+
+      {/* Fifth Project */}
       <div className="project-card">
         <h3 className="project-title">
           <a
@@ -69,7 +97,8 @@ function Projects() {
             rel="noopener noreferrer"
             className="gradient-text"
           >
-            Hyperparameter Visualization in Generative ML Models (Ongoing)
+            Hyperparameter Visualization in Generative ML Models <br />
+            <span className="tech-stack">(Python, Machine Learning)</span>
           </a>
         </h3>
         <ul className="project-description">
@@ -79,7 +108,7 @@ function Projects() {
         </ul>
       </div>
 
-      {/* Fifth Project */}
+      {/* Sixth Project */}
       <div className="project-card">
         <h3 className="project-title">
           <a
@@ -88,7 +117,8 @@ function Projects() {
             rel="noopener noreferrer"
             className="gradient-text"
           >
-            Krishika's Dev Portfolio (React, JavaScript, HTML, CSS, Git, GitHub, Node.js, Express.js, SQL)
+            Krishika's Dev Portfolio<br />
+            <span className="tech-stack">(React, JavaScript, HTML, CSS, Git, GitHub, Node.js, Express.js, SQL)</span>
           </a>
         </h3>
         <ul className="project-description">
@@ -98,21 +128,36 @@ function Projects() {
         </ul>
       </div>
 
-      {/* Sixth Project */}
+      {/* Seventh Project */}
       <div className="project-card">
         <h3 className="project-title">
-          <button
-            className="gradient-text project-button"
-            disabled
+          <a
+            href="https://github.com/KrishikaKhushi/smart-resume-screening-system"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="gradient-text"
           >
-            Smart Resume Screening & Feedback System (Python, FastAPI, Java with Spring Boot, Docker, GitHub, AWS/GCP, SQL)
-          </button>
+            Smart Resume Screening & Feedback System<br />
+            <span className="tech-stack">(Python, FastAPI, Java with Spring Boot, Docker, GitHub, AWS/GCP, SQL)</span>
+          </a>
         </h3>
         <ul className="project-description">
           <li>Developed a resume parser to extract key information such as skills and experience from uploaded resumes.</li>
           <li>Built a web-based backend that interacts with the Python API to process resumes and provide feedback.</li>
           <li>Designed and deployed the entire system ensuring scalability and efficient management.</li>
         </ul>
+      </div>
+
+      {/* GitHub Button */}
+      <div className="github-button-container">
+        <a 
+          href="https://github.com/KrishikaKhushi" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="github-button"
+        >
+          Visit my Github
+        </a>
       </div>
     </div>
   );

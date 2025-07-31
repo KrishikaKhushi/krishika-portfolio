@@ -1,6 +1,6 @@
 /* Enhanced Background and Base Styles */
 .about-section {
-    padding-top: 75px;
+    padding-top: 30px;
     text-align: center;
     background-color: transparent; /* Changed from solid color to transparent */
     display: flex;
@@ -100,7 +100,7 @@
     color: #ffffff;
     font-family: 'Bahnschrift Condensed', sans-serif;
     line-height: 1.8;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
     text-align: center;
@@ -129,7 +129,7 @@
     flex: 1;
     padding: 20px;
     text-align: left;
-    margin-top: 250px;
+    margin-top: 60px;
     margin-left: -10px;
     background: rgba(20, 15, 30, 0.3);
     border-radius: 8px;
@@ -269,88 +269,1002 @@ main {
     animation: glowPulse 5s infinite alternate;
 }
 
-/* Responsive Design for Mobile Devices */
+/* Origin Story Section */
+.origin-story-section {
+    max-width: 900px;
+    margin: 80px auto 0;
+    padding: 40px 30px;
+    text-align: left;
+    background: rgba(20, 15, 30, 0.3);
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    border-left: 1px solid rgba(172, 148, 214, 0.1);
+    border-top: 1px solid rgba(172, 148, 214, 0.1);
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.origin-story-section:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.origin-story-title {
+    font-size: 2.2rem;
+    font-family: 'Arial Black', Gadget, sans-serif;
+    background: linear-gradient(135deg, #d6c1ff, #AC94D6, #7c5da6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+    text-shadow: 0 0 30px rgba(172, 148, 214, 0.15);
+}
+
+.origin-story-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, #d6c1ff, #AC94D6, transparent);
+}
+
+.origin-story-content {
+    font-size: 1.1rem;
+    color: #ffffff;
+    font-family: 'Bahnschrift Condensed', sans-serif;
+    line-height: 1.8;
+}
+
+.origin-story-content p {
+    margin-bottom: 20px;
+    opacity: 0.95;
+    transition: opacity 0.3s ease;
+}
+
+.origin-story-content p:hover {
+    opacity: 1;
+}
+
+/* Add glossy highlight to origin story card */
+.origin-story-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.05), transparent);
+    border-radius: 12px 12px 0 0;
+    z-index: -1;
+}
+
+/* Floating Bubble - Cloud Dialog Style (Mobile Optimized) */
+.floating-bubble {
+    position: fixed;
+    top: -10px;
+    right: -450px;
+    background: linear-gradient(135deg, rgba(172, 148, 214, 0.3), rgba(124, 93, 166, 0.3));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(172, 148, 214, 0.2);
+    border-radius: 25px;
+    padding: 15px 20px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(172, 148, 214, 0.1);
+    animation: floatBubble 3s ease-in-out infinite;
+    position: relative;
+}
+
+/* Cloud-like bumps around the bubble */
+.floating-bubble::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 15px;
+    width: 15px;
+    height: 15px;
+    background: linear-gradient(135deg, rgba(172, 148, 214, 0.3), rgba(124, 93, 166, 0.3));
+    border: 1px solid rgba(172, 148, 214, 0.2);
+    border-radius: 50%;
+    backdrop-filter: blur(10px);
+}
+
+.floating-bubble::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    right: 20px;
+    width: 12px;
+    height: 12px;
+    background: linear-gradient(135deg, rgba(172, 148, 214, 0.3), rgba(124, 93, 166, 0.3));
+    border: 1px solid rgba(172, 148, 214, 0.2);
+    border-radius: 50%;
+    backdrop-filter: blur(10px);
+}
+
+/* Additional cloud bumps using box-shadow for more cloud-like appearance */
+.floating-bubble {
+    box-shadow: 
+        0 4px 15px rgba(172, 148, 214, 0.1),
+        -8px -8px 0 -5px rgba(172, 148, 214, 0.25),
+        8px -6px 0 -7px rgba(172, 148, 214, 0.2),
+        -12px 8px 0 -8px rgba(172, 148, 214, 0.15),
+        12px 6px 0 -6px rgba(172, 148, 214, 0.2);
+}
+
+.floating-bubble:hover {
+    transform: translateY(-5px) scale(1.05);
+    background: linear-gradient(135deg, rgba(214, 193, 255, 0.4), rgba(172, 148, 214, 0.4));
+}
+
+.floating-bubble:hover::before {
+    background: linear-gradient(135deg, rgba(214, 193, 255, 0.4), rgba(172, 148, 214, 0.4));
+}
+
+.floating-bubble:hover::after {
+    background: linear-gradient(135deg, rgba(214, 193, 255, 0.4), rgba(172, 148, 214, 0.4));
+}
+
+.bubble-text {
+    color: #ffffff;
+    font-family: 'Arial Black', Gadget, sans-serif;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    white-space: nowrap;
+}
+
+@keyframes floatBubble {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* Responsive Design for Tablets (768px and below) */
 @media (max-width: 768px) {
     .about-section {
-      padding-top: 60px;
-      padding-bottom: 80px;
+      padding-top: 45px; /* Reduced from 60px */
+      padding-bottom: 50px; /* Reduced from 80px */
+      padding-left: 1rem;
+      padding-right: 1rem;
       display: flex;
       flex-direction: column;
-      align-items: center; /* Center aligns the entire content */
+      align-items: center;
     }
   
     .content-container {
       flex-direction: column;
-      gap: 20px;
-      margin-top: 40px;
+      gap: 15px; /* Reduced from 20px */
+      margin-top: 30px; /* Reduced from 40px */
       width: 100%;
       display: flex;
-      align-items: center; /* Centers the columns in mobile view */
+      align-items: center;
     }
   
     .skills-section,
     .education-section {
       margin-top: 0px;
       margin-left: 0;
-      width: 90%;
-      max-width: 450px; /* Prevents it from stretching too wide */
+      width: 95%; /* Use more screen space */
+      max-width: 500px; /* Increased max-width */
+      padding: 1.2rem; /* Reduced from 20px */
+      border-radius: 10px; /* Larger for better touch targets */
+    }
+
+    .skills-section::before,
+    .education-section::before,
+    .about-content::before {
+      height: 20px; /* Reduced from 30px */
     }
   
     .about-content {
-      max-width: 90%;
-      font-size: 1rem; /* Reduced for a cleaner look */
+      max-width: 95%; /* Use more screen space */
+      font-size: 0.95rem; /* Reduced from 1rem */
       margin: 0 auto;
-      line-height: 1.6; /* Better readability */
+      line-height: 1.5; /* Tighter from 1.6 */
+      padding: 1.2rem; /* Reduced from 20px */
+      border-radius: 10px;
     }
   
     .skills-list li,
     .education-list li {
-      font-size: 0.9rem; /* Slightly smaller for mobile */
+      font-size: 0.85rem; /* Reduced from 0.9rem */
+      margin-bottom: 10px; /* Reduced from 12px */
+      line-height: 1.6; /* Tighter line height */
     }
   
     .section-title {
-      font-size: 1.6rem; /* Reduced for cleaner view */
+      font-size: 1.4rem; /* Reduced from 1.6rem */
       margin-left: 0;
       text-align: center;
+      margin-bottom: 1.5rem; /* Reduced margin */
+    }
+
+    .section-title::after {
+      width: 45px; /* Reduced from 60px */
     }
   
     .skills-title,
     .education-title {
-      font-size: 1.4rem;
+      font-size: 1.2rem; /* Reduced from 1.4rem */
       text-align: center;
+      margin-bottom: 1.2rem; /* Reduced margin */
+    }
+
+    .skills-title::after,
+    .education-title::after {
+      width: 30px; /* Reduced from 40px */
     }
   
     .skills-list,
     .education-list {
-      padding-left: 10px;
+      padding-left: 8px; /* Reduced from 10px */
+    }
+
+    /* MUCH SMALLER floating bubble positioned at top right corner */
+    .floating-bubble {
+      position: fixed; /* Changed to fixed for absolute top right positioning */
+      top: 15px; /* MOVED LOWER from 5px to 15px */
+      right: 5px; /* Close to very right edge of screen */
+      padding: 4px 8px; /* SIGNIFICANTLY REDUCED padding */
+      border-radius: 10px; /* Smaller radius */
+      transform: scale(0.5); /* MUCH SMALLER - half the size */
+      z-index: 1000; /* Ensure it stays on top */
+    }
+
+    .floating-bubble::before {
+      width: 6px; /* Much smaller cloud bumps */
+      height: 6px;
+      top: -3px;
+      left: 6px;
+    }
+
+    .floating-bubble::after {
+      width: 4px; /* Much smaller cloud bumps */
+      height: 4px;
+      top: -2px;
+      right: 8px;
+    }
+
+    .bubble-text {
+      font-size: 0.6rem; /* MUCH smaller text */
+      font-weight: normal; /* REMOVED bold styling for normal text weight */
+      white-space: nowrap; /* Prevent wrapping to keep it compact */
+      max-width: 60px; /* Much smaller width limit */
+      line-height: 1;
+    }
+
+    /* Reduce background particle sizes on tablet */
+    .about-section::before,
+    .about-section::after {
+      width: 120px; /* Reduced from 180px/150px */
+      height: 120px;
+    }
+
+    .about-section::before {
+      top: 10%;
+      right: 10%;
+      width: 100px;
+      height: 100px;
+    }
+
+    .about-section::after {
+      bottom: 15%;
+      left: 5%;
+      width: 80px;
+      height: 80px;
+    }
+
+    /* Origin Story optimizations for tablet */
+    .origin-story-section {
+        max-width: 95%;
+        margin: 40px auto 0; /* Reduced from 50px */
+        padding: 1.5rem; /* Reduced from 30px 20px */
+        border-radius: 10px;
+    }
+    
+    .origin-story-title {
+        font-size: 1.5rem; /* Reduced from 1.8rem */
+        margin-bottom: 1.5rem; /* Reduced from 30px */
+    }
+
+    .origin-story-title::after {
+      width: 60px; /* Reduced from 80px */
+    }
+    
+    .origin-story-content {
+        font-size: 0.95rem; /* Reduced from 1rem */
+        line-height: 1.5; /* Tighter from 1.6 */
+    }
+
+    .origin-story-content p {
+      margin-bottom: 15px; /* Reduced from 20px */
+    }
+
+    .origin-story-section::before {
+      height: 20px; /* Reduced highlight */
     }
   }
   
-  /* Further adjustments for very small screens */
+  /* Further optimizations for mobile screens (480px and below) */
   @media (max-width: 480px) {
-    .about-content {
-      font-size: 0.95rem;
-      line-height: 1.5;
+    .about-section {
+      padding-top: 35px; /* Reduced from 50px */
+      padding-bottom: 35px; /* Reduced from 60px */
+      padding-left: 0.8rem;
+      padding-right: 0.8rem;
     }
-  
-    .skills-list li,
-    .education-list li {
-      font-size: 0.85rem;
-    }
-  
+
     .section-title {
-      font-size: 1.4rem;
+      font-size: 1.2rem; /* Much smaller from 1.4rem */
+      margin-bottom: 1.2rem;
     }
-  
+
+    .section-title::after {
+      width: 35px; /* Much smaller underline */
+      height: 1.5px;
+    }
+
     .skills-title,
     .education-title {
-      font-size: 1.3rem;
+      font-size: 1rem; /* Much smaller from 1.3rem */
+      margin-bottom: 1rem;
     }
-  
+
+    .skills-title::after,
+    .education-title::after {
+      width: 20px; /* Much smaller underline */
+      height: 1px;
+    }
+
     .skills-section,
     .education-section {
-      max-width: 95%;
+      width: 98%; /* Use almost full width */
+      max-width: none; /* Remove max-width constraint */
+      padding: 1rem; /* Compact padding */
+      margin-top: 0;
+    }
+
+    .skills-section::before,
+    .education-section::before,
+    .about-content::before {
+      height: 15px; /* Much smaller highlight */
+    }
+
+    .about-content {
+      font-size: 0.85rem; /* Much smaller from 0.95rem */
+      line-height: 1.4; /* Tight from 1.5 */
+      padding: 1rem;
+      border-radius: 8px;
+    }
+
+    .content-container {
+      gap: 10px; /* Much smaller gap */
+      margin-top: 20px; /* Reduced margin */
+    }
+
+    .skills-list li,
+    .education-list li {
+      font-size: 0.8rem; /* Much smaller from 0.85rem */
+      margin-bottom: 8px; /* Reduced spacing */
+      line-height: 1.4; /* Tight line height */
+    }
+
+    .education-list li span {
+      font-size: 0.9rem; /* Smaller than before */
+    }
+  
+    .skills-list,
+    .education-list {
+      padding-left: 5px; /* Minimal padding */
+    }
+
+    /* ULTRA COMPACT floating bubble for mobile at top right corner */
+    .floating-bubble {
+      position: fixed; /* Fixed positioning for absolute top right */
+      top: 12px; /* MOVED LOWER from 3px to 12px */
+      right: 3px; /* Very close to right edge */
+      padding: 2px 4px; /* EXTREMELY compact padding */
+      border-radius: 6px; /* Much smaller radius */
+      transform: scale(0.35); /* EXTREMELY small - about 1/3 size */
+      z-index: 1000; /* Ensure it stays on top */
+      box-shadow: 
+        0 1px 4px rgba(172, 148, 214, 0.1),
+        -2px -2px 0 -1px rgba(172, 148, 214, 0.1),
+        2px -2px 0 -1px rgba(172, 148, 214, 0.08),
+        -3px 2px 0 -2px rgba(172, 148, 214, 0.05),
+        3px 2px 0 -1px rgba(172, 148, 214, 0.08);
+    }
+
+    .floating-bubble::before {
+      width: 4px; /* Tiny cloud bumps */
+      height: 4px;
+      top: -2px;
+      left: 4px;
+    }
+
+    .floating-bubble::after {
+      width: 3px; /* Tiny cloud bumps */
+      height: 3px;
+      top: -1px;
+      right: 5px;
+    }
+
+    .bubble-text {
+      font-size: 0.5rem; /* EXTREMELY small text */
+      font-weight: normal; /* REMOVED bold styling for normal text weight */
+      max-width: 40px; /* Very compact width */
+      line-height: 0.9;
+      white-space: nowrap;
+    }
+
+    /* Hide background particles on very small screens to reduce clutter */
+    .about-section::before,
+    .about-section::after {
+      display: none;
+    }
+
+    /* Origin Story optimizations for mobile */
+    .origin-story-section {
+        max-width: 98%;
+        margin: 30px auto 0; /* Much reduced */
+        padding: 1rem; /* Compact padding */
+        border-radius: 8px;
+    }
+    
+    .origin-story-title {
+        font-size: 1.2rem; /* Much smaller */
+        margin-bottom: 1rem;
+    }
+
+    .origin-story-title::after {
+      width: 40px; /* Smaller underline */
+      height: 1.5px;
+    }
+    
+    .origin-story-content {
+        font-size: 0.85rem; /* Much smaller */
+        line-height: 1.4; /* Tight line height */
+    }
+
+    .origin-story-content p {
+      margin-bottom: 12px; /* Reduced spacing */
+    }
+
+    .origin-story-section::before {
+      height: 15px;
     }
   }
+
+/* Extra small screens (360px and below) */
+@media (max-width: 360px) {
+  .about-section {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .section-title {
+    font-size: 1.1rem; /* Very compact */
+    margin-bottom: 1rem;
+  }
+
+  .section-title::after {
+    width: 25px;
+    height: 1px;
+  }
+
+  .skills-title,
+  .education-title {
+    font-size: 0.9rem; /* Very small */
+    margin-bottom: 0.8rem;
+  }
+
+  .skills-title::after,
+  .education-title::after {
+    width: 15px;
+  }
+
+  .skills-section,
+  .education-section {
+    padding: 0.8rem;
+    border-radius: 6px;
+  }
+
+  .about-content {
+    font-size: 0.8rem;
+    line-height: 1.3;
+    padding: 0.8rem;
+  }
+
+  .content-container {
+    gap: 8px;
+    margin-top: 15px;
+  }
+
+  .skills-list li,
+  .education-list li {
+    font-size: 0.75rem;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .education-list li span {
+    font-size: 0.8rem;
+  }
+
+  .skills-list,
+  .education-list {
+    padding-left: 3px;
+  }
+
+  /* MINIMAL floating bubble for extra small screens */
+  .floating-bubble {
+    position: fixed; /* Fixed positioning for absolute top right */
+    top: 2px; /* Extremely close to top */
+    right: 2px; /* Extremely close to right edge */
+    padding: 1px 3px; /* MINIMAL padding */
+    border-radius: 4px; /* Very small radius */
+    transform: scale(0.25); /* EXTREMELY tiny - quarter size */
+    z-index: 1000;
+  }
+
+  .floating-bubble::before {
+    width: 3px; /* Tiny cloud bumps */
+    height: 3px;
+    top: -1.5px;
+    left: 3px;
+  }
+
+  .floating-bubble::after {
+    width: 2px; /* Tiny cloud bumps */
+    height: 2px;
+    top: -1px;
+    right: 4px;
+  }
+
+  .bubble-text {
+    font-size: 0.4rem; /* EXTREMELY tiny text */
+    max-width: 30px;
+    white-space: nowrap;
+    line-height: 0.8;
+  }
+
+  /* Origin Story for extra small screens */
+  .origin-story-section {
+      max-width: 98%;
+      margin: 25px auto 0;
+      padding: 0.8rem;
+      border-radius: 6px;
+  }
   
+  .origin-story-title {
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+  }
+
+  .origin-story-title::after {
+    width: 30px;
+    height: 1px;
+  }
   
+  .origin-story-content {
+      font-size: 0.8rem;
+      line-height: 1.3;
+  }
+
+  .origin-story-content p {
+    margin-bottom: 10px;
+  }
+
+  .origin-story-section::before {
+    height: 12px;
+  }
+}
+
+/* Landscape orientation optimizations for mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .about-section {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .content-container {
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .skills-section,
+  .education-section {
+    padding: 1rem;
+    width: 96%;
+  }
+
+  .about-content {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    padding: 1rem;
+  }
+
+  .skills-title,
+  .education-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .skills-list li,
+  .education-list li {
+    font-size: 0.8rem;
+    margin-bottom: 6px;
+  }
+
+  /* COMPACT landscape floating bubble at top right corner */
+  .floating-bubble {
+    position: fixed; /* Fixed positioning for absolute top right */
+    top: 2px; /* Very close to top */
+    right: 2px; /* Very close to right edge */
+    padding: 2px 4px; /* Compact padding */
+    border-radius: 5px; /* Small radius */
+    transform: scale(0.4); /* Small scale */
+    z-index: 1000;
+  }
+
+  .bubble-text {
+    font-size: 0.45rem; /* Tiny text */
+    max-width: 35px;
+    white-space: nowrap;
+    line-height: 0.9;
+  }
+
+  /* Origin Story landscape optimization */
+  .origin-story-section {
+      margin: 20px auto 0;
+      padding: 1rem;
+  }
+  
+  .origin-story-title {
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+  }
+  
+  .origin-story-content {
+      font-size: 0.85rem;
+      line-height: 1.3;
+  }
+}
+
+/* Ultra-compact mode for very small screens */
+@media (max-width: 320px) {
+  .about-section {
+    padding: 25px 0.3rem;
+  }
+
+  .section-title {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .section-title::after {
+    width: 20px;
+  }
+
+  .skills-title,
+  .education-title {
+    font-size: 0.85rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .skills-title::after,
+  .education-title::after {
+    width: 12px;
+  }
+
+  .skills-section,
+  .education-section {
+    padding: 0.6rem;
+    border-radius: 4px;
+  }
+
+  .about-content {
+    font-size: 0.75rem;
+    line-height: 1.25;
+    padding: 0.6rem;
+  }
+
+  .content-container {
+    gap: 6px;
+    margin-top: 12px;
+  }
+
+  .skills-list li,
+  .education-list li {
+    font-size: 0.7rem;
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+
+  .education-list li span {
+    font-size: 0.75rem;
+  }
+
+  /* SUPER MINIMAL floating bubble for ultra small screens */
+  .floating-bubble {
+    position: fixed; /* Fixed positioning for absolute top right */
+    top: 1px; /* Extremely close to top */
+    right: 1px; /* Extremely close to right edge */
+    padding: 1px 2px; /* MINIMAL padding */
+    border-radius: 3px; /* Tiny radius */
+    transform: scale(0.2); /* EXTREMELY tiny - 1/5 size */
+    z-index: 1000;
+    box-shadow: 
+      0 1px 2px rgba(172, 148, 214, 0.1),
+      -1px -1px 0 -0.5px rgba(172, 148, 214, 0.1),
+      1px -1px 0 -0.5px rgba(172, 148, 214, 0.05);
+  }
+
+  .floating-bubble::before {
+    width: 2px; /* Microscopic cloud bumps */
+    height: 2px;
+    top: -1px;
+    left: 2px;
+  }
+
+  .floating-bubble::after {
+    width: 1.5px; /* Microscopic cloud bumps */
+    height: 1.5px;
+    top: -0.5px;
+    right: 3px;
+  }
+
+  .bubble-text {
+    font-size: 0.35rem; /* MICROSCOPIC text */
+    max-width: 25px;
+    line-height: 0.7;
+    white-space: nowrap;
+  }
+
+  /* Origin Story for ultra small screens */
+  .origin-story-section {
+      margin: 20px auto 0;
+      padding: 0.6rem;
+      border-radius: 4px;
+  }
+  
+  .origin-story-title {
+      font-size: 1rem;
+      margin-bottom: 0.6rem;
+  }
+
+  .origin-story-title::after {
+    width: 20px;
+  }
+  
+  .origin-story-content {
+      font-size: 0.75rem;
+      line-height: 1.2;
+  }
+
+  .origin-story-content p {
+    margin-bottom: 8px;
+  }
+
+  .origin-story-section::before {
+    height: 10px;
+  }
+}
+
+/* High density screen optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .section-title,
+  .skills-title,
+  .education-title,
+  .origin-story-title {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .about-section::before,
+  .about-section::after,
+  .skills-section,
+  .education-section,
+  .origin-story-section,
+  .floating-bubble,
+  .skills-list li,
+  .education-list li {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* High contrast mode adjustments */
+@media (prefers-contrast: high) {
+  .about-content,
+  .skills-section,
+  .education-section,
+  .origin-story-section {
+    border: 2px solid rgba(172, 148, 214, 0.6);
+    background: rgba(20, 15, 30, 0.8);
+  }
+
+  .floating-bubble {
+    border: 2px solid rgba(172, 148, 214, 0.6);
+    background: rgba(172, 148, 214, 0.5);
+  }
+
+  .section-title::after,
+  .skills-title::after,
+  .education-title::after,
+  .origin-story-title::after {
+    background: #d6c1ff; /* Solid color for better contrast */
+  }
+}
+
+/* Touch-friendly adjustments for mobile */
+@media (max-width: 768px) {
+  .skills-section,
+  .education-section,
+  .about-content,
+  .origin-story-section {
+    /* Ensure content areas are touch-friendly */
+    min-height: 120px;
+  }
+
+  .floating-bubble {
+    /* Ensure bubble is still touch-friendly despite small size */
+    min-width: 20px; /* Minimum touch target when scaled */
+    min-height: 15px;
+    touch-action: manipulation; /* Optimize for touch */
+  }
+
+  /* Better hover states for touch devices */
+  .skills-list li,
+  .education-list li {
+    padding: 4px 2px; /* Add padding for easier tapping */
+    border-radius: 3px;
+    transition: background-color 0.2s ease;
+  }
+
+  .skills-list li:hover,
+  .education-list li:hover {
+    background-color: rgba(172, 148, 214, 0.05);
+    transform: none; /* Remove transform on mobile */
+  }
+}
+
+/* Dark mode optimizations for mobile */
+@media (prefers-color-scheme: dark) and (max-width: 768px) {
+  .about-content,
+  .skills-section,
+  .education-section,
+  .origin-story-section {
+    background: rgba(15, 10, 25, 0.9);
+    border-color: rgba(172, 148, 214, 0.3);
+    color: #e8e8e8;
+  }
+
+  .floating-bubble {
+    background: linear-gradient(135deg, rgba(150, 130, 190, 0.4), rgba(110, 85, 150, 0.4));
+  }
+
+  .bubble-text {
+    color: #f0f0f0;
+  }
+}
+
+/* Performance optimization for mobile */
+@media (max-width: 480px) {
+  /* Simplify effects for better performance */
+  .about-content,
+  .skills-section,
+  .education-section,
+  .origin-story-section {
+    backdrop-filter: blur(3px); /* Reduced blur */
+    transition: box-shadow 0.2s ease; /* Simpler transitions */
+  }
+
+  .skills-section:hover,
+  .education-section:hover,
+  .origin-story-section:hover {
+    transform: none; /* Remove transforms on mobile */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .floating-bubble {
+    backdrop-filter: blur(2px); /* Much reduced blur for tiny bubble */
+  }
+}
+
+/* Accessibility improvements for mobile */
+@media (max-width: 768px) {
+  /* Improve focus states for mobile users */
+  .floating-bubble:focus {
+    outline: 1px solid #d6c1ff; /* Thinner outline for small bubble */
+    outline-offset: 1px;
+  }
+
+  /* Better text spacing for mobile reading */
+  .about-content,
+  .origin-story-content {
+    letter-spacing: 0.01em;
+    word-spacing: 0.05em;
+  }
+
+  .skills-list,
+  .education-list {
+    /* Better spacing for mobile lists */
+    line-height: 1.4;
+  }
+}
+
+/* Special floating bubble positioning for different orientations */
+@media (max-width: 480px) and (orientation: portrait) {
+  .floating-bubble {
+    /* Optimize for portrait mode - keep at absolute top right */
+    top: 2px;
+    right: 2px;
+  }
+}
+
+@media (max-width: 768px) and (orientation: landscape) and (max-height: 500px) {
+  .floating-bubble {
+    /* Optimize for landscape mode with limited height - keep at absolute top right */
+    top: 1px;
+    right: 1px;
+    transform: scale(0.3); /* Slightly larger than ultra small but still tiny */
+  }
+
+  .bubble-text {
+    font-size: 0.4rem;
+    max-width: 30px;
+  }
+}
+
+/* Optimize content layout for different aspect ratios */
+@media (max-width: 480px) and (orientation: portrait) {
+  .content-container {
+    /* Stack more efficiently in portrait */
+    gap: 8px;
+  }
+
+  .skills-section,
+  .education-section {
+    /* Ensure content doesn't get too cramped */
+    min-height: 100px;
+  }
+}
+
+/* Special optimization for foldable phones and very wide screens */
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+  .content-container {
+    gap: 150px; /* Reduce gap for medium screens */
+  }
+
+  .about-content {
+    max-width: 800px;
+  }
+
+  .floating-bubble {
+    position: fixed; /* Fixed positioning for absolute top right */
+    right: 8px; /* Close to right edge */
+    top: 8px; /* Close to top */
+    transform: scale(0.7); /* Smaller than default but readable */
+  }
+}
