@@ -704,7 +704,7 @@ a, button, .hamburger-menu {
   }
 
   .navbar {
-    width: 75%; /* Reduced from 85% */
+    width: 50%; /* Reduced from 85% */
   }
 
   .nav-links {
@@ -844,11 +844,11 @@ a, button, .hamburger-menu {
   }
 
   .navbar {
-    width: 85%; /* Slightly larger for touch targets */
+    width: 50%; /* Slightly larger for touch targets */
   }
 
   .nav-links {
-    gap: 12px; /* Very compact */
+    gap: 18px; /* Very compact */
     padding-top: 50px;
   }
 
@@ -1063,5 +1063,57 @@ a, button, .hamburger-menu {
 
   .tile p {
     color: #d0d0d0; /* Lighter text for better readability */
+  }
+}
+
+/* Remove blue highlight on tap/click for all elements */
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  outline: none;
+}
+
+/* Remove focus outline for interactive elements */
+button,
+a,
+input,
+textarea,
+select,
+.tile,
+.nav-links li a,
+.hamburger-menu {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  border: none;
+}
+
+/* Remove blue selection highlight */
+::selection {
+  background: transparent;
+}
+
+::-moz-selection {
+  background: transparent;
+}
+
+/* Specifically target common clickable elements */
+.personality-tiles .tile,
+.cta-section,
+.navbar a,
+.hamburger-menu {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-focus-ring-color: rgba(0, 0, 0, 0);
+  outline: none;
+}
+
+/* For iOS Safari specifically */
+@supports (-webkit-touch-callout: none) {
+  * {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 }
