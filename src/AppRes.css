@@ -1,0 +1,648 @@
+/* Mobile & Responsive Main App & Hero Styles - For screens 768px and below */
+
+/* CRITICAL: Prevent zoom-out requirement on mobile */
+html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+/* Ensure all elements fit within viewport */
+* {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Accessibility and Preference Styles (All Devices) */
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg-image,
+  .hero-section::before,
+  .hero-section::after,
+  .tile-icon {
+    animation: none;
+  }
+
+  .hero-title,
+  .hero-subtitle,
+  .tile,
+  .nav-links li a {
+    transition: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) and (max-width: 768px) {
+  .hero-overlay {
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  .tile {
+    background: rgba(25, 20, 35, 0.9);
+    border-color: rgba(172, 148, 214, 0.3);
+  }
+
+  .tile p {
+    color: #d0d0d0;
+  }
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .hero-bg-image {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+
+  .hero-title,
+  .hero-subtitle,
+  .tile h3,
+  .cta-headline {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Tablets (768px and below) */
+@media (max-width: 768px) {
+  /* Keep scroll indicator but make it smaller */
+  .scroll-indicator {
+    right: 15px;
+    transform: translateY(-50%) scale(0.8);
+  }
+
+  /* KEEP scroll sections working on mobile - maintain the JavaScript-controlled system */
+  .scroll-section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .scroll-section.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  /* Hero section adjustments for mobile - KEEP 400vh for scroll mechanics */
+  .hero-section {
+    height: 400vh;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+  }
+
+  /* Background container adjustments */
+  .hero-bg-container {
+    position: fixed;
+    transform: scale(1.1);
+  }
+
+  .hero-bg-image {
+    transform: scale(1.1);
+    object-position: center;
+    width: 100%; /* Reduced from 115% to prevent horizontal overflow */
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @keyframes bgFloat {
+    0% {
+      transform: scale(1.1) translate(0px, 0px);
+    }
+    50% {
+      transform: scale(1.15) translate(-5px, 5px);
+    }
+    100% {
+      transform: scale(1.1) translate(0px, 0px);
+    }
+  }
+
+  /* Hero text adjustments */
+  .hero-text-wrapper {
+    transform: translateY(-15vh);
+    max-width: 100%; /* Ensure no overflow */
+    position: relative;
+    text-align: center;
+    width: 100%;
+    padding: 0 0.5rem; /* Reduced padding to prevent overflow */
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+    height: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    min-height: 5.04rem;
+    line-height: 1.3;
+  }
+
+  /* Personality tiles - positioned within the tiles scroll section */
+  .personality-tiles {
+    display: flex;
+    justify-content: flex-start; /* Align to left instead of center */
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    max-width: 100%; /* Full width container */
+    padding: 0 1rem 0 0.1rem; /* Almost no left padding */
+    width: 100%;
+    transform: translateY(12vh) translateX(-25vw); /* Move down a bit */
+  }
+
+  .tile {
+    flex: 1 1 calc(45% - 0.4rem); /* Ensure 2 tiles per row with proper spacing */
+    max-width: calc(48% - 0.4rem); /* Backup constraint */
+    min-width: 120px; /* Reduced min-width for mobile */
+    padding: 0.7rem 0.5rem; /* Compact padding */
+    opacity: 0;
+    transform: translateY(50px);
+    /* Keep the scroll-based animations */
+  }
+
+  /* Keep tile animations but adjust timing for mobile */
+  .tiles-section.active .tile-1 {
+    animation: slideInTile 0.6s ease-out 0.1s forwards;
+  }
+
+  .tiles-section.active .tile-2 {
+    animation: slideInTile 0.6s ease-out 0.2s forwards;
+  }
+
+  .tiles-section.active .tile-3 {
+    animation: slideInTile 0.6s ease-out 0.3s forwards;
+  }
+
+  .tiles-section.active .tile-4 {
+    animation: slideInTile 0.6s ease-out 0.4s forwards;
+  }
+
+  .tile-icon {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .tile h3 {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .tile p {
+    font-size: 0.8rem;
+    line-height: 1.3;
+  }
+
+  /* CTA section - KEEP as fixed scroll section with JavaScript control */
+  .cta-section-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .cta-section-wrapper.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .cta-section {
+    text-align: center;
+    max-width: 100%; /* Ensure no overflow */
+    padding: 0 0.5rem; /* Reduced padding */
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .cta-section-wrapper.active .cta-section {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .cta-headline {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-text {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  /* Navigation adjustments */
+  .hamburger-menu {
+    top: 15px;
+    left: 12px;
+  }
+
+  .hamburger-menu .bar {
+    width: 22px;
+    height: 2.5px;
+  }
+
+  .section-name {
+    top: 18px;
+    left: 55px;
+    font-size: 15px;
+  }
+
+  .navbar {
+    width: 60%;
+    min-width: 280px;
+  }
+
+  .nav-links {
+    gap: 16px;
+    padding-top: 60px;
+  }
+
+  .nav-links li a {
+    font-size: 13px;
+    margin-left: 18px;
+    padding: 8px 0;
+  }
+
+  /* SHOW chibi on mobile - override the display: none from main CSS */
+  .chibi-sticker-container-home {
+    display: block !important;
+    left: 15px;
+    top: 70%;
+    transform: translateY(-50%) translateX(-200px);
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  .chibi-sticker-container-home.slide-in {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+    transition: all 1s ease-out;
+  }
+
+  .chibi-sticker-container-home .chibi-image {
+    width: 60px;
+    height: auto;
+  }
+
+  .chibi-sticker-container-home .dialogue-bubble {
+    left: 70px;
+    top: -50px;
+    min-width: 160px;
+    padding: 6px 10px;
+  }
+
+  .chibi-sticker-container-home .dialogue-bubble p {
+    font-size: 0.75rem;
+  }
+
+  .chibi-sticker-container-home .bubble-arrow {
+    right: 120px;
+  }
+
+  /* Reduce floating particle sizes on tablet */
+  .hero-section::before {
+    width: 100px;
+    height: 100px;
+    top: 10%;
+    right: 5%;
+  }
+
+  .hero-section::after {
+    width: 70px;
+    height: 70px;
+    bottom: 10%;
+    left: 10%;
+  }
+}
+
+/* Landscape orientation for tablets */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero-text-wrapper {
+    transform: translateY(-10vh);
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    height: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    min-height: 3rem;
+    line-height: 1.2;
+  }
+
+  .personality-tiles {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+    transform: translateY(8vh); /* Slightly less shift for landscape */
+    max-width: 85%; /* Ensure tiles fit in landscape */
+  }
+
+  .tile {
+    flex: 1 1 calc(33.33% - 0.33rem);
+    max-width: 150px;
+    min-width: 120px;
+    padding: 0.8rem 0.5rem;
+  }
+
+  .cta-headline {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-text {
+    font-size: 0.9rem;
+  }
+
+  .chibi-sticker-container-home {
+    top: 75%;
+  }
+}
+
+/* Mobile Responsive (480px and below) */
+@media (max-width: 480px) {
+  .hero-bg-image {
+    transform: scale(1.0);
+    width: 100%; /* Ensure no horizontal overflow */
+  }
+
+  @keyframes bgFloat {
+    0% {
+      transform: scale(1.0) translate(0px, 0px);
+    }
+    50% {
+      transform: scale(1.05) translate(-3px, 3px);
+    }
+    100% {
+      transform: scale(1.0) translate(0px, 0px);
+    }
+  }
+
+  .hero-text-wrapper {
+    transform: translateY(-10vh);
+    max-width: 100%;
+    padding: 0 8px; /* Minimal padding to prevent overflow */
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+    height: 1.8rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    min-height: 3.9rem;
+    line-height: 1.25;
+  }
+
+  /* Single column with left alignment */
+  .personality-tiles {
+    flex-direction: column;
+    justify-content: flex-start; /* Align to left */
+    gap: 0.5rem;
+    padding: 0 1rem 0 0.1rem; /* Almost no left padding */
+    transform: translateY(14vh) translateX(-30vw); /* Move down more on mobile */
+    max-width: 100%;
+  }
+
+  .tile {
+    flex: none;
+    max-width: 80%; /* Limit width to ensure visibility */
+    width: 80%;
+    padding: 0.6rem 0.4rem;
+    border-radius: 12px;
+    margin-left: 0; /* Ensure left alignment */
+  }
+
+  .tile-icon {
+    font-size: 1.6rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .tile h3 {
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .tile p {
+    font-size: 0.75rem;
+    line-height: 1.2;
+  }
+
+  .cta-headline {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .cta-text {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .hamburger-menu {
+    top: 12px;
+    left: 10px;
+  }
+
+  .hamburger-menu .bar {
+    width: 18px;
+    height: 2px;
+    gap: 3px;
+  }
+
+  .section-name {
+    top: 15px;
+    left: 45px;
+    font-size: 12px;
+  }
+
+  .navbar {
+    width: 65%;
+    min-width: 250px;
+  }
+
+  .nav-links {
+    gap: 18px;
+    padding-top: 50px;
+  }
+
+  .nav-links li a {
+    font-size: 12px;
+    margin-left: 12px;
+    padding: 6px 0;
+  }
+
+  .chibi-sticker-container-home {
+    left: 10px;
+    top: 75%;
+  }
+
+  .chibi-sticker-container-home .chibi-image {
+    width: 50px;
+  }
+
+  .chibi-sticker-container-home .dialogue-bubble {
+    left: 60px;
+    min-width: 140px;
+    padding: 5px 8px;
+  }
+
+  .chibi-sticker-container-home .dialogue-bubble p {
+    font-size: 0.7rem;
+  }
+
+  /* Hide floating particles on very small screens to reduce clutter */
+  .hero-section::before,
+  .hero-section::after {
+    display: none;
+  }
+
+  /* Reduce background pattern intensity on mobile */
+  body::after {
+    background-size: 20px 20px;
+    opacity: 0.3;
+  }
+}
+
+/* Small Mobile (360px and below) */
+@media (max-width: 360px) {
+  .hero-text-wrapper {
+    transform: translateY(-8vh);
+    padding: 0 4px; /* Minimal padding */
+  }
+
+  .hero-title {
+    font-size: 1.5rem;
+    height: 1.5rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.9rem;
+    min-height: 3.375rem;
+    line-height: 1.2;
+  }
+
+  /* Single column with even more left shift */
+  .personality-tiles {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0.4rem;
+    transform: translateY(12vh) translateX(-35vw); /* Move down on small mobile too */
+    padding: 0 1rem 0 0; /* Zero left padding */
+  }
+
+  .tile {
+    flex: none;
+    max-width: 75%; /* Smaller width for tiny screens */
+    width: 75%;
+    padding: 0.5rem 0.3rem;
+    border-radius: 10px;
+    margin-left: 0;
+  }
+
+  .tile-icon {
+    font-size: 1.4rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .tile h3 {
+    font-size: 0.8rem;
+    margin-bottom: 0.1rem;
+  }
+
+  .tile p {
+    font-size: 0.7rem;
+    line-height: 1.1;
+  }
+
+  .cta-headline {
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .cta-text {
+    font-size: 0.8rem;
+    line-height: 1.3;
+  }
+
+  .hamburger-menu .bar {
+    width: 16px;
+    height: 1.5px;
+  }
+
+  .section-name {
+    font-size: 11px;
+    left: 40px;
+  }
+
+  .navbar {
+    width: 70%;
+    min-width: 220px;
+  }
+
+  .nav-links li a {
+    font-size: 11px;
+    margin-left: 10px;
+    padding: 5px 0;
+  }
+
+  .chibi-sticker-container-home .chibi-image {
+    width: 45px;
+  }
+
+  .chibi-sticker-container-home .dialogue-bubble {
+    left: 55px;
+    min-width: 120px;
+    padding: 4px 6px;
+  }
+
+  .chibi-sticker-container-home .dialogue-bubble p {
+    font-size: 0.65rem;
+  }
+
+  /* Further reduce background elements for minimal clutter */
+  body::before {
+    opacity: 0.7;
+  }
+
+  body::after {
+    background-size: 15px 15px;
+    opacity: 0.2;
+  }
+}

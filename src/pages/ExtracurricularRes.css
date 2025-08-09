@@ -1,0 +1,787 @@
+/* Mobile & Responsive Extracurricular Page Styles - For screens 768px and below */
+
+/* Accessibility and Preference Styles (All Devices) */
+@media (prefers-reduced-motion: reduce) {
+  .extras-section::before,
+  .extras-section::after,
+  .extras-section .vertical-lights,
+  .extras-section .particle1,
+  .extras-section .particle2,
+  .extras-section .corner-glow-1,
+  .extras-section .corner-glow-2,
+  .card-wrapper,
+  .music-club-gallery,
+  .gallery-image-container,
+  .slide-in-left,
+  .slide-in-right,
+  .slide-in-up,
+  .fade-in-down {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .card-wrapper {
+    border: 2px solid rgba(172, 148, 214, 0.6);
+    background: rgba(20, 15, 30, 0.9);
+  }
+
+  .subheading::after,
+  .sub-subheading::after {
+    background: #d6c1ff;
+  }
+
+  .section-heading {
+    text-shadow: 0 0 10px rgba(172, 148, 214, 0.8);
+  }
+}
+
+/* Responsive Design for Tablets (769px to 1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .extras-section {
+    padding: 40px 5% 80px;
+  }
+
+  .section-heading {
+    font-size: 2.4rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .card-wrapper {
+    width: 90%;
+    max-width: 800px;
+    margin: 1.5rem auto;
+    padding: 2rem;
+  }
+
+  .subheading {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .music-club-container {
+    gap: 25px;
+    margin-right: 2rem;
+    position: relative;
+  }
+
+  .music-club-content {
+    padding-right: 110px;
+  }
+
+  .music-club-image-container {
+    width: 100px;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .content-list {
+    font-size: 1.05rem;
+    margin-left: 1.8rem;
+  }
+
+  .white-bold {
+    font-size: 1.15rem;
+  }
+
+  .hobbies-text {
+    font-size: 1.2rem;
+    margin-left: 1.8rem;
+  }
+
+  .music-club-gallery {
+    gap: 25px;
+  }
+
+  .gallery-image-container {
+    width: 220px;
+    height: 150px;
+  }
+
+  /* Adjust background effects for tablets */
+  .extras-section .particle1 {
+    width: 150px;
+    height: 150px;
+  }
+
+  .extras-section .particle2 {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* Responsive Design for Tablets (768px and below) */
+@media (max-width: 768px) {
+  .extras-section {
+    padding: 80px 8% 60px;
+  }
+
+  .section-heading {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .card-wrapper {
+    width: 95%;
+    max-width: 600px;
+    margin: 1.2rem auto;
+    padding: 1.5rem;
+    border-radius: 10px;
+  }
+
+  .card-wrapper::before {
+    height: 20px;
+  }
+
+  .subheading {
+    font-size: 1.4rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.2rem;
+    text-align: left;
+  }
+
+  .subheading::after {
+    width: 35px;
+  }
+
+  .content-list {
+    font-size: 1rem;
+    margin-left: 1.5rem;
+    line-height: 1.5;
+    margin-top: 0.8rem;
+  }
+
+  .content-list li {
+    margin-bottom: 0.5rem;
+  }
+
+  .pr-section {
+    margin-left: 1.5rem;
+    margin-top: 0.8rem;
+  }
+
+  .white-bold {
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .hobbies-text {
+    font-size: 1.1rem;
+    margin-left: 1.5rem;
+    line-height: 1.4;
+  }
+
+  /* Music Club responsive adjustments - Logo in top right corner */
+  .music-club-container {
+    gap: 15px;
+    margin-right: 0;
+    align-items: flex-start;
+    margin-top: 1rem;
+    position: relative;
+  }
+
+  .music-club-content {
+    flex: 1;
+    padding-right: 110px; /* Make space for absolute positioned logo */
+  }
+
+  .music-club-content h3 {
+    margin-top: 0.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .music-club-image-container {
+    flex-shrink: 0;
+    width: 100px;
+    height: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  /* Gallery responsive adjustments */
+  .music-club-gallery {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .gallery-image-container {
+    width: 100%;
+    max-width: 300px;
+    height: 200px;
+  }
+
+  /* Reduce background effects on tablet */
+  .extras-section .particle1 {
+    width: 100px;
+    height: 100px;
+    top: 10%;
+    right: 10%;
+  }
+
+  .extras-section .particle2 {
+    width: 80px;
+    height: 80px;
+    bottom: 15%;
+    left: 5%;
+  }
+
+  .extras-section .corner-glow-1,
+  .extras-section .corner-glow-2 {
+    width: 150px;
+    height: 150px;
+  }
+
+  /* Animation adjustments for mobile */
+  .slide-in-left,
+  .slide-in-right {
+    animation-duration: 0.6s;
+  }
+
+  .slide-in-up {
+    animation-duration: 0.7s;
+  }
+}
+
+/* Landscape orientation for tablets */
+@media (max-width: 768px) and (orientation: landscape) {
+  .extras-section {
+    padding: 50px 6% 40px;
+  }
+
+  .section-heading {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-wrapper {
+    margin: 1rem auto;
+    padding: 1.2rem;
+    width: 96%;
+  }
+
+  .subheading {
+    font-size: 1.2rem;
+    margin-top: 0.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .content-list {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-top: 0.6rem;
+    margin-left: 1.2rem;
+  }
+
+  .hobbies-text {
+    font-size: 1rem;
+    line-height: 1.3;
+    margin-left: 1.2rem;
+  }
+
+  .white-bold {
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .pr-section {
+    margin-left: 1.2rem;
+    margin-top: 0.6rem;
+  }
+
+  .music-club-gallery {
+    gap: 15px;
+  }
+
+  .gallery-image-container {
+    max-width: 250px;
+    height: 160px;
+  }
+}
+
+/* Mobile Responsive Design (480px and below) */
+@media (max-width: 480px) {
+  .extras-section {
+    padding: 70px 6% 40px;
+  }
+
+  .section-heading {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    font-weight: 900;
+  }
+
+  .card-wrapper {
+    width: 98%;
+    max-width: none;
+    margin: 1rem auto;
+    padding: 1.2rem;
+    border-radius: 8px;
+  }
+
+  .card-wrapper::before {
+    height: 15px;
+  }
+
+  .card-wrapper:hover {
+    transform: none;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+
+  .subheading {
+    font-size: 1.2rem;
+    margin-top: 0.4rem;
+    margin-bottom: 1rem;
+    text-align: left;
+    font-weight: 800;
+  }
+
+  .subheading::after {
+    width: 25px;
+    height: 1.5px;
+  }
+
+  .content-list {
+    font-size: 0.9rem;
+    margin-left: 1rem;
+    line-height: 1.4;
+    margin-top: 0.6rem;
+    list-style-position: inside;
+    padding-left: 0;
+  }
+
+  .content-list li {
+    margin-bottom: 0.4rem;
+    text-indent: -0.5rem;
+    padding-left: 0.5rem;
+  }
+
+  .pr-section {
+    margin-left: 1rem;
+    margin-top: 0.6rem;
+  }
+
+  .white-bold {
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+    font-weight: 700;
+  }
+
+  .hobbies-text {
+    font-size: 1rem;
+    margin-left: 1rem;
+    line-height: 1.3;
+    margin-top: 0.4rem;
+    text-align: left;
+  }
+
+  /* Music club mobile adjustments - Logo in top right corner */
+  .music-club-container {
+    gap: 10px;
+    align-items: flex-start;
+    margin-top: 1rem;
+    position: relative;
+  }
+
+  .music-club-content {
+    flex: 1;
+    padding-right: 90px; /* Make space for absolute positioned logo */
+  }
+
+  .music-club-content h3 {
+    margin-top: 1rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .music-club-image-container {
+    flex-shrink: 0;
+    width: 80px;
+    height: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  /* Gallery mobile adjustments */
+  .music-club-gallery {
+    gap: 15px;
+  }
+
+  .gallery-image-container {
+    max-width: 280px;
+    height: 180px;
+  }
+
+  /* Reduce background effects on mobile */
+  .extras-section::before {
+    background-size: 60px 60px;
+  }
+
+  .extras-section .particle1,
+  .extras-section .particle2 {
+    width: 60px;
+    height: 60px;
+  }
+
+  .extras-section .corner-glow-1,
+  .extras-section .corner-glow-2 {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* Small Mobile (360px and below) */
+@media (max-width: 360px) {
+  .extras-section {
+    padding: 60px 4% 35px;
+  }
+
+  .section-heading {
+    font-size: 1.6rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .card-wrapper {
+    margin: 0.8rem auto;
+    padding: 1rem;
+    border-radius: 6px;
+  }
+
+  .card-wrapper::before {
+    height: 12px;
+  }
+
+  .subheading {
+    font-size: 1.1rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .subheading::after {
+    width: 20px;
+    height: 1px;
+  }
+
+  .content-list {
+    font-size: 0.85rem;
+    margin-left: 0.8rem;
+    line-height: 1.3;
+    margin-top: 0.5rem;
+  }
+
+  .content-list li {
+    margin-bottom: 0.3rem;
+  }
+
+  .pr-section {
+    margin-left: 0.8rem;
+    margin-top: 0.5rem;
+  }
+
+  .white-bold {
+    font-size: 0.85rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .hobbies-text {
+    font-size: 0.9rem;
+    margin-left: 0.8rem;
+    line-height: 1.25;
+    margin-top: 0.3rem;
+  }
+
+  /* Very small mobile adjustments - Logo in top right corner */
+  .music-club-container {
+    gap: 8px;
+    margin-top: 0.8rem;
+    align-items: flex-start;
+    position: relative;
+  }
+
+  .music-club-content {
+    padding-right: 70px; /* Make space for absolute positioned logo */
+  }
+
+  .music-club-content h3 {
+    margin-top: 1.2rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .music-club-image-container {
+    flex-shrink: 0;
+    width: 60px;
+    height: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .gallery-image-container {
+    max-width: 250px;
+    height: 160px;
+  }
+
+  /* Hide most background effects on very small screens */
+  .extras-section .particle1,
+  .extras-section .particle2,
+  .extras-section .corner-glow-1,
+  .extras-section .corner-glow-2 {
+    display: none;
+  }
+
+  .extras-section::before {
+    background-size: 40px 40px;
+    opacity: 0.3;
+  }
+
+  .extras-section::after,
+  .extras-section .vertical-lights {
+    opacity: 0.2;
+  }
+}
+
+/* Very compact layout for portrait phones */
+@media (max-width: 320px) {
+  .extras-section {
+    padding: 50px 3%;
+  }
+
+  .section-heading {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-wrapper {
+    padding: 0.8rem;
+    margin: 0.6rem auto;
+  }
+
+  .subheading {
+    font-size: 1rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .subheading::after {
+    width: 15px;
+  }
+
+  .content-list {
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+    margin-top: 0.4rem;
+  }
+
+  .hobbies-text {
+    font-size: 0.85rem;
+    margin-left: 0.5rem;
+    margin-top: 0.2rem;
+  }
+
+  .white-bold {
+    font-size: 0.8rem;
+  }
+
+  .pr-section {
+    margin-left: 0.5rem;
+    margin-top: 0.4rem;
+  }
+
+  /* Very compact mobile - Logo in top right corner */
+  .music-club-container {
+    gap: 6px;
+    margin-top: 0.6rem;
+    align-items: flex-start;
+    position: relative;
+  }
+
+  .music-club-content {
+    padding-right: 60px; /* Make space for absolute positioned logo */
+  }
+
+  .music-club-content h3 {
+    margin-top: 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .music-club-image-container {
+    flex-shrink: 0;
+    width: 50px;
+    height: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .gallery-image-container {
+    max-width: 220px;
+    height: 140px;
+  }
+}
+
+/* Optimize for very wide mobile screens (landscape) */
+@media (max-width: 950px) and (orientation: landscape) and (max-height: 500px) {
+  .extras-section {
+    padding: 30px 4%;
+  }
+
+  .section-heading {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-wrapper {
+    width: 92%;
+    margin: 0.5rem auto;
+    padding: 0.8rem;
+  }
+
+  .subheading {
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .content-list {
+    font-size: 0.85rem;
+    line-height: 1.3;
+    margin-left: 1rem;
+    margin-right: 0.6rem;
+    margin-top: 0.4rem;
+    text-align: justify;
+  }
+
+  .hobbies-text {
+    font-size: 0.9rem;
+    line-height: 1.2;
+    margin-left: 1rem;
+    margin-right: 0.6rem;
+    text-align: justify;
+  }
+
+  .pr-section {
+    margin-left: 1rem;
+    margin-right: 0.6rem;
+    margin-top: 0.4rem;
+  }
+
+  .pr-section .content-list {
+    margin-left: 0.5rem;
+    margin-right: 0.3rem;
+    text-align: justify;
+  }
+
+  .white-bold {
+    font-size: 0.85rem;
+  }
+
+  /* Wide landscape mobile - Logo in top right corner */
+  .music-club-container {
+    gap: 8px;
+    margin-top: 0.5rem;
+    align-items: flex-start;
+    position: relative;
+  }
+
+  .music-club-content {
+    padding-right: 80px; /* Make space for absolute positioned logo */
+  }
+
+  .music-club-content h3 {
+    margin-top: 1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .music-club-image-container {
+    flex-shrink: 0;
+    width: 70px;
+    height: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .music-club-gallery {
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .gallery-image-container {
+    width: 180px;
+    height: 120px;
+  }
+}
+
+/* Touch-friendly hover effects for mobile */
+@media (max-width: 768px) {
+  .card-wrapper:hover {
+    transform: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .gallery-image-container:hover {
+    transform: none;
+    box-shadow: 0 6px 20px rgba(215, 146, 255, 0.4);
+  }
+
+  .music-club-image-container:hover {
+    transform: none;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .content-list li:hover {
+    transform: none;
+  }
+
+  /* Add touch feedback */
+  .card-wrapper:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+
+  .gallery-image-container:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+  }
+}
+
+/* Ensure proper stacking and animation consistency */
+@media (max-width: 768px) {
+  .card-wrapper {
+    position: relative;
+    z-index: 10;
+  }
+
+  .music-club-content,
+  .music-club-image-container,
+  .others-section {
+    opacity: 0;
+  }
+
+  .music-club-content.slide-in-left,
+  .music-club-image-container.slide-in-right,
+  .others-section.slide-in-up {
+    opacity: 1;
+  }
+
+  .music-club-gallery {
+    opacity: 0;
+  }
+
+  .music-club-gallery.gallery-visible {
+    opacity: 1;
+  }
+
+  .card-wrapper {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+
+  .card-wrapper.slide-in-up {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

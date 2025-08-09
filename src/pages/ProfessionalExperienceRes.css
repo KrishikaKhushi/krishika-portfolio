@@ -1,0 +1,703 @@
+/* Mobile & Responsive Professional Experience Page Styles - For screens 768px and below */
+
+/* Accessibility and Preference Styles (All Devices) */
+@media (prefers-reduced-motion: reduce) {
+  .experience-section::before,
+  .experience-section::after,
+  .experience-section .vertical-lights,
+  .experience-section .particle1,
+  .experience-section .particle2,
+  .experience-section .corner-glow-1,
+  .experience-section .corner-glow-2,
+  .company-section,
+  .company-logo,
+  .scroll-animate {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .company-section {
+    border: 2px solid rgba(172, 148, 214, 0.6);
+    background: rgba(20, 15, 30, 0.9);
+  }
+
+  .section-heading::after,
+  .subheading::after {
+    background: #d6c1ff;
+  }
+
+  .section-heading,
+  .company-name,
+  .subheading {
+    text-shadow: 0 0 10px rgba(172, 148, 214, 0.8);
+  }
+}
+
+/* Responsive Design for Tablets (769px to 1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .experience-section {
+    padding: 40px 5% 80px;
+  }
+
+  .section-heading {
+    font-size: 2.4rem;
+    margin-bottom: 2.2rem;
+  }
+
+  .section-heading::after {
+    width: 90px;
+  }
+
+  .company-section {
+    width: 90%;
+    max-width: 800px;
+    padding: 1.8rem;
+  }
+
+  .company-header {
+    gap: 18px;
+    margin-bottom: 1.8rem;
+  }
+
+  .company-logo {
+    width: 45px;
+  }
+
+  .company-name {
+    font-size: 1.6rem;
+  }
+
+  .subheading {
+    font-size: 1.4rem;
+  }
+
+  .subheading-content {
+    font-size: 1.05rem;
+    margin-left: 1.8rem;
+    margin-right: 1.8rem;
+  }
+
+  ul {
+    padding-left: 2.2rem;
+  }
+
+  ul li {
+    font-size: 1.05rem;
+  }
+
+  /* Adjust background effects for tablets */
+  .experience-section .particle1 {
+    width: 150px;
+    height: 150px;
+  }
+
+  .experience-section .particle2 {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* Responsive Design for Tablets (768px and below) */
+@media (max-width: 768px) {
+  .experience-section {
+    padding-top: 80px;
+    padding-bottom: 60px;
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+
+  .section-heading {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .section-heading::after {
+    width: 60px;
+  }
+
+  .company-section {
+    width: 95%;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .company-section::before {
+    height: 20px;
+  }
+
+  .company-header {
+    gap: 12px;
+    margin-bottom: 1.5rem;
+    align-items: center;
+  }
+
+  .company-logo {
+    width: 40px;
+    padding: 4px;
+  }
+
+  .company-name {
+    font-size: 1.4rem;
+    text-align: left;
+  }
+
+  .content-section {
+    margin-bottom: 1.8rem;
+  }
+
+  .subheading {
+    font-size: 1.2rem;
+    margin-top: 0.8rem;
+  }
+
+  .subheading::after {
+    width: 35px;
+  }
+
+  .subheading-content {
+    font-size: 1rem;
+    margin-left: 1.2rem;
+    margin-right: 1.2rem;
+    line-height: 1.6;
+    text-align: justify;
+  }
+
+  ul {
+    padding-left: 1.5rem;
+  }
+
+  ul li {
+    font-size: 1rem;
+    margin-bottom: 0.6rem;
+    line-height: 1.5;
+    text-align: justify;
+  }
+
+  ul li:hover {
+    transform: none;
+  }
+
+  /* Reduce but keep background effects on tablet */
+  .experience-section::before {
+    background-size: 60px 60px;
+  }
+
+  .experience-section .particle1 {
+    width: 120px;
+    height: 120px;
+    top: 12%;
+    right: 12%;
+  }
+
+  .experience-section .particle2 {
+    width: 100px;
+    height: 100px;
+    bottom: 18%;
+    left: 8%;
+  }
+
+  .experience-section .corner-glow-1,
+  .experience-section .corner-glow-2 {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+/* Landscape orientation for tablets */
+@media (max-width: 768px) and (orientation: landscape) {
+  .experience-section {
+    padding-top: 50px;
+    padding-bottom: 40px;
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+
+  .section-heading {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .company-section {
+    margin-bottom: 1.5rem;
+    padding: 1.2rem;
+    width: 96%;
+  }
+
+  .company-header {
+    margin-bottom: 1.2rem;
+  }
+
+  .company-name {
+    font-size: 1.2rem;
+  }
+
+  .subheading {
+    font-size: 1.1rem;
+    margin-top: 0.6rem;
+  }
+
+  .subheading-content {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .content-section {
+    margin-bottom: 1.4rem;
+  }
+
+  ul li {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Mobile Responsive Design (480px and below) */
+@media (max-width: 480px) {
+  .experience-section {
+    padding-top: 70px;
+    padding-bottom: 40px;
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+
+  .section-heading {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    font-weight: 900;
+  }
+
+  .section-heading::after {
+    width: 50px;
+    height: 1.5px;
+  }
+
+  .company-section {
+    width: 98%;
+    max-width: none;
+    margin: 0 auto 1.5rem auto;
+    padding: 1.2rem;
+    border-radius: 10px;
+  }
+
+  .company-section:hover {
+    transform: none;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+
+  .company-section::before {
+    height: 15px;
+  }
+
+  .company-header {
+    gap: 10px;
+    margin-bottom: 1.2rem;
+    flex-wrap: wrap;
+  }
+
+  .company-logo {
+    width: 35px;
+    padding: 3px;
+    border-radius: 6px;
+  }
+
+  .company-logo:hover {
+    transform: none;
+  }
+
+  .company-name {
+    font-size: 1.2rem;
+    line-height: 1.3;
+    text-align: left;
+    font-weight: 800;
+  }
+
+  .content-section {
+    margin-bottom: 1.5rem;
+  }
+
+  .subheading {
+    font-size: 1.1rem;
+    margin-top: 0.6rem;
+    font-weight: 800;
+  }
+
+  .subheading::after {
+    width: 25px;
+    height: 1px;
+  }
+
+  .subheading-content {
+    font-size: 0.9rem;
+    margin-left: 0.8rem;
+    margin-right: 0.8rem;
+    line-height: 1.5;
+    text-align: justify;
+  }
+
+  ul {
+    padding-left: 1.2rem;
+  }
+
+  ul li {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+    text-align: justify;
+  }
+
+  /* Keep background effects on mobile but reduce intensity */
+  .experience-section::before {
+    background-size: 50px 50px;
+    opacity: 0.7;
+  }
+
+  .experience-section::after {
+    opacity: 0.6;
+  }
+
+  .experience-section .vertical-lights {
+    opacity: 0.5;
+  }
+
+  .experience-section .particle1,
+  .experience-section .particle2 {
+    width: 80px;
+    height: 80px;
+  }
+
+  .experience-section .particle1 {
+    top: 8%;
+    right: 8%;
+  }
+
+  .experience-section .particle2 {
+    bottom: 12%;
+    left: 6%;
+  }
+
+  .experience-section .corner-glow-1,
+  .experience-section .corner-glow-2 {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* Small Mobile (360px and below) */
+@media (max-width: 360px) {
+  .experience-section {
+    padding-top: 60px;
+    padding-bottom: 35px;
+    padding-left: 4%;
+    padding-right: 4%;
+  }
+
+  .section-heading {
+    font-size: 1.6rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .section-heading::after {
+    width: 40px;
+    height: 1px;
+  }
+
+  .company-section {
+    margin: 0 auto 1.2rem auto;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  .company-section::before {
+    height: 12px;
+  }
+
+  .company-header {
+    gap: 8px;
+    margin-bottom: 1rem;
+  }
+
+  .company-logo {
+    width: 30px;
+    padding: 2px;
+    border-radius: 4px;
+  }
+
+  .company-name {
+    font-size: 1.1rem;
+    line-height: 1.2;
+  }
+
+  .content-section {
+    margin-bottom: 1.2rem;
+  }
+
+  .subheading {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .subheading::after {
+    width: 20px;
+  }
+
+  .subheading-content {
+    font-size: 0.85rem;
+    margin-left: 0.6rem;
+    margin-right: 0.6rem;
+    line-height: 1.4;
+    text-align: justify;
+  }
+
+  ul {
+    padding-left: 1rem;
+  }
+
+  ul li {
+    font-size: 0.85rem;
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
+    text-align: justify;
+  }
+
+  /* Keep reduced background effects on very small screens */
+  .experience-section .particle1,
+  .experience-section .particle2 {
+    width: 60px;
+    height: 60px;
+  }
+
+  .experience-section .corner-glow-1,
+  .experience-section .corner-glow-2 {
+    width: 80px;
+    height: 80px;
+  }
+
+  .experience-section::before {
+    background-size: 30px 30px;
+    opacity: 0.4;
+  }
+
+  .experience-section::after,
+  .experience-section .vertical-lights {
+    opacity: 0.3;
+  }
+}
+
+/* Very compact layout for portrait phones */
+@media (max-width: 320px) {
+  .experience-section {
+    padding: 50px 3%;
+  }
+
+  .section-heading {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .section-heading::after {
+    width: 30px;
+  }
+
+  .company-section {
+    margin: 0 auto 1rem auto;
+    padding: 0.8rem;
+    border-radius: 6px;
+  }
+
+  .company-header {
+    gap: 6px;
+    margin-bottom: 0.8rem;
+  }
+
+  .company-logo {
+    width: 25px;
+    padding: 1px;
+  }
+
+  .company-name {
+    font-size: 1rem;
+  }
+
+  .content-section {
+    margin-bottom: 1rem;
+  }
+
+  .subheading {
+    font-size: 0.9rem;
+    margin-top: 0.4rem;
+  }
+
+  .subheading::after {
+    width: 15px;
+  }
+
+  .subheading-content {
+    font-size: 0.8rem;
+    margin-left: 0.4rem;
+    margin-right: 0.4rem;
+    line-height: 1.3;
+    text-align: justify;
+  }
+
+  ul {
+    padding-left: 0.8rem;
+  }
+
+  ul li {
+    font-size: 0.8rem;
+    margin-bottom: 0.3rem;
+    line-height: 1.25;
+    text-align: justify;
+  }
+}
+
+/* Optimize for very wide mobile screens (landscape) */
+@media (max-width: 950px) and (orientation: landscape) and (max-height: 500px) {
+  .experience-section {
+    padding: 30px 4%;
+  }
+
+  .section-heading {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .company-section {
+    width: 92%;
+    margin: 0 auto 1rem auto;
+    padding: 1rem;
+  }
+
+  .company-header {
+    margin-bottom: 0.8rem;
+  }
+
+  .company-name {
+    font-size: 1.1rem;
+  }
+
+  .subheading {
+    font-size: 1rem;
+    margin-top: 0.4rem;
+  }
+
+  .subheading-content {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin-left: 0.8rem;
+    margin-right: 0.8rem;
+  }
+
+  .content-section {
+    margin-bottom: 1rem;
+  }
+
+  ul li {
+    font-size: 0.85rem;
+    margin-bottom: 0.4rem;
+  }
+
+  /* Keep subtle background effects on landscape */
+  .experience-section::before {
+    background-size: 40px 40px;
+    opacity: 0.5;
+  }
+
+  .experience-section .particle1 {
+    width: 70px;
+    height: 70px;
+  }
+
+  .experience-section .particle2 {
+    width: 60px;
+    height: 60px;
+  }
+
+  .experience-section .corner-glow-1,
+  .experience-section .corner-glow-2 {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* Touch-friendly interactions for mobile */
+@media (max-width: 768px) {
+  .company-section:hover {
+    transform: none;
+    box-shadow: 0 6px 15px rgba(172, 148, 214, 0.15);
+  }
+
+  .company-logo:hover {
+    transform: none;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .subheading:hover::after {
+    width: 20px;
+  }
+
+  ul li:hover {
+    transform: none;
+    color: white;
+  }
+
+  /* Add touch feedback */
+  .company-section:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+
+  .company-logo:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+  }
+}
+
+/* Ensure proper stacking and animation consistency */
+@media (max-width: 768px) {
+  .company-section {
+    position: relative;
+    z-index: 10;
+  }
+
+  /* Maintain scroll animations on mobile with shorter duration */
+  .scroll-animate {
+    opacity: 0;
+    transition: none;
+  }
+
+  .scroll-animate.animate {
+    animation-duration: 0.6s;
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation-fill-mode: both;
+    opacity: 1;
+  }
+
+  .section-heading.scroll-animate.animate {
+    animation-name: fadeInDown;
+  }
+
+  .company-section.scroll-animate.animate {
+    animation-name: slideInUp;
+  }
+}
+
+/* Text content optimization for mobile reading */
+@media (max-width: 480px) {
+  .subheading-content p {
+    margin-bottom: 0.8rem;
+    text-align: justify;
+  }
+
+  ul li {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+}

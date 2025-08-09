@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { HashRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
 import './App.css';
+import './AppRes.css';
 
 import AboutMe from './pages/AboutMe';
 import ProfessionalExperience from './pages/ProfessionalExperience';
@@ -9,6 +10,18 @@ import Extracurricular from './pages/Extracurricular';
 import Blog from './pages/Blog';
 import ContactMe from './pages/ContactMe';
 import heroImage from './assets/hero-bg.png';
+import chibiNormal from './assets/chibi/normal.png';
+
+// Define the page order for keyboard navigation
+const PAGE_ORDER = [
+  '/',
+  '/about',
+  '/projects', 
+  '/experience',
+  '/extracurricular',
+  '/blog',
+  '/contact'
+];
 
 // Enhanced Typewriter component
 function Typewriter({ text, speed = 80, delay = 0, className }) {
@@ -16,7 +29,6 @@ function Typewriter({ text, speed = 80, delay = 0, className }) {
   const [isStarted, setIsStarted] = useState(false);
 
   useEffect(() => {
-    // Reset when text changes
     setDisplayedText('');
     setIsStarted(false);
     
@@ -46,15 +58,14 @@ function Typewriter({ text, speed = 80, delay = 0, className }) {
   );
 }
 
-// Animated Name component for instant appearance with style
+// Animated Name component
 function AnimatedName({ text, className }) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Small delay for dramatic effect
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, 300);
+    }, 1000); // Delayed to come after image animation
     
     return () => clearTimeout(timer);
   }, []);
@@ -66,66 +77,136 @@ function AnimatedName({ text, className }) {
   );
 }
 
+// Scroll Animation Hook - Updated for proper section spacing
+function useScrollAnimation() {
+  const [currentSection, setCurrentSection] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      
+      // Calculate sections with proper spacing
+      // Section 0: 0 - 100vh (Hero text)
+      // Section 1: 100vh - 200vh (Tiles)  
+      // Section 2: 200vh+ (CTA - stays active from 200vh onwards)
+      
+      if (scrollY < windowHeight) {
+        setCurrentSection(0);
+      } else if (scrollY < windowHeight * 2) {
+        setCurrentSection(1);
+      } else {
+        setCurrentSection(2); // Section 2 stays active from 200vh onwards
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return currentSection;
+}
+
 function HomePage() {
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [heroTextVisible, setHeroTextVisible] = useState(false);
+  const currentSection = useScrollAnimation();
+
+  useEffect(() => {
+    const timer1 = setTimeout(() => {
+      setImageLoaded(true);
+    }, 300);
+
+    const timer2 = setTimeout(() => {
+      setHeroTextVisible(true);
+    }, 1200);
+    
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+    };
+  }, []);
+
   return (
     <div className="hero-section" id="home">
       {/* Background Image and Overlay */}
-      <div className="hero-bg-container">
+      <div className={`hero-bg-container ${imageLoaded ? 'image-loaded' : ''}`}>
         <div className="hero-overlay"></div>
-        <img src={heroImage} alt="Animated Background" className="hero-bg-image" />
+        <img 
+          src={heroImage} 
+          alt="Animated Background" 
+          className="hero-bg-image" 
+          onLoad={() => setImageLoaded(true)}
+        />
       </div>
 
-      {/* Hero Text */}
-      <div className="hero-text-wrapper">
-        <AnimatedName 
-          text="Krishika Khushi" 
-          className="hero-title"
-        />
-        <p className="hero-subtitle">
-          <Typewriter 
-            text=" B.Tech CSE Graduate
+      {/* Section 0: Hero Text - Centered */}
+      <div className={`scroll-section hero-text-section ${currentSection === 0 ? 'active' : ''}`}>
+        <div className={`hero-text-wrapper ${heroTextVisible ? 'visible' : ''}`}>
+          <AnimatedName 
+            text="Krishika Khushi" 
+            className="hero-title"
+          />
+          <p className="hero-subtitle">
+            <Typewriter 
+              text=" B.Tech CSE Graduate
 Frontend-Focused Full-Stack Developer
 Forever curious, occasionally obsessed, always building." 
-            speed={20}
-            delay={1200}
-          />
-        </p>
-      </div>
-
-      {/* Personality Tiles - Added below hero text */}
-      <div className="personality-tiles">
-        <div className="tile">
-          <div className="tile-icon">🚀</div>
-          <h3>Frontend Enthusiast</h3>
-          <p>Crafting beautiful React interfaces that users love</p>
-        </div>
-        
-        <div className="tile">
-          <div className="tile-icon">⚡</div>
-          <h3>Full-Stack Builder</h3>
-          <p>From APIs to databases, I build complete solutions</p>
-        </div>
-        
-        <div className="tile">
-          <div className="tile-icon">🎨</div>
-          <h3>Design Thinker</h3>
-          <p>UI/UX enthusiast creating seamless user experiences</p>
-        </div>
-        
-        <div className="tile">
-          <div className="tile-icon">🔧</div>
-          <h3>Problem Solver</h3>
-          <p>Turning complex challenges into elegant code solutions</p>
+              speed={20}
+              delay={2000}
+            />
+          </p>
         </div>
       </div>
 
-      {/* Call to Action Section */}
-      <div className="cta-section">
-        <h2 className="cta-headline">Want to build something together?</h2>
-        <p className="cta-text">
-          If you're hiring, collaborating, or just curious — I'd love to chat.<br />
-          I'm always open to thoughtful projects, sharp teams, and good conversation.
-        </p>
+      {/* Section 1: Personality Tiles */}
+      <div className={`scroll-section tiles-section ${currentSection === 1 ? 'active' : ''}`}>
+        <div className="personality-tiles">
+          <div className="tile tile-1">
+            <div className="tile-icon">🚀</div>
+            <h3>Frontend Enthusiast</h3>
+            <p>Crafting beautiful React interfaces that users love</p>
+          </div>
+          
+          <div className="tile tile-2">
+            <div className="tile-icon">⚡</div>
+            <h3>Full-Stack Builder</h3>
+            <p>From APIs to databases, I build complete solutions</p>
+          </div>
+          
+          <div className="tile tile-3">
+            <div className="tile-icon">🎨</div>
+            <h3>Design Thinker</h3>
+            <p>UI/UX enthusiast creating seamless user experiences</p>
+          </div>
+          
+          <div className="tile tile-4">
+            <div className="tile-icon">🔧</div>
+            <h3>Problem Solver</h3>
+            <p>Turning complex challenges into elegant code solutions</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Section 2: Call to Action */}
+      <div className={`scroll-section cta-section-wrapper ${currentSection >= 2 ? 'active' : ''}`}>
+        <div className="cta-section">
+          <h2 className="cta-headline">Want to build something together?</h2>
+          <p className="cta-text">
+            If you're hiring, collaborating, or just curious — I'd love to chat.<br />
+            I'm always open to thoughtful projects, sharp teams, and good conversation.
+          </p>
+        </div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div className="scroll-indicator">
+        <div className="scroll-dots">
+          <div className={`dot ${currentSection === 0 ? 'active' : ''}`}></div>
+          <div className={`dot ${currentSection === 1 ? 'active' : ''}`}></div>
+          <div className={`dot ${currentSection >= 2 ? 'active' : ''}`}></div>
+        </div>
+        <p className="scroll-hint">Scroll to explore</p>
       </div>
     </div>
   );
@@ -141,7 +222,9 @@ function AppWrapper() {
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [chibiVisible, setChibiVisible] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -150,6 +233,26 @@ function App() {
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
+
+  // FORCE SCROLL TO TOP ON ANY PAGE LOAD/REFRESH
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
+  // CHIBI ANIMATION - ONLY ON HOME PAGE
+  useEffect(() => {
+    if (location.pathname === '/') {
+      setChibiVisible(false);
+      
+      const timer = setTimeout(() => {
+        setChibiVisible(true);
+      }, 4500);
+      
+      return () => clearTimeout(timer);
+    } else {
+      setChibiVisible(false);
+    }
+  }, [location.pathname]);
 
   // Close menu when clicking outside
   useEffect(() => {
@@ -162,6 +265,33 @@ function App() {
     document.addEventListener('click', handleClickOutside);
     return () => document.removeEventListener('click', handleClickOutside);
   }, [isMenuOpen]);
+
+  // Keyboard navigation handler
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      if (isMenuOpen || 
+          event.target.tagName === 'INPUT' || 
+          event.target.tagName === 'TEXTAREA' || 
+          event.target.contentEditable === 'true') {
+        return;
+      }
+
+      const currentIndex = PAGE_ORDER.indexOf(location.pathname);
+      
+      if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        const nextIndex = (currentIndex + 1) % PAGE_ORDER.length;
+        navigate(PAGE_ORDER[nextIndex]);
+      } else if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        const prevIndex = currentIndex === 0 ? PAGE_ORDER.length - 1 : currentIndex - 1;
+        navigate(PAGE_ORDER[prevIndex]);
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyPress);
+    return () => document.removeEventListener('keydown', handleKeyPress);
+  }, [navigate, location.pathname, isMenuOpen]);
 
   return (
     <div>
@@ -203,6 +333,19 @@ function App() {
 
       {/* Main content wrapper */}
       <div className={`main-content ${isMenuOpen ? 'blurred' : ''}`}>
+        {/* CHIBI STICKER - ONLY ON HOME PAGE WITH SLIDE ANIMATION */}
+        {location.pathname === '/' && chibiVisible && (
+          <div className={`chibi-sticker-container-home ${chibiVisible ? 'slide-in' : ''}`}>
+            <div className="dialogue-bubble">
+              <p>Hi there! Arrow keys can also be used to navigate between pages!</p>
+              <div className="bubble-arrow"></div>
+            </div>
+            <div className="chibi-sticker">
+              <img src={chibiNormal} alt="Chibi Helper" className="chibi-image" />
+            </div>
+          </div>
+        )}
+
         {/* Routing Setup */}
         <Routes>
           <Route path="/" element={<HomePage />} />

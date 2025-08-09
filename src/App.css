@@ -1,154 +1,30 @@
-/* Main content wrapper for blur effect */
-.main-content {
-  transition: filter 0.3s ease;
-}
-
-.main-content.blurred {
-  filter: blur(5px);
-}
-
-/* Blur overlay when menu is open */
-.menu-blur-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 85;
-  backdrop-filter: blur(3px);
-}
-
-/* General Styles */
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #0d0d0d;
-  font-family: 'Arial Black', Gadget, sans-serif;
-  position: relative;
-  overflow-x: hidden;
-}
-
-/* Custom Scrollbar Styling */
-::-webkit-scrollbar {
-  width: 8px; /* Thinner scrollbar */
-}
-
-::-webkit-scrollbar-track {
-  background: #0d0d0d; /* Black background */
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #AC94D6, #7c5da6); /* Violet gradient */
-  border-radius: 4px;
-  transition: all 0.3s ease;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #d6c1ff, #AC94D6); /* Lighter violet on hover */
-  box-shadow: 0 0 8px rgba(172, 148, 214, 0.4);
-}
-
-/* Firefox scrollbar styling */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: #AC94D6 #0d0d0d;
-}
-
-/* Creative Background */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: 
-    radial-gradient(circle at 15% 15%, rgba(60, 40, 80, 0.1) 0%, transparent 25%),
-    radial-gradient(circle at 85% 25%, rgba(90, 70, 120, 0.05) 0%, transparent 30%),
-    radial-gradient(circle at 75% 75%, rgba(70, 50, 100, 0.08) 0%, transparent 30%),
-    radial-gradient(circle at 25% 85%, rgba(80, 60, 110, 0.07) 0%, transparent 25%),
-    linear-gradient(135deg, rgba(20, 15, 30, 0.95) 0%, rgba(13, 13, 13, 1) 100%);
-  z-index: -10; /* Lower z-index to ensure it stays behind all content */
-}
-
-/* Subtle Grid Pattern */
-body::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: 
-    linear-gradient(rgba(100, 100, 100, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(100, 100, 100, 0.02) 1px, transparent 1px);
-  background-size: 30px 30px;
-  z-index: -9; /* Just above the main background */
-}
-
-/* Floating Particles */
-@keyframes float {
-  0% { transform: translateY(0) rotate(0deg); opacity: 0.3; }
-  50% { transform: translateY(-15px) rotate(180deg); opacity: 0.6; }
-  100% { transform: translateY(0) rotate(360deg); opacity: 0.3; }
-}
-
-.hero-section::before {
-  content: "";
-  position: absolute;
-  top: 20%;
-  right: 10%;
-  width: 150px;
-  height: 150px;
-  background: radial-gradient(circle, rgba(172, 148, 214, 0.05) 0%, transparent 70%);
-  border-radius: 50%;
-  filter: blur(5px);
-  animation: float 15s infinite ease-in-out;
-  z-index: -1;
-}
-
-.hero-section::after {
-  content: "";
-  position: absolute;
-  bottom: 20%;
-  left: 15%;
-  width: 100px;
-  height: 100px;
-  background: radial-gradient(circle, rgba(214, 193, 255, 0.04) 0%, transparent 70%);
-  border-radius: 50%;
-  filter: blur(5px);
-  animation: float 18s infinite ease-in-out reverse;
-  z-index: -1;
-}
-
-/* Hero Section - Extended height for more scrollable content */
-.hero-section {
+/* Hero Text Section - Perfectly centered */
+.hero-text-section {
+  z-index: 2;
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  align-items: center; /* This centers it horizontally */
-  height: 200vh; /* Increased from 140vh to 200vh for more scrollable space */
-  background-color: transparent;
-  overflow: hidden;
-  position: relative;
-  z-index: 0;
-  padding-bottom: 5vh; /* Reduced bottom padding to decrease space below CTA */
 }
 
 .hero-text-wrapper {
-  text-align: center; /* This ensures the text is centered within the wrapper */
+  text-align: center;
   position: relative;
   width: 100%;
-  max-width: 1200px; /* Increased width to prevent line breaks */
-  transform: translateY(-26vh); /* Shift hero text up */
+  max-width: 1200px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hero-text-wrapper.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Enhanced Name Animation */
 .hero-title {
   font-size: 5rem;
-  margin: 0 0 2rem 0; /* Fixed bottom margin */
+  margin: 0 0 2rem 0;
   font-weight: bold;
   background: linear-gradient(90deg, #d6c1ff, #AC94D6, #7c5da6);
   -webkit-background-clip: text;
@@ -159,7 +35,7 @@ body::after {
   position: relative;
   z-index: 1;
   text-shadow: 0 0 30px rgba(172, 148, 214, 0.1);
-  height: 5rem; /* Fixed height to prevent shifting */
+  height: 5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -197,7 +73,309 @@ body::after {
   }
 }
 
-/* Removed glow effect */
+.hero-subtitle {
+  font-size: 2rem;
+  margin: 0;
+  white-space: pre-line;
+  color: #AC94D6;
+  font-family: "Bahnschrift SemiBold SemiCondensed", sans-serif;
+  font-weight: bold;
+  background: linear-gradient(90deg, #d6c1ff, #AC94D6, #7c5da6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300%;
+  background-position: left;
+  transition: background-position 0.5s ease-in-out;
+  position: relative;
+  z-index: 1;
+  line-height: 1.4;
+  min-height: 8.4rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Hover effect for title and subtitle */
+.hero-title:hover, .hero-subtitle:hover {
+  background-position: right;
+  transform: translateY(-2px);
+}
+
+/* Tiles Section */
+.tiles-section {
+  z-index: 2;
+}
+
+/* Personality Tiles Section - Updated for scroll animations */
+.personality-tiles {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1200px;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+.tile {
+  background: rgba(30, 25, 40, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(172, 148, 214, 0.2);
+  border-radius: 16px;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+  max-width: 220px;
+  min-width: 180px;
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+/* Individual tile animations with staggered delays */
+.tiles-section.active .tile-1 {
+  animation: slideInTile 0.6s ease-out 0.1s forwards;
+}
+
+.tiles-section.active .tile-2 {
+  animation: slideInTile 0.6s ease-out 0.2s forwards;
+}
+
+.tiles-section.active .tile-3 {
+  animation: slideInTile 0.6s ease-out 0.3s forwards;
+}
+
+.tiles-section.active .tile-4 {
+  animation: slideInTile 0.6s ease-out 0.4s forwards;
+}
+
+@keyframes slideInTile {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tile::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(172, 148, 214, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.tile:/* Desktop Main App & Hero Styles - For screens 769px and above */
+
+/* Main content wrapper for blur effect */
+.main-content {
+  transition: filter 0.3s ease;
+}
+
+.main-content.blurred {
+  filter: blur(5px);
+}
+
+/* Blur overlay when menu is open */
+.menu-blur-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 85;
+  backdrop-filter: blur(3px);
+}
+
+/* General Styles */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0d0d0d;
+  font-family: 'Arial Black', Gadget, sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Reset all margins and padding universally */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d0d0d;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #AC94D6, #7c5da6);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #d6c1ff, #AC94D6);
+  box-shadow: 0 0 8px rgba(172, 148, 214, 0.4);
+}
+
+/* Firefox scrollbar styling */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #AC94D6 #0d0d0d;
+}
+
+/* Hero Section - Extended for proper scroll spacing */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 400vh; /* Back to 400vh for proper scroll spacing */
+  background-color: transparent;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+  padding: 0;
+  margin: 0;
+}
+
+/* Hero Background Container - Fixed with initial animation */
+.hero-bg-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -2;
+  opacity: 0;
+  transform: scale(1.1);
+  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hero-bg-container.image-loaded {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.hero-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.8;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+/* Scroll Sections - Each takes full viewport */
+.scroll-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.scroll-section.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.hero-text-wrapper {
+  text-align: center;
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  transform: translateY(-26vh);
+}
+
+/* Enhanced Name Animation */
+.hero-title {
+  font-size: 5rem;
+  margin: 0 0 2rem 0;
+  font-weight: bold;
+  background: linear-gradient(90deg, #d6c1ff, #AC94D6, #7c5da6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300%;
+  background-position: left;
+  transition: all 0.5s ease-in-out;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 0 30px rgba(172, 148, 214, 0.1);
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Name visibility states */
+.name-hidden {
+  opacity: 0;
+  transform: translateY(30px) scale(0.9);
+  filter: blur(5px);
+}
+
+.name-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+  animation: nameEntrance 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes nameEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+    filter: blur(5px);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateY(-5px) scale(1.02);
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
 
 .hero-subtitle {
   font-size: 2rem;
@@ -215,14 +393,11 @@ body::after {
   position: relative;
   z-index: 1;
   line-height: 1.4;
-  min-height: 8.4rem; /* Fixed height for 3 lines (2rem * 1.4 * 3) */
+  min-height: 8.4rem;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   text-align: center;
-  word-wrap: normal; /* Prevent automatic word wrapping */
-  overflow-wrap: normal; /* Prevent breaking words */
-  max-width: none; /* Remove any width constraints */
 }
 
 /* Hover effect for title and subtitle */
@@ -237,11 +412,11 @@ body::after {
   justify-content: center;
   gap: 2rem;
   max-width: 1200px;
-  margin: 10rem auto 0; /* Increased top margin from 6rem to 10rem for more gap */
+  margin: 10rem auto 0;
   padding: 0 2rem;
   z-index: 2;
   position: absolute;
-  bottom: 30%; /* Adjusted from 35% to 30% to accommodate the increased gap */
+  bottom: 30%;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
@@ -259,11 +434,22 @@ body::after {
   position: relative;
   overflow: hidden;
   flex: 1;
-  max-width: 220px; /* Constrain tile width for single row */
+  max-width: 220px;
   min-width: 180px;
 }
 
 .tile::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(172, 148, 214, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.tile:.tile::before {
   content: "";
   position: absolute;
   top: 0;
@@ -314,16 +500,40 @@ body::after {
   opacity: 0.9;
 }
 
-/* Call to Action Section - Adjusted for extended page */
+/* CTA Section Wrapper - Always visible when section >= 2 */
+.cta-section-wrapper {
+  z-index: 2;
+  position: fixed !important; /* Override scroll-section positioning */
+}
+
+.cta-section-wrapper.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Call to Action Section - Updated for scroll */
 .cta-section {
-  position: absolute;
-  bottom: 10%; /* Adjusted from -20% to 10% to be visible within the extended height */
-  left: 50%;
-  transform: translateX(-50%);
   text-align: center;
   max-width: 700px;
   padding: 0 2rem;
-  z-index: 2;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.cta-section-wrapper.active .cta-section {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .cta-headline {
@@ -354,6 +564,62 @@ body::after {
   opacity: 0.9;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: fixed;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.scroll-dots {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(172, 148, 214, 0.3);
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: #AC94D6;
+  transform: scale(1.2);
+  box-shadow: 0 0 10px rgba(172, 148, 214, 0.5);
+}
+
+.scroll-hint {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: 'Bahnschrift Condensed', sans-serif;
+  margin-top: 15px;
+  opacity: 0;
+  animation: fadeInHint 2s ease-out 3s forwards;
+}
+
+@keyframes fadeInHint {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .typewriter .cursor {
   display: inline-block;
   margin-left: 2px;
@@ -375,7 +641,7 @@ body::after {
   }
 }
 
-/* Hamburger Menu Styles - Increased z-index */
+/* Hamburger Menu Styles */
 .hamburger-menu {
   position: fixed;
   top: 30px;
@@ -384,7 +650,7 @@ body::after {
   flex-direction: column;
   gap: 4px;
   cursor: pointer;
-  z-index: 101; /* Ensure hamburger is always clickable */
+  z-index: 101;
   transition: all 0.3s ease;
 }
 
@@ -409,7 +675,7 @@ body::after {
   transform: rotate(-45deg) translate(7px, -6px);
 }
 
-/* Navbar Styles - Updated for full height */
+/* Navbar Styles */
 .navbar {
   position: fixed;
   top: 0;
@@ -424,7 +690,7 @@ body::after {
   align-items: center;
   transform: translateX(-100%);
   transition: transform 0.3s ease-in-out;
-  z-index: 90; /* High but below hamburger */
+  z-index: 90;
   box-shadow: 5px 0 30px rgba(0, 0, 0, 0.3);
   overflow-y: auto;
 }
@@ -442,7 +708,7 @@ body::after {
   margin: 0;
   align-items: flex-start;
   width: 100%;
-  padding-top: 40px; /* Space for hamburger menu */
+  padding-top: 40px;
 }
 
 .nav-links li a {
@@ -483,7 +749,7 @@ body::after {
   -webkit-text-fill-color: transparent;
 }
 
-/* Current Section Title - with fade-in animation */
+/* Current Section Title */
 .section-name {
   position: fixed;
   top: 26px;
@@ -510,610 +776,213 @@ body::after {
   }
 }
 
-/* Ensure links are clickable */
-a, button, .hamburger-menu {
-  cursor: pointer;
-  position: relative;
-  z-index: 100;
+/* HOME PAGE CHIBI - SLIDE IN FROM LEFT */
+.chibi-sticker-container-home {
+  position: fixed;
+  left: 50px;
+  top: 60%;
+  transform: translateY(-50%) translateX(-200px);
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0;
 }
 
-/* Gradient Background for Hero Section */
-.hero-section.gradient-background {
-  background: linear-gradient(135deg, rgba(30, 25, 40, 0.95), rgba(20, 15, 30, 0.95));
-  backdrop-filter: blur(3px);
-  border-left: 2px solid rgba(172, 148, 214, 0.08);
-  border-right: 2px solid rgba(172, 148, 214, 0.08);
-  box-shadow: 0 0 25px rgba(172, 148, 214, 0.05);
-}
-
-/* HERO BACKGROUND IMAGE */
-.hero-bg-container {
-  position: fixed;           /* Changed from absolute to fixed */
-  inset: 0;
-  overflow: hidden;
-  z-index: -2;
-  width: 100%;
-  height: 100%;
-}
-
-.hero-bg-container::before,
-.hero-bg-container::after {
-  content: "";
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  filter: blur(60px);
-  z-index: -1;
+.chibi-sticker-container-home.slide-in {
   opacity: 1;
+  transform: translateY(-50%) translateX(0);
+  transition: all 1s ease-out;
 }
 
-.hero-bg-container::before {
-  top: 15px;
-  left: 15px;
-  background: radial-gradient(circle, #d6c1ff, transparent);
-}
-
-.hero-bg-container::after {
-  bottom: 15px;
-  right: 15px;
-  background: radial-gradient(circle, #b5a1d1, transparent);
-}
-
-.hero-bg-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;              /* This crops the image */
-  opacity: 0.9;
-  animation: bgFloat 35s ease-in-out infinite, glowPulse 5s ease-in-out infinite;
-  filter: brightness(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
-}
-
-.hero-overlay {
+.chibi-sticker-container-home .dialogue-bubble {
   position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5); /* Black overlay */
-  z-index: 1;
+  left: 50px;
+  top: -60px;
+  background: rgba(20, 15, 30, 0.95);
+  border: 2px solid rgba(172, 148, 214, 0.4);
+  border-radius: 12px;
+  padding: 8px 12px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  min-width: 180px;
+  animation: bubbleFloat 3s ease-in-out infinite;
 }
 
-/* Subtle Floating Animation */
-@keyframes bgFloat {
-  0% {
-    transform: scale(1) translate(0px, 0px);
-  }
-  50% {
-    transform: scale(1.03) translate(-10px, 10px);
-  }
-  100% {
-    transform: scale(1) translate(0px, 0px);
-  }
+.chibi-sticker-container-home .dialogue-bubble p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #ffffff;
+  font-family: 'Bahnschrift Condensed', sans-serif;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.3;
+  background: linear-gradient(135deg, #d6c1ff, #AC94D6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Breathing Glow Animation */
-@keyframes glowPulse {
-  0%, 100% {
-    filter: brightness(0.5) drop-shadow(0 0 10px rgba(172, 148, 214, 0.2));
-  }
-  50% {
-    filter: brightness(1.15) drop-shadow(0 0 30px rgba(126, 107, 159, 0.8));
-  }
+.chibi-sticker-container-home .bubble-arrow {
+  position: absolute;
+  bottom: -8px;
+  right: 150px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid rgba(172, 148, 214, 0.4);
 }
 
-/* Tablets (768px and below) */
-@media (max-width: 768px) {
-  .hero-bg-image {
-    transform: scale(1.1);
-  }
-
-  @keyframes bgFloat {
-    0% {
-      transform: scale(1.1) translate(0px, 0px);
-    }
-    50% {
-      transform: scale(1.15) translate(-5px, 5px);
-    }
-    100% {
-      transform: scale(1.1) translate(0px, 0px);
-    }
-  }
-
-  .hero-title {
-    font-size: 2.5rem; /* Reduced from 3rem */
-    height: 2.5rem;
-    margin-bottom: 1rem; /* Reduced margin */
-  }
-
-  .hero-subtitle {
-    font-size: 1.2rem; /* Reduced from 1.4rem */
-    min-height: 5.04rem; /* Adjust for new size */
-    line-height: 1.3; /* Tighter line height */
-  }
-
-  .hero-text-wrapper {
-    transform: translateY(20vh); /* MOVED DOWN to center on screen */
-    max-width: 95%; /* More responsive width */
-  }
-
-  .personality-tiles {
-    flex-wrap: wrap;
-    gap: 0.8rem; /* Reduced gap */
-    margin: 20rem auto 0; /* MASSIVELY INCREASED top margin from 8rem to 15rem */
-    position: relative;
-    bottom: auto;
-    left: auto;
-    transform: none;
-    padding: 0 1rem; /* Reduced padding */
-  }
-
-  .tile {
-    flex: 1 1 calc(50% - 0.4rem); /* Adjusted for smaller gap */
-    max-width: none;
-    min-width: 140px; /* Reduced min-width */
-    padding: 1rem 0.8rem; /* Reduced padding */
-  }
-
-  .tile-icon {
-    font-size: 2rem; /* Reduced size */
-    margin-bottom: 0.8rem; /* Reduced margin */
-  }
-
-  .tile h3 {
-    font-size: 1rem; /* Reduced size */
-    margin-bottom: 0.3rem;
-  }
-
-  .tile p {
-    font-size: 0.8rem; /* Smaller text */
-    line-height: 1.3;
-  }
-
-  .cta-section {
-    position: relative;
-    bottom: auto;
-    left: auto;
-    transform: none;
-    margin: 2rem auto 0; /* Reduced margin */
-    max-width: 95%;
-    padding: 0 1rem; /* Reduced padding */
-  }
-
-  .cta-headline {
-    font-size: 1.8rem; /* Reduced from 2rem */
-    margin-bottom: 1rem; /* Reduced margin */
-  }
-
-  .cta-text {
-    font-size: 1rem; /* Reduced from 1.1rem */
-    line-height: 1.5; /* Tighter line height */
-  }
-
-  .hamburger-menu {
-    top: 15px; /* Reduced from 20px */
-    left: 12px; /* Reduced from 15px */
-  }
-
-  .hamburger-menu .bar {
-    width: 22px; /* Slightly smaller */
-    height: 2.5px;
-  }
-
-  .section-name {
-    top: 18px; /* Adjusted position */
-    left: 55px;
-    font-size: 15px; /* Reduced from 16px */
-  }
-
-  .navbar {
-    width: 50%; /* Reduced from 85% */
-  }
-
-  .nav-links {
-    gap: 16px; /* Reduced from 20px */
-    padding-top: 60px; /* Reduced from 70px */
-  }
-
-  .nav-links li a {
-    font-size: 13px; /* Reduced from 14px */
-    margin-left: 18px; /* Reduced from 20px */
-    padding: 8px 0; /* Reduced padding */
-  }
-
-  .hero-section {
-    height: auto;
-    padding: 200px 15px 30px; /* MASSIVELY INCREASED top padding from 120px to 200px */
-    margin-top: 150px; /* GREATLY INCREASED top margin from 80px to 150px */
-  }
-
-  .hero-bg-image {
-    object-position: center;
-    width: 115%; /* Reduced from 120% */
-    object-fit: cover;
-  }
-
-  /* Reduce floating particle sizes on tablet */
-  .hero-section::before {
-    width: 100px; /* Reduced from 150px */
-    height: 100px;
-    top: 10%;
-    right: 5%;
-  }
-
-  .hero-section::after {
-    width: 70px; /* Reduced from 100px */
-    height: 70px;
-    bottom: 10%;
-    left: 10%;
-  }
+.chibi-sticker-container-home .bubble-arrow::before {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: -6px;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid rgba(20, 15, 30, 0.95);
 }
 
-/* Further optimizations for very small screens (480px and below) */
-@media (max-width: 480px) {
-  .hero-bg-image {
-    transform: scale(1.0);
-  }
-
-  @keyframes bgFloat {
-    0% {
-      transform: scale(1.0) translate(0px, 0px);
-    }
-    50% {
-      transform: scale(1.05) translate(-3px, 3px);
-    }
-    100% {
-      transform: scale(1.0) translate(0px, 0px);
-    }
-  }
-
-  .hero-title {
-    font-size: 1.8rem; /* Much smaller for mobile */
-    height: 1.8rem;
-    margin-bottom: 0.8rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1rem; /* Compact size */
-    min-height: 3.9rem; /* Adjusted for new size */
-    line-height: 1.25; /* Very tight line height */
-  }
-
-  .hero-text-wrapper {
-    transform: translateY(15vh); /* MOVED DOWN to center on screen */
-    max-width: 98%;
-    padding: 0 10px;
-  }
-
-  .personality-tiles {
-    flex-direction: column;
-    gap: 0.6rem; /* Very small gap */
-    margin: 18rem auto 0; /* MASSIVELY INCREASED top margin from 6rem to 12rem */
-    padding: 0 0.8rem;
-  }
-
-  .tile {
-    flex: none;
-    max-width: none;
-    padding: 0.8rem 0.6rem; /* Very compact padding */
-    border-radius: 12px; /* Smaller border radius */
-  }
-
-  .tile-icon {
-    font-size: 1.6rem; /* Much smaller */
-    margin-bottom: 0.6rem;
-  }
-
-  .tile h3 {
-    font-size: 0.9rem; /* Very compact */
-    margin-bottom: 0.2rem;
-  }
-
-  .tile p {
-    font-size: 0.75rem; /* Very small text */
-    line-height: 1.2;
-  }
-
-  .cta-section {
-    margin: 2rem auto 0; /* MASSIVELY INCREASED margin from 6rem to 12rem */
-    padding: 0 0.8rem;
-  }
-
-  .cta-headline {
-    font-size: 1.4rem; /* Much smaller */
-    margin-bottom: 0.8rem;
-  }
-
-  .cta-text {
-    font-size: 0.9rem; /* Compact text */
-    line-height: 1.4;
-  }
-
-  .hamburger-menu {
-    top: 12px; /* Closer to top */
-    left: 10px;
-  }
-
-  .hamburger-menu .bar {
-    width: 18px; /* Much smaller */
-    height: 2px;
-    gap: 3px; /* Reduced gap between bars */
-  }
-
-  .section-name {
-    top: 15px;
-    left: 45px; /* Adjusted for smaller hamburger */
-    font-size: 12px; /* Much smaller */
-  }
-
-  .navbar {
-    width: 50%; /* Slightly larger for touch targets */
-  }
-
-  .nav-links {
-    gap: 18px; /* Very compact */
-    padding-top: 50px;
-  }
-
-  .nav-links li a {
-    font-size: 12px; /* Very small */
-    margin-left: 12px;
-    padding: 6px 0;
-  }
-
-  .hero-section {
-    padding: 180px 10px 20px; /* MASSIVELY INCREASED top padding from 100px to 180px */
-    margin-top: 120px; /* GREATLY INCREASED top margin from 60px to 120px */
-    min-height: 100vh; /* Ensure full viewport coverage */
-  }
-
-  .hero-bg-image {
-    width: 110%; /* Slightly reduced */
-  }
-
-  /* Hide floating particles on very small screens to reduce clutter */
-  .hero-section::before,
-  .hero-section::after {
-    display: none;
-  }
-
-  /* Reduce background pattern intensity on mobile */
-  body::after {
-    background-size: 20px 20px; /* Smaller grid pattern */
-    opacity: 0.3; /* Reduced opacity */
-  }
+.chibi-sticker-container-home .chibi-sticker {
+  position: relative;
 }
 
-/* Extra small screens (360px and below) */
-@media (max-width: 360px) {
-  .hero-title {
-    font-size: 1.5rem;
-    height: 1.5rem;
-    margin-bottom: 0.6rem;
-  }
-
-  .hero-subtitle {
-    font-size: 0.9rem;
-    min-height: 3.375rem;
-    line-height: 1.2;
-  }
-
-  .hero-text-wrapper {
-    transform: translateY(10vh); /* MOVED DOWN to center on screen */
-    padding: 0 5px;
-  }
-
-  .tile {
-    padding: 0.6rem 0.4rem;
-    border-radius: 10px;
-  }
-
-  .tile-icon {
-    font-size: 1.4rem;
-    margin-bottom: 0.4rem;
-  }
-
-  .tile h3 {
-    font-size: 0.8rem;
-    margin-bottom: 0.1rem;
-  }
-
-  .tile p {
-    font-size: 0.7rem;
-    line-height: 1.1;
-  }
-
-  .cta-headline {
-    font-size: 1.2rem;
-    margin-bottom: 0.6rem;
-  }
-
-  .cta-text {
-    font-size: 0.8rem;
-    line-height: 1.3;
-  }
-
-  .hamburger-menu .bar {
-    width: 16px;
-    height: 1.5px;
-  }
-
-  .section-name {
-    font-size: 11px;
-    left: 40px;
-  }
-
-  .nav-links li a {
-    font-size: 11px;
-    margin-left: 10px;
-    padding: 5px 0;
-  }
-
-  .hero-section {
-    padding: 160px 8px 15px; /* MASSIVELY INCREASED top padding from 80px to 160px */
-    margin-top: 80px; /* INCREASED top margin from 40px to 80px */
-  }
-
-  /* Further reduce background elements for minimal clutter */
-  body::before {
-    opacity: 0.7; /* Reduce background gradient intensity */
-  }
-
-  body::after {
-    background-size: 15px 15px; /* Even smaller grid */
-    opacity: 0.2;
-  }
+.chibi-sticker-container-home .chibi-image {
+  width: 80px;
+  height: auto;
+  filter: none;
+  transition: none;
 }
 
-/* Landscape orientation optimizations for mobile */
-@media (max-width: 768px) and (orientation: landscape) {
-  .hero-section {
-    padding: 120px 15px 10px; /* MASSIVELY INCREASED top padding from 60px to 120px */
-    margin-top: 60px; /* DOUBLED top margin from 30px to 60px */
-    height: auto;
-    min-height: 100vh;
-  }
-
-  .hero-text-wrapper {
-    transform: translateY(5vh); /* MOVED DOWN to center better on screen */
-  }
-
-  .hero-title {
-    font-size: 2rem;
-    height: 2rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1rem;
-    min-height: 3rem;
-    line-height: 1.2;
-  }
-
-  .personality-tiles {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin: 12rem auto 0; /* MASSIVELY INCREASED margin from 4rem to 8rem */
-    justify-content: center;
-  }
-
-  .tile {
-    flex: 1 1 calc(33.33% - 0.33rem); /* Three tiles per row in landscape */
-    max-width: 150px;
-    min-width: 120px;
-    padding: 0.8rem 0.5rem;
-  }
-
-  .cta-section {
-    margin: 4rem auto 0; /* MASSIVELY INCREASED margin from 4rem to 8rem */
-  }
-
-  .cta-headline {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .cta-text {
-    font-size: 0.9rem;
-  }
-}
-
-/* High DPI / Retina display optimizations */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .hero-bg-image {
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
-  }
-
-  /* Ensure text remains crisp on high DPI displays */
-  .hero-title,
-  .hero-subtitle,
-  .tile h3,
-  .cta-headline {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-}
-
-/* Reduce motion for users who prefer it */
-@media (prefers-reduced-motion: reduce) {
-  .hero-bg-image,
-  .hero-section::before,
-  .hero-section::after,
-  .tile-icon {
-    animation: none;
-  }
-
-  .hero-title,
-  .hero-subtitle,
-  .tile,
-  .nav-links li a {
-    transition: none;
-  }
-}
-
-/* Dark mode optimizations for mobile */
-@media (prefers-color-scheme: dark) and (max-width: 768px) {
-  .hero-overlay {
-    background: rgba(0, 0, 0, 0.6); /* Slightly darker overlay for better contrast */
-  }
-
-  .tile {
-    background: rgba(25, 20, 35, 0.9); /* Darker tile background */
-    border-color: rgba(172, 148, 214, 0.3);
-  }
-
-  .tile p {
-    color: #d0d0d0; /* Lighter text for better readability */
-  }
-}
-
-/* Remove blue highlight on tap/click for all elements */
-* {
-  -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  outline: none;
-}
-
-/* Remove focus outline for interactive elements */
-button,
-a,
-input,
-textarea,
-select,
-.tile,
-.nav-links li a,
-.hamburger-menu {
-  -webkit-tap-highlight-color: transparent;
-  outline: none;
-  border: none;
-}
-
-/* Remove blue selection highlight */
+/* Text Selection Styles */
 ::selection {
-  background: transparent;
+  background: rgba(172, 148, 214, 0.3);
+  color: #ffffff;
 }
 
 ::-moz-selection {
-  background: transparent;
+  background: rgba(172, 148, 214, 0.3);
+  color: #ffffff;
 }
 
-/* Specifically target common clickable elements */
-.personality-tiles .tile,
-.cta-section,
-.navbar a,
-.hamburger-menu {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  -webkit-focus-ring-color: rgba(0, 0, 0, 0);
-  outline: none;
+/* Original Chibi Sticker (for other pages) */
+.chibi-sticker-container {
+  position: fixed;
+  left: 50px;
+  top: 60%;
+  transform: translateY(-50%);
+  z-index: 60;
+  pointer-events: none;
 }
 
-/* For iOS Safari specifically */
-@supports (-webkit-touch-callout: none) {
-  * {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+.chibi-sticker {
+  position: relative;
+}
+
+.chibi-image {
+  width: 80px;
+  height: auto;
+  filter: none;
+  transition: none;
+}
+
+.dialogue-bubble {
+  position: absolute;
+  left: 50px;
+  top: -60px;
+  background: rgba(20, 15, 30, 0.95);
+  border: 2px solid rgba(172, 148, 214, 0.4);
+  border-radius: 12px;
+  padding: 8px 12px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  min-width: 180px;
+  animation: bubbleFloat 3s ease-in-out infinite;
+}
+
+.dialogue-bubble p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #ffffff;
+  font-family: 'Bahnschrift Condensed', sans-serif;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.3;
+  background: linear-gradient(135deg, #d6c1ff, #AC94D6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bubble-arrow {
+  position: absolute;
+  bottom: -8px;
+  right: 150px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid rgba(172, 148, 214, 0.4);
+}
+
+.bubble-arrow::before {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: -6px;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid rgba(20, 15, 30, 0.95);
+}
+
+/* Floating animations */
+@keyframes bubbleFloat {
+  0%, 100% {
+    transform: translateY(1px);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+/* Hide when main content is blurred (menu open) */
+.main-content.blurred .chibi-sticker-container {
+  opacity: 0.3;
+  transform: translateY(-50%) scale(0.8);
+  transition: all 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .chibi-sticker-container,
+  .chibi-sticker-container-home {
+    left: 20px;
+    top: 65%;
+  }
+  
+  .chibi-image {
+    width: 60px;
+  }
+  
+  .dialogue-bubble {
+    left: 70px;
+    min-width: 150px;
+    padding: 6px 8px;
+  }
+  
+  .dialogue-bubble p {
+    font-size: 0.75rem;
+  }
+  
+  .bubble-arrow {
+    right: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .chibi-sticker-container,
+  .chibi-sticker-container-home {
+    display: none;
   }
 }

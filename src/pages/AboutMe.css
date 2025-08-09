@@ -1,19 +1,118 @@
-/* Enhanced Background and Base Styles */
+/* Desktop About Page Styles - For screens 769px and above */
+
+/* Enhanced Background and Base Styles with Animated Grid */
 .about-section {
     padding-top: 30px;
     text-align: center;
-    background-color: transparent; /* Changed from solid color to transparent */
+    background-color: transparent;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     padding-bottom: 150px;
     position: relative;
     z-index: 0;
+    overflow: hidden;
+    min-height: 100vh;
 }
 
-/* Particle effects specific to About page */
+/* Animated Grid Background */
 .about-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(172, 148, 214, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(172, 148, 214, 0.1) 1px, transparent 1px);
+    background-size: 80px 80px;
+    z-index: -3;
+    animation: gridShift 20s linear infinite;
+}
+
+/* Moving light fragments on horizontal lines */
+.about-section::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            transparent 79px,
+            rgba(214, 193, 255, 0) 79px,
+            rgba(214, 193, 255, 0.8) 80px,
+            rgba(172, 148, 214, 1) 81px,
+            rgba(214, 193, 255, 0.8) 82px,
+            rgba(214, 193, 255, 0) 83px,
+            transparent 83px,
+            transparent 159px
+        );
+    background-size: 100% 80px;
+    z-index: -4;
+    animation: lightTravelHorizontal 8s linear infinite;
+    filter: blur(0.5px);
+}
+
+/* Vertical traveling lights */
+.about-section .vertical-lights {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(
+            90deg,
+            transparent 0px,
+            transparent 79px,
+            rgba(172, 148, 214, 0) 79px,
+            rgba(172, 148, 214, 0.6) 80px,
+            rgba(214, 193, 255, 0.8) 81px,
+            rgba(172, 148, 214, 0.6) 82px,
+            rgba(172, 148, 214, 0) 83px,
+            transparent 83px,
+            transparent 159px
+        );
+    background-size: 80px 100%;
+    z-index: -4;
+    animation: lightTravelVertical 12s linear infinite;
+    filter: blur(0.5px);
+}
+
+/* Glowing Vignette Corners */
+.about-section .corner-glow-1,
+.about-section .corner-glow-2 {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: -1;
+    opacity: 0.5;
+    animation: glowPulse 5s infinite alternate;
+}
+
+.about-section .corner-glow-1 {
+    top: -50px;
+    left: -50px;
+    background: radial-gradient(circle, #d6c1ff, transparent);
+}
+
+.about-section .corner-glow-2 {
+    bottom: -50px;
+    right: -50px;
+    background: radial-gradient(circle, #7c5da6, transparent);
+}
+
+/* Floating radial particles */
+.particle1 {
     content: "";
     position: absolute;
     top: 15%;
@@ -27,7 +126,7 @@
     z-index: -1;
 }
 
-.about-section::after {
+.particle2 {
     content: "";
     position: absolute;
     bottom: 25%;
@@ -41,13 +140,106 @@
     z-index: -1;
 }
 
+/* Grid and light animations */
+@keyframes gridShift {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(80px, 80px); }
+}
+
+@keyframes lightTravelHorizontal {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+@keyframes lightTravelVertical {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
 @keyframes float {
     0% { transform: translateY(0) rotate(0deg); opacity: 0.3; }
     50% { transform: translateY(-15px) rotate(180deg); opacity: 0.6; }
     100% { transform: translateY(0) rotate(360deg); opacity: 0.3; }
 }
 
-/* Enhanced Title Styles */
+@keyframes glowPulse {
+    0%, 100% {
+        opacity: 0.4;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* SCROLL ANIMATION KEYFRAMES */
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInFromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* SCROLL ANIMATION CLASSES */
+.scroll-animate {
+    opacity: 0;
+    transition: none;
+}
+
+.scroll-animate.animate {
+    animation-duration: 0.8s;
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation-fill-mode: both;
+}
+
+/* Enhanced Title Styles with Animation - Updated to match Projects.css */
 .section-title {
     font-size: 2.2rem;
     font-family: 'Arial Black', Gadget, sans-serif;
@@ -59,16 +251,24 @@
     margin-left: 20px;
     position: relative;
     text-shadow: 0 0 30px rgba(172, 148, 214, 0.15);
+    z-index: 10;
+    opacity: 0; /* Start hidden for animation */
 }
 
+.section-title.scroll-animate.animate {
+    animation-name: slideInFromLeft;
+}
+
+/* Updated animated underline to match Projects.css */
 .section-title::after {
     content: '';
     position: absolute;
-    bottom: -5px;
+    bottom: -8px;
     left: 0;
-    width: 60px;
+    width: 0;
     height: 2px;
-    background: linear-gradient(90deg, #d6c1ff, transparent);
+    background: linear-gradient(90deg, transparent, #d6c1ff, transparent);
+    animation: titleUnderlineExpand 1s ease-out 0.5s forwards;
 }
 
 .skills-title, .education-title {
@@ -78,23 +278,28 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 20px;
-    text-align: left;
+    text-align: center;
     margin-left: 0px;
     position: relative;
     text-shadow: 0 0 30px rgba(172, 148, 214, 0.15);
+    z-index: 10;
+    opacity: 0; /* Start hidden for animation */
 }
 
+/* Updated animated underlines for skills and education titles */
 .skills-title::after, .education-title::after {
     content: '';
     position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 40px;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
     height: 2px;
-    background: linear-gradient(90deg, #d6c1ff, transparent);
+    background: linear-gradient(90deg, transparent, #d6c1ff, transparent);
+    animation: titleUnderlineExpand 1s ease-out 0.5s forwards;
 }
 
-/* Enhanced Content Styles */
+/* Enhanced Content Styles with Background Blur and Animation */
 .about-content {
     font-size: 1.3rem;
     color: #ffffff;
@@ -104,24 +309,45 @@
     margin: 0 auto;
     padding: 20px;
     text-align: center;
-    background: rgba(20, 15, 30, 0.3);
+    background: rgba(20, 15, 30, 0.85);
     border-radius: 8px;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(20px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border-left: 1px solid rgba(172, 148, 214, 0.1);
-    border-top: 1px solid rgba(172, 148, 214, 0.1);
+    border-left: 1px solid rgba(172, 148, 214, 0.3);
+    border-top: 1px solid rgba(172, 148, 214, 0.3);
+    z-index: 10;
+    position: relative;
+}
+
+.about-content.scroll-animate.animate {
+    animation-name: fadeInScale;
+}
+
+/* Enhanced blur mask behind the about content */
+.about-content::after {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    z-index: -1;
 }
 
 /* Content Container with Enhanced Styling */
 .content-container {
     display: flex;
-    justify-content: space-between;
-    gap: 200px;
-    margin-top: 50px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1040px;
     position: relative;
-    z-index: 1;
+    z-index: 10;
 }
 
 .skills-section,
@@ -131,19 +357,216 @@
     text-align: left;
     margin-top: 60px;
     margin-left: -10px;
-    background: rgba(20, 15, 30, 0.3);
+    background: rgba(20, 15, 30, 0.85);
     border-radius: 8px;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(20px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border-left: 1px solid rgba(172, 148, 214, 0.1);
-    border-top: 1px solid rgba(172, 148, 214, 0.1);
+    border-left: 1px solid rgba(172, 148, 214, 0.3);
+    border-top: 1px solid rgba(172, 148, 214, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 10;
+    position: relative;
+}
+
+/* Enhanced blur mask behind the skills and education sections */
+.skills-section::after,
+.education-section::after {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 12px;
+    z-index: -1;
 }
 
 .skills-section:hover,
 .education-section:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Education Main Title with Animation - Updated */
+.education-main-title {
+    font-size: 2rem;
+    font-family: 'Arial Black', Gadget, sans-serif;
+    background: linear-gradient(135deg, #d6c1ff, #AC94D6, #7c5da6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+    text-align: center;
+    position: relative;
+    text-shadow: 0 0 30px rgba(172, 148, 214, 0.15);
+    width: 100%;
+    z-index: 10;
+    opacity: 0; /* Start hidden for animation */
+}
+
+.education-main-title.scroll-animate.animate {
+    animation-name: slideInFromTop;
+}
+
+/* Updated animated underline for education main title */
+.education-main-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #d6c1ff, transparent);
+    animation: titleUnderlineExpand 1s ease-out 0.5s forwards;
+}
+
+/* Add the keyframe animation from Projects.css */
+@keyframes titleUnderlineExpand {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 80px;
+    }
+}
+
+/* Updated Education Grid Layout - Single VIT Container */
+.education-grid {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.education-item {
+    padding: 40px;
+    background: rgba(25, 20, 35, 0.8);
+    border-radius: 8px;
+    border: 1px solid rgba(172, 148, 214, 0.25);
+    transition: all 0.3s ease;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 800px; /* Increased horizontal length */
+    overflow: hidden; /* Ensure background image doesn't overflow */
+}
+
+/* VIT Education Item with Background Image */
+.education-item.vit-education {
+    background-image: url('../assets/vit.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+/* Black overlay on VIT education item */
+.education-item.vit-education::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Black overlay with 70% opacity */
+    z-index: 1;
+}
+
+/* Ensure text appears above the overlay */
+.education-item.vit-education .education-degree,
+.education-item.vit-education .education-details {
+    position: relative;
+    z-index: 2;
+}
+
+.education-item.scroll-animate.animate {
+    animation-name: slideInFromBottom;
+}
+
+.education-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(172, 148, 214, 0.1);
+    background: rgba(25, 20, 35, 0.9);
+}
+
+/* Special hover effect for VIT education item */
+.education-item.vit-education:hover {
+    background: rgba(25, 20, 35, 0.9);
+}
+
+/* Enhanced hover effect for VIT education item overlay */
+.education-item.vit-education:hover::before {
+    background: rgba(0, 0, 0, 0.6); /* Slightly lighter overlay on hover */
+}
+
+.education-degree {
+    font-size: 1.2rem; /* Slightly larger for better prominence */
+    font-family: 'Arial Black', Gadget, sans-serif;
+    background: linear-gradient(135deg, #d6c1ff, #AC94D6, #7c5da6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 15px; /* Increased margin */
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.education-details {
+    font-size: 1.1rem; /* Slightly larger for better readability */
+    color: rgba(255, 255, 255, 0.95); /* Slightly more opaque for better contrast */
+    font-family: 'Bahnschrift Condensed', sans-serif;
+    line-height: 1.6; /* Increased line height for better readability */
+    margin: 0;
+}
+
+/* Responsive adjustments for the new single education item */
+@media (max-width: 1024px) {
+    .education-item {
+        max-width: 90%;
+        padding: 30px;
+    }
+    
+    .education-degree {
+        font-size: 1.1rem;
+    }
+    
+    .education-details {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .education-item {
+        max-width: 95%;
+        padding: 25px;
+    }
+    
+    .education-degree {
+        font-size: 1rem;
+        margin-bottom: 12px;
+    }
+    
+    .education-details {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+}
+
+@media (max-width: 480px) {
+    .education-item {
+        padding: 20px;
+    }
+    
+    .education-degree {
+        font-size: 0.9rem;
+    }
+    
+    .education-details {
+        font-size: 0.9rem;
+    }
 }
 
 /* Lists Styling */
@@ -201,7 +624,7 @@
     font-size: 1.2rem;
 }
 
-/* Make sure this doesn't conflict with body styles in App.css */
+/* Base body styles */
 body {
     min-height: 100vh;
     margin: 0;
@@ -216,7 +639,6 @@ main {
 
 /* Add glossy highlight to cards */
 .skills-section::before,
-.education-section::before,
 .about-content::before {
     content: '';
     position: absolute;
@@ -229,109 +651,48 @@ main {
     z-index: -1;
 }
 
-/* Glowing Vignette Corners */
-.about-section::before,
-.about-section::after {
-    content: "";
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    filter: blur(80px);
-    z-index: -1;
-    opacity: 0.5;
-}
-
-.about-section::before {
-    top: -50px;
-    left: -50px;
-    background: radial-gradient(circle, #d6c1ff, transparent);
-}
-
-.about-section::after {
-    bottom: -50px;
-    right: -50px;
-    background: radial-gradient(circle, #7c5da6, transparent);
-}
-
-/* Optionally animate the glow for a smoother effect */
-@keyframes glowPulse {
-    0%, 100% {
-        opacity: 0.4;
-    }
-    50% {
-        opacity: 0.7;
-    }
-}
-
-.about-section::before,
-.about-section::after {
-    animation: glowPulse 5s infinite alternate;
-}
-
-/* Origin Story Section */
-.origin-story-section {
-    max-width: 900px;
-    margin: 80px auto 0;
-    padding: 40px 30px;
-    text-align: left;
-    background: rgba(20, 15, 30, 0.3);
-    border-radius: 12px;
-    backdrop-filter: blur(5px);
+/* Tech Stack Container Styles with Enhanced Backdrop Blur and Animation */
+.tech-stack-container {
+    width: 100%;
+    max-width: 1200px;
+    height: 240px;
+    margin: 90px auto 180px auto;
+    background: rgba(20, 15, 30, 0.85);
+    border-radius: 0px;
+    backdrop-filter: blur(20px);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-    border-left: 1px solid rgba(172, 148, 214, 0.1);
-    border-top: 1px solid rgba(172, 148, 214, 0.1);
+    border: 1px solid rgba(172, 148, 214, 0.3);
     position: relative;
+    overflow: hidden;
+    cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 10;
 }
 
-.origin-story-section:hover {
+.tech-stack-container.scroll-animate.animate {
+    animation-name: slideInFromRight;
+}
+
+/* Enhanced blur mask behind the tech stack container */
+.tech-stack-container::after {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    z-index: -1;
+}
+
+.tech-stack-container:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
-.origin-story-title {
-    font-size: 2.2rem;
-    font-family: 'Arial Black', Gadget, sans-serif;
-    background: linear-gradient(135deg, #d6c1ff, #AC94D6, #7c5da6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 30px;
-    text-align: center;
-    position: relative;
-    text-shadow: 0 0 30px rgba(172, 148, 214, 0.15);
-}
-
-.origin-story-title::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 2px;
-    background: linear-gradient(90deg, #d6c1ff, #AC94D6, transparent);
-}
-
-.origin-story-content {
-    font-size: 1.1rem;
-    color: #ffffff;
-    font-family: 'Bahnschrift Condensed', sans-serif;
-    line-height: 1.8;
-}
-
-.origin-story-content p {
-    margin-bottom: 20px;
-    opacity: 0.95;
-    transition: opacity 0.3s ease;
-}
-
-.origin-story-content p:hover {
-    opacity: 1;
-}
-
-/* Add glossy highlight to origin story card */
-.origin-story-section::before {
+.tech-stack-container::before {
     content: '';
     position: absolute;
     top: 0;
@@ -339,932 +700,507 @@ main {
     width: 100%;
     height: 30px;
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0.05), transparent);
-    border-radius: 12px 12px 0 0;
-    z-index: -1;
+    border-radius: 0px 0px 0 0;
+    z-index: 2;
+    pointer-events: none;
 }
 
-/* Floating Bubble - Cloud Dialog Style (Mobile Optimized) */
-.floating-bubble {
+.tech-stack-title {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 1.2rem;
+    font-family: 'Arial Black', Gadget, sans-serif;
+    background: linear-gradient(135deg, #d6c1ff, #AC94D6, #7c5da6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.tech-stack-instruction {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'Bahnschrift Condensed', sans-serif;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.tech-logo-container {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    will-change: transform;
+    contain: layout style paint;
+    user-select: none;
+    transition: z-index 0.1s ease;
+}
+
+.tech-logo-image {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    will-change: filter;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    pointer-events: none;
+}
+
+.tech-particle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(20px);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.tech-particle-1 {
+    top: 20%;
+    left: 10%;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, rgba(172, 148, 214, 0.05) 0%, transparent 70%);
+    animation: techFloat 8s infinite ease-in-out;
+}
+
+.tech-particle-2 {
+    bottom: 20%;
+    right: 15%;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, rgba(214, 193, 255, 0.04) 0%, transparent 70%);
+    filter: blur(25px);
+    animation: techFloat 10s infinite ease-in-out reverse;
+}
+
+.tech-stack-container:hover .tech-particle-1 {
+    animation: techFloat 2s infinite ease-in-out;
+}
+
+.tech-stack-container:hover .tech-particle-2 {
+    animation: techFloat 1.5s infinite ease-in-out reverse;
+}
+
+@keyframes techFloat {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0.3; }
+    50% { transform: translateY(-10px) rotate(180deg); opacity: 0.6; }
+    100% { transform: translateY(0) rotate(360deg); opacity: 0.3; }
+}
+
+/* Skills Popup Styles */
+.popup-overlay {
     position: fixed;
-    top: -10px;
-    right: -450px;
-    background: linear-gradient(135deg, rgba(172, 148, 214, 0.3), rgba(124, 93, 166, 0.3));
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    animation: popupFadeIn 0.3s ease-out;
+}
+
+.popup-content {
+    background: rgba(20, 15, 30, 0.95);
+    border: 1px solid rgba(172, 148, 214, 0.3);
+    border-radius: 0;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(172, 148, 214, 0.2);
-    border-radius: 25px;
-    padding: 15px 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    width: 90%;
+    max-height: none;
+    overflow-y: visible;
+    position: relative;
+    animation: popupSlideIn 0.3s ease-out;
+    padding: 0;
+}
+
+.popup-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.7);
     cursor: pointer;
-    z-index: 1000;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(172, 148, 214, 0.1);
-    animation: floatBubble 3s ease-in-out infinite;
+    z-index: 10001;
+    transition: color 0.3s ease, transform 0.2s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-close:hover {
+    color: #d6c1ff;
+    transform: scale(1.1);
+}
+
+.popup-skills-section {
+    padding: 40px 30px 30px;
+    text-align: left;
+}
+
+.popup-skills-title {
+    font-size: 2rem;
+    font-family: 'Arial Black', Gadget, sans-serif;
+    background: linear-gradient(135deg, #d6c1ff, #AC94D6, #7c5da6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 25px;
+    text-align: center;
+    position: relative;
+    text-shadow: 0 0 30px rgba(172, 148, 214, 0.15);
+}
+
+.popup-skills-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, #d6c1ff, #AC94D6);
+}
+
+.popup-skills-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: 'Bahnschrift SemiBold SemiCondensed', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.4;
+    color: #ffffff;
+}
+
+.popup-skills-list li {
+    margin-bottom: 8px;
+    position: relative;
+    padding: 4px 8px;
+    border-radius: 0;
+    border-left: none;
+    transition: none;
+}
+
+.popup-skills-list li:hover {
+    background: none;
+    border-left-color: transparent;
+    transform: none;
+}
+
+.popup-skills-list span {
+    font-weight: bold;
+    background: linear-gradient(135deg, #d6c1ff, #AC94D6, #7c5da6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     position: relative;
 }
 
-/* Cloud-like bumps around the bubble */
-.floating-bubble::before {
+.popup-skills-list span::after {
+    display: none;
+}
+
+.popup-skills-list li:hover span::after {
+    width: 0;
+}
+
+.popup-content::before {
     content: '';
     position: absolute;
-    top: -8px;
-    left: 15px;
-    width: 15px;
-    height: 15px;
-    background: linear-gradient(135deg, rgba(172, 148, 214, 0.3), rgba(124, 93, 166, 0.3));
-    border: 1px solid rgba(172, 148, 214, 0.2);
-    border-radius: 50%;
-    backdrop-filter: blur(10px);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), transparent);
+    border-radius: 0;
+    z-index: -1;
 }
 
-.floating-bubble::after {
+@keyframes popupFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes popupSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Updated My Image Section with Enhanced Backdrop Blur and Animation */
+.my-image-section {
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 145px;
+    padding-left: 0%;
+    z-index: 10;
+    position: relative;
+}
+
+.my-image-container {
+    position: relative;
+    display: inline-block;
+    border-radius: 0;
+    overflow: visible;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-left: 0px;
+    z-index: 10;
+}
+
+.my-image-container.scroll-animate.animate {
+    animation-name: slideInFromLeft;
+}
+
+.my-image-container:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.my-image {
+    width: auto;
+    height: auto;
+    max-width: 450px;
+    object-fit: contain;
+    display: block;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg, 
+        rgba(149, 128, 186, 0.3) 0%,
+        rgba(124, 93, 166, 0.4) 50%,
+        rgba(214, 193, 255, 0.2) 100%
+    );
+    mix-blend-mode: overlay;
+    pointer-events: none;
+}
+
+.my-image-container::before {
     content: '';
     position: absolute;
-    top: -5px;
-    right: 20px;
-    width: 12px;
-    height: 12px;
-    background: linear-gradient(135deg, rgba(172, 148, 214, 0.3), rgba(124, 93, 166, 0.3));
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, #d6c1ff, #AC94D6, #7c5da6);
+    border-radius: 0;
+    z-index: -1;
+    opacity: 0.5;
+    filter: blur(4px);
+}
+
+/* Text content beside image with Enhanced Background Blur and Animation */
+.image-text-content {
+    flex: 1;
+    max-width: 500px;
+    padding: 20px;
+    margin-left: 0px;
+    padding-right: 0px;
+    background: rgba(20, 15, 30, 0.85);
+    border-radius: 8px;
+    backdrop-filter: blur(20px);
     border: 1px solid rgba(172, 148, 214, 0.2);
-    border-radius: 50%;
-    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    position: relative;
 }
 
-/* Additional cloud bumps using box-shadow for more cloud-like appearance */
-.floating-bubble {
-    box-shadow: 
-        0 4px 15px rgba(172, 148, 214, 0.1),
-        -8px -8px 0 -5px rgba(172, 148, 214, 0.25),
-        8px -6px 0 -7px rgba(172, 148, 214, 0.2),
-        -12px 8px 0 -8px rgba(172, 148, 214, 0.15),
-        12px 6px 0 -6px rgba(172, 148, 214, 0.2);
+.image-text-content.scroll-animate.animate {
+    animation-name: slideInFromRight;
 }
 
-.floating-bubble:hover {
-    transform: translateY(-5px) scale(1.05);
-    background: linear-gradient(135deg, rgba(214, 193, 255, 0.4), rgba(172, 148, 214, 0.4));
+/* Enhanced blur mask behind the image text content */
+.image-text-content::after {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 12px;
+    z-index: -1;
 }
 
-.floating-bubble:hover::before {
-    background: linear-gradient(135deg, rgba(214, 193, 255, 0.4), rgba(172, 148, 214, 0.4));
-}
-
-.floating-bubble:hover::after {
-    background: linear-gradient(135deg, rgba(214, 193, 255, 0.4), rgba(172, 148, 214, 0.4));
-}
-
-.bubble-text {
-    color: #ffffff;
-    font-family: 'Arial Black', Gadget, sans-serif;
-    font-size: 0.9rem;
-    font-weight: bold;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-    white-space: nowrap;
-}
-
-@keyframes floatBubble {
-    0%, 100% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-8px);
-    }
-}
-
-/* Responsive Design for Tablets (768px and below) */
-@media (max-width: 768px) {
-    .about-section {
-      padding-top: 45px; /* Reduced from 60px */
-      padding-bottom: 50px; /* Reduced from 80px */
-      padding-left: 1rem;
-      padding-right: 1rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .content-container {
-      flex-direction: column;
-      gap: 15px; /* Reduced from 20px */
-      margin-top: 30px; /* Reduced from 40px */
-      width: 100%;
-      display: flex;
-      align-items: center;
-    }
-  
-    .skills-section,
-    .education-section {
-      margin-top: 0px;
-      margin-left: 0;
-      width: 95%; /* Use more screen space */
-      max-width: 500px; /* Increased max-width */
-      padding: 1.2rem; /* Reduced from 20px */
-      border-radius: 10px; /* Larger for better touch targets */
-    }
-
-    .skills-section::before,
-    .education-section::before,
-    .about-content::before {
-      height: 20px; /* Reduced from 30px */
-    }
-  
-    .about-content {
-      max-width: 95%; /* Use more screen space */
-      font-size: 0.95rem; /* Reduced from 1rem */
-      margin: 0 auto;
-      line-height: 1.5; /* Tighter from 1.6 */
-      padding: 1.2rem; /* Reduced from 20px */
-      border-radius: 10px;
-    }
-  
-    .skills-list li,
-    .education-list li {
-      font-size: 0.85rem; /* Reduced from 0.9rem */
-      margin-bottom: 10px; /* Reduced from 12px */
-      line-height: 1.6; /* Tighter line height */
-    }
-  
-    .section-title {
-      font-size: 1.4rem; /* Reduced from 1.6rem */
-      margin-left: 0;
-      text-align: center;
-      margin-bottom: 1.5rem; /* Reduced margin */
-    }
-
-    .section-title::after {
-      width: 45px; /* Reduced from 60px */
-    }
-  
-    .skills-title,
-    .education-title {
-      font-size: 1.2rem; /* Reduced from 1.4rem */
-      text-align: center;
-      margin-bottom: 1.2rem; /* Reduced margin */
-    }
-
-    .skills-title::after,
-    .education-title::after {
-      width: 30px; /* Reduced from 40px */
-    }
-  
-    .skills-list,
-    .education-list {
-      padding-left: 8px; /* Reduced from 10px */
-    }
-
-    /* MUCH SMALLER floating bubble positioned at top right corner */
-    .floating-bubble {
-      position: fixed; /* Changed to fixed for absolute top right positioning */
-      top: 15px; /* MOVED LOWER from 5px to 15px */
-      right: 5px; /* Close to very right edge of screen */
-      padding: 4px 8px; /* SIGNIFICANTLY REDUCED padding */
-      border-radius: 10px; /* Smaller radius */
-      transform: scale(0.5); /* MUCH SMALLER - half the size */
-      z-index: 1000; /* Ensure it stays on top */
-    }
-
-    .floating-bubble::before {
-      width: 6px; /* Much smaller cloud bumps */
-      height: 6px;
-      top: -3px;
-      left: 6px;
-    }
-
-    .floating-bubble::after {
-      width: 4px; /* Much smaller cloud bumps */
-      height: 4px;
-      top: -2px;
-      right: 8px;
-    }
-
-    .bubble-text {
-      font-size: 0.6rem; /* MUCH smaller text */
-      font-weight: normal; /* REMOVED bold styling for normal text weight */
-      white-space: nowrap; /* Prevent wrapping to keep it compact */
-      max-width: 60px; /* Much smaller width limit */
-      line-height: 1;
-    }
-
-    /* Reduce background particle sizes on tablet */
-    .about-section::before,
-    .about-section::after {
-      width: 120px; /* Reduced from 180px/150px */
-      height: 120px;
-    }
-
-    .about-section::before {
-      top: 10%;
-      right: 10%;
-      width: 100px;
-      height: 100px;
-    }
-
-    .about-section::after {
-      bottom: 15%;
-      left: 5%;
-      width: 80px;
-      height: 80px;
-    }
-
-    /* Origin Story optimizations for tablet */
-    .origin-story-section {
-        max-width: 95%;
-        margin: 40px auto 0; /* Reduced from 50px */
-        padding: 1.5rem; /* Reduced from 30px 20px */
-        border-radius: 10px;
-    }
-    
-    .origin-story-title {
-        font-size: 1.5rem; /* Reduced from 1.8rem */
-        margin-bottom: 1.5rem; /* Reduced from 30px */
-    }
-
-    .origin-story-title::after {
-      width: 60px; /* Reduced from 80px */
-    }
-    
-    .origin-story-content {
-        font-size: 0.95rem; /* Reduced from 1rem */
-        line-height: 1.5; /* Tighter from 1.6 */
-    }
-
-    .origin-story-content p {
-      margin-bottom: 15px; /* Reduced from 20px */
-    }
-
-    .origin-story-section::before {
-      height: 20px; /* Reduced highlight */
-    }
-  }
-  
-  /* Further optimizations for mobile screens (480px and below) */
-  @media (max-width: 480px) {
-    .about-section {
-      padding-top: 35px; /* Reduced from 50px */
-      padding-bottom: 35px; /* Reduced from 60px */
-      padding-left: 0.8rem;
-      padding-right: 0.8rem;
-    }
-
-    .section-title {
-      font-size: 1.2rem; /* Much smaller from 1.4rem */
-      margin-bottom: 1.2rem;
-    }
-
-    .section-title::after {
-      width: 35px; /* Much smaller underline */
-      height: 1.5px;
-    }
-
-    .skills-title,
-    .education-title {
-      font-size: 1rem; /* Much smaller from 1.3rem */
-      margin-bottom: 1rem;
-    }
-
-    .skills-title::after,
-    .education-title::after {
-      width: 20px; /* Much smaller underline */
-      height: 1px;
-    }
-
-    .skills-section,
-    .education-section {
-      width: 98%; /* Use almost full width */
-      max-width: none; /* Remove max-width constraint */
-      padding: 1rem; /* Compact padding */
-      margin-top: 0;
-    }
-
-    .skills-section::before,
-    .education-section::before,
-    .about-content::before {
-      height: 15px; /* Much smaller highlight */
-    }
-
-    .about-content {
-      font-size: 0.85rem; /* Much smaller from 0.95rem */
-      line-height: 1.4; /* Tight from 1.5 */
-      padding: 1rem;
-      border-radius: 8px;
-    }
-
-    .content-container {
-      gap: 10px; /* Much smaller gap */
-      margin-top: 20px; /* Reduced margin */
-    }
-
-    .skills-list li,
-    .education-list li {
-      font-size: 0.8rem; /* Much smaller from 0.85rem */
-      margin-bottom: 8px; /* Reduced spacing */
-      line-height: 1.4; /* Tight line height */
-    }
-
-    .education-list li span {
-      font-size: 0.9rem; /* Smaller than before */
-    }
-  
-    .skills-list,
-    .education-list {
-      padding-left: 5px; /* Minimal padding */
-    }
-
-    /* ULTRA COMPACT floating bubble for mobile at top right corner */
-    .floating-bubble {
-      position: fixed; /* Fixed positioning for absolute top right */
-      top: 12px; /* MOVED LOWER from 3px to 12px */
-      right: 3px; /* Very close to right edge */
-      padding: 2px 4px; /* EXTREMELY compact padding */
-      border-radius: 6px; /* Much smaller radius */
-      transform: scale(0.35); /* EXTREMELY small - about 1/3 size */
-      z-index: 1000; /* Ensure it stays on top */
-      box-shadow: 
-        0 1px 4px rgba(172, 148, 214, 0.1),
-        -2px -2px 0 -1px rgba(172, 148, 214, 0.1),
-        2px -2px 0 -1px rgba(172, 148, 214, 0.08),
-        -3px 2px 0 -2px rgba(172, 148, 214, 0.05),
-        3px 2px 0 -1px rgba(172, 148, 214, 0.08);
-    }
-
-    .floating-bubble::before {
-      width: 4px; /* Tiny cloud bumps */
-      height: 4px;
-      top: -2px;
-      left: 4px;
-    }
-
-    .floating-bubble::after {
-      width: 3px; /* Tiny cloud bumps */
-      height: 3px;
-      top: -1px;
-      right: 5px;
-    }
-
-    .bubble-text {
-      font-size: 0.5rem; /* EXTREMELY small text */
-      font-weight: normal; /* REMOVED bold styling for normal text weight */
-      max-width: 40px; /* Very compact width */
-      line-height: 0.9;
-      white-space: nowrap;
-    }
-
-    /* Hide background particles on very small screens to reduce clutter */
-    .about-section::before,
-    .about-section::after {
-      display: none;
-    }
-
-    /* Origin Story optimizations for mobile */
-    .origin-story-section {
-        max-width: 98%;
-        margin: 30px auto 0; /* Much reduced */
-        padding: 1rem; /* Compact padding */
-        border-radius: 8px;
-    }
-    
-    .origin-story-title {
-        font-size: 1.2rem; /* Much smaller */
-        margin-bottom: 1rem;
-    }
-
-    .origin-story-title::after {
-      width: 40px; /* Smaller underline */
-      height: 1.5px;
-    }
-    
-    .origin-story-content {
-        font-size: 0.85rem; /* Much smaller */
-        line-height: 1.4; /* Tight line height */
-    }
-
-    .origin-story-content p {
-      margin-bottom: 12px; /* Reduced spacing */
-    }
-
-    .origin-story-section::before {
-      height: 15px;
-    }
-  }
-
-/* Extra small screens (360px and below) */
-@media (max-width: 360px) {
-  .about-section {
-    padding-top: 30px;
-    padding-bottom: 30px;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-  }
-
-  .section-title {
-    font-size: 1.1rem; /* Very compact */
-    margin-bottom: 1rem;
-  }
-
-  .section-title::after {
-    width: 25px;
-    height: 1px;
-  }
-
-  .skills-title,
-  .education-title {
-    font-size: 0.9rem; /* Very small */
-    margin-bottom: 0.8rem;
-  }
-
-  .skills-title::after,
-  .education-title::after {
-    width: 15px;
-  }
-
-  .skills-section,
-  .education-section {
-    padding: 0.8rem;
-    border-radius: 6px;
-  }
-
-  .about-content {
-    font-size: 0.8rem;
-    line-height: 1.3;
-    padding: 0.8rem;
-  }
-
-  .content-container {
-    gap: 8px;
-    margin-top: 15px;
-  }
-
-  .skills-list li,
-  .education-list li {
-    font-size: 0.75rem;
-    margin-bottom: 6px;
-    line-height: 1.3;
-  }
-
-  .education-list li span {
-    font-size: 0.8rem;
-  }
-
-  .skills-list,
-  .education-list {
-    padding-left: 3px;
-  }
-
-  /* MINIMAL floating bubble for extra small screens */
-  .floating-bubble {
-    position: fixed; /* Fixed positioning for absolute top right */
-    top: 2px; /* Extremely close to top */
-    right: 2px; /* Extremely close to right edge */
-    padding: 1px 3px; /* MINIMAL padding */
-    border-radius: 4px; /* Very small radius */
-    transform: scale(0.25); /* EXTREMELY tiny - quarter size */
-    z-index: 1000;
-  }
-
-  .floating-bubble::before {
-    width: 3px; /* Tiny cloud bumps */
-    height: 3px;
-    top: -1.5px;
-    left: 3px;
-  }
-
-  .floating-bubble::after {
-    width: 2px; /* Tiny cloud bumps */
-    height: 2px;
-    top: -1px;
-    right: 4px;
-  }
-
-  .bubble-text {
-    font-size: 0.4rem; /* EXTREMELY tiny text */
-    max-width: 30px;
-    white-space: nowrap;
-    line-height: 0.8;
-  }
-
-  /* Origin Story for extra small screens */
-  .origin-story-section {
-      max-width: 98%;
-      margin: 25px auto 0;
-      padding: 0.8rem;
-      border-radius: 6px;
-  }
-  
-  .origin-story-title {
-      font-size: 1.1rem;
-      margin-bottom: 0.8rem;
-  }
-
-  .origin-story-title::after {
-    width: 30px;
-    height: 1px;
-  }
-  
-  .origin-story-content {
-      font-size: 0.8rem;
-      line-height: 1.3;
-  }
-
-  .origin-story-content p {
-    margin-bottom: 10px;
-  }
-
-  .origin-story-section::before {
-    height: 12px;
-  }
-}
-
-/* Landscape orientation optimizations for mobile */
-@media (max-width: 768px) and (orientation: landscape) {
-  .about-section {
-    padding-top: 25px;
-    padding-bottom: 25px;
-  }
-
-  .section-title {
+.image-text-greeting {
     font-size: 1.3rem;
-    margin-bottom: 1rem;
-  }
-
-  .content-container {
-    gap: 12px;
-    margin-top: 20px;
-  }
-
-  .skills-section,
-  .education-section {
-    padding: 1rem;
-    width: 96%;
-  }
-
-  .about-content {
-    font-size: 0.9rem;
-    line-height: 1.4;
-    padding: 1rem;
-  }
-
-  .skills-title,
-  .education-title {
-    font-size: 1.1rem;
-    margin-bottom: 0.8rem;
-  }
-
-  .skills-list li,
-  .education-list li {
-    font-size: 0.8rem;
-    margin-bottom: 6px;
-  }
-
-  /* COMPACT landscape floating bubble at top right corner */
-  .floating-bubble {
-    position: fixed; /* Fixed positioning for absolute top right */
-    top: 2px; /* Very close to top */
-    right: 2px; /* Very close to right edge */
-    padding: 2px 4px; /* Compact padding */
-    border-radius: 5px; /* Small radius */
-    transform: scale(0.4); /* Small scale */
-    z-index: 1000;
-  }
-
-  .bubble-text {
-    font-size: 0.45rem; /* Tiny text */
-    max-width: 35px;
-    white-space: nowrap;
-    line-height: 0.9;
-  }
-
-  /* Origin Story landscape optimization */
-  .origin-story-section {
-      margin: 20px auto 0;
-      padding: 1rem;
-  }
-  
-  .origin-story-title {
-      font-size: 1.2rem;
-      margin-bottom: 0.8rem;
-  }
-  
-  .origin-story-content {
-      font-size: 0.85rem;
-      line-height: 1.3;
-  }
+    font-family: 'Bahnschrift Condensed', sans-serif;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-align: left;
+    font-weight: normal;
 }
 
-/* Ultra-compact mode for very small screens */
-@media (max-width: 320px) {
-  .about-section {
-    padding: 25px 0.3rem;
-  }
-
-  .section-title {
+.image-text-description {
     font-size: 1rem;
-    margin-bottom: 0.8rem;
-  }
+    color: #ffffff;
+    font-family: 'Bahnschrift Condensed', sans-serif;
+    line-height: 1.5;
+    opacity: 0.95;
+    text-align: left;
+}
 
-  .section-title::after {
-    width: 20px;
-  }
+/* Chibi Sticker Between About Content and Tech Stack */
+.about-chibi-container {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+  margin: 150px auto -112px auto;
+  padding-right: 50px;
+  z-index: 15;
+  pointer-events: none;
+}
 
-  .skills-title,
-  .education-title {
-    font-size: 0.85rem;
-    margin-bottom: 0.6rem;
-  }
+/*.about-chibi-sticker {
+  position: relative;
+  animation: aboutFloat 3s ease-in-out infinite;
+}*/
 
-  .skills-title::after,
-  .education-title::after {
-    width: 12px;
-  }
+.about-chibi-image {
+  width: 80px;
+  height: auto;
+  filter: none;
+  transition: none;
+}
 
-  .skills-section,
-  .education-section {
-    padding: 0.6rem;
-    border-radius: 4px;
-  }
+.about-dialogue-bubble {
+  position: absolute;
+  right: 90px;
+  top: -40px;
+  background: rgba(20, 15, 30, 0.95);
+  border: 2px solid rgba(172, 148, 214, 0.4);
+  border-radius: 12px;
+  padding: 8px 12px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  min-width: 180px;
+  animation: aboutBubbleFloat 3s ease-in-out infinite;
+}
 
-  .about-content {
-    font-size: 0.75rem;
-    line-height: 1.25;
-    padding: 0.6rem;
-  }
+.about-dialogue-bubble p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #ffffff;
+  font-family: 'Bahnschrift Condensed', sans-serif;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.3;
+  background: linear-gradient(135deg, #d6c1ff, #AC94D6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
-  .content-container {
-    gap: 6px;
-    margin-top: 12px;
-  }
+.about-bubble-arrow {
+  position: absolute;
+  bottom: -8px;
+  right: 20px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid rgba(172, 148, 214, 0.4);
+}
 
-  .skills-list li,
-  .education-list li {
-    font-size: 0.7rem;
-    margin-bottom: 4px;
-    line-height: 1.2;
-  }
+.about-bubble-arrow::before {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: -6px;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid rgba(20, 15, 30, 0.95);
+}
 
-  .education-list li span {
-    font-size: 0.75rem;
+/* Floating animations for about chibi */
+@keyframes aboutFloat {
+  0%, 100% {
+    transform: translateY(0px);
   }
-
-  /* SUPER MINIMAL floating bubble for ultra small screens */
-  .floating-bubble {
-    position: fixed; /* Fixed positioning for absolute top right */
-    top: 1px; /* Extremely close to top */
-    right: 1px; /* Extremely close to right edge */
-    padding: 1px 2px; /* MINIMAL padding */
-    border-radius: 3px; /* Tiny radius */
-    transform: scale(0.2); /* EXTREMELY tiny - 1/5 size */
-    z-index: 1000;
-    box-shadow: 
-      0 1px 2px rgba(172, 148, 214, 0.1),
-      -1px -1px 0 -0.5px rgba(172, 148, 214, 0.1),
-      1px -1px 0 -0.5px rgba(172, 148, 214, 0.05);
+  50% {
+    transform: translateY(-6px);
   }
+}
 
-  .floating-bubble::before {
-    width: 2px; /* Microscopic cloud bumps */
-    height: 2px;
-    top: -1px;
-    left: 2px;
+@keyframes aboutBubbleFloat {
+  0%, 100% {
+    transform: translateY(1px);
   }
-
-  .floating-bubble::after {
-    width: 1.5px; /* Microscopic cloud bumps */
-    height: 1.5px;
-    top: -0.5px;
-    right: 3px;
+  50% {
+    transform: translateY(-3px);
   }
+}
 
-  .bubble-text {
-    font-size: 0.35rem; /* MICROSCOPIC text */
-    max-width: 25px;
-    line-height: 0.7;
-    white-space: nowrap;
-  }
+/* Hide when main content is blurred (menu open) */
+.main-content.blurred .about-chibi-container {
+  opacity: 0.3;
+  transform: scale(0.8);
+  transition: all 0.3s ease;
+}
 
-  /* Origin Story for ultra small screens */
-  .origin-story-section {
-      margin: 20px auto 0;
-      padding: 0.6rem;
-      border-radius: 4px;
+/* Responsive adjustments for about chibi */
+@media (max-width: 1024px) {
+  .about-chibi-container {
+    padding-right: 30px;
+    margin: 30px auto 15px auto;
   }
   
-  .origin-story-title {
-      font-size: 1rem;
-      margin-bottom: 0.6rem;
-  }
-
-  .origin-story-title::after {
-    width: 20px;
+  .about-chibi-image {
+    width: 70px;
   }
   
-  .origin-story-content {
-      font-size: 0.75rem;
-      line-height: 1.2;
+  .about-dialogue-bubble {
+    right: 80px;
+    min-width: 160px;
+    padding: 6px 8px;
   }
-
-  .origin-story-content p {
-    margin-bottom: 8px;
+  
+  .about-dialogue-bubble p {
+    font-size: 0.75rem;
   }
-
-  .origin-story-section::before {
-    height: 10px;
-  }
-}
-
-/* High density screen optimizations */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .section-title,
-  .skills-title,
-  .education-title,
-  .origin-story-title {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  
+  .about-bubble-arrow {
+    right: 15px;
   }
 }
 
-/* Reduced motion preferences */
-@media (prefers-reduced-motion: reduce) {
-  .about-section::before,
-  .about-section::after,
-  .skills-section,
-  .education-section,
-  .origin-story-section,
-  .floating-bubble,
-  .skills-list li,
-  .education-list li {
-    animation: none;
-    transition: none;
-  }
-}
-
-/* High contrast mode adjustments */
-@media (prefers-contrast: high) {
-  .about-content,
-  .skills-section,
-  .education-section,
-  .origin-story-section {
-    border: 2px solid rgba(172, 148, 214, 0.6);
-    background: rgba(20, 15, 30, 0.8);
-  }
-
-  .floating-bubble {
-    border: 2px solid rgba(172, 148, 214, 0.6);
-    background: rgba(172, 148, 214, 0.5);
-  }
-
-  .section-title::after,
-  .skills-title::after,
-  .education-title::after,
-  .origin-story-title::after {
-    background: #d6c1ff; /* Solid color for better contrast */
-  }
-}
-
-/* Touch-friendly adjustments for mobile */
 @media (max-width: 768px) {
-  .skills-section,
-  .education-section,
-  .about-content,
-  .origin-story-section {
-    /* Ensure content areas are touch-friendly */
-    min-height: 120px;
-  }
-
-  .floating-bubble {
-    /* Ensure bubble is still touch-friendly despite small size */
-    min-width: 20px; /* Minimum touch target when scaled */
-    min-height: 15px;
-    touch-action: manipulation; /* Optimize for touch */
-  }
-
-  /* Better hover states for touch devices */
-  .skills-list li,
-  .education-list li {
-    padding: 4px 2px; /* Add padding for easier tapping */
-    border-radius: 3px;
-    transition: background-color 0.2s ease;
-  }
-
-  .skills-list li:hover,
-  .education-list li:hover {
-    background-color: rgba(172, 148, 214, 0.05);
-    transform: none; /* Remove transform on mobile */
-  }
-}
-
-/* Dark mode optimizations for mobile */
-@media (prefers-color-scheme: dark) and (max-width: 768px) {
-  .about-content,
-  .skills-section,
-  .education-section,
-  .origin-story-section {
-    background: rgba(15, 10, 25, 0.9);
-    border-color: rgba(172, 148, 214, 0.3);
-    color: #e8e8e8;
-  }
-
-  .floating-bubble {
-    background: linear-gradient(135deg, rgba(150, 130, 190, 0.4), rgba(110, 85, 150, 0.4));
-  }
-
-  .bubble-text {
-    color: #f0f0f0;
-  }
-}
-
-/* Performance optimization for mobile */
-@media (max-width: 480px) {
-  /* Simplify effects for better performance */
-  .about-content,
-  .skills-section,
-  .education-section,
-  .origin-story-section {
-    backdrop-filter: blur(3px); /* Reduced blur */
-    transition: box-shadow 0.2s ease; /* Simpler transitions */
-  }
-
-  .skills-section:hover,
-  .education-section:hover,
-  .origin-story-section:hover {
-    transform: none; /* Remove transforms on mobile */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-  }
-
-  .floating-bubble {
-    backdrop-filter: blur(2px); /* Much reduced blur for tiny bubble */
-  }
-}
-
-/* Accessibility improvements for mobile */
-@media (max-width: 768px) {
-  /* Improve focus states for mobile users */
-  .floating-bubble:focus {
-    outline: 1px solid #d6c1ff; /* Thinner outline for small bubble */
-    outline-offset: 1px;
-  }
-
-  /* Better text spacing for mobile reading */
-  .about-content,
-  .origin-story-content {
-    letter-spacing: 0.01em;
-    word-spacing: 0.05em;
-  }
-
-  .skills-list,
-  .education-list {
-    /* Better spacing for mobile lists */
-    line-height: 1.4;
-  }
-}
-
-/* Special floating bubble positioning for different orientations */
-@media (max-width: 480px) and (orientation: portrait) {
-  .floating-bubble {
-    /* Optimize for portrait mode - keep at absolute top right */
-    top: 2px;
-    right: 2px;
-  }
-}
-
-@media (max-width: 768px) and (orientation: landscape) and (max-height: 500px) {
-  .floating-bubble {
-    /* Optimize for landscape mode with limited height - keep at absolute top right */
-    top: 1px;
-    right: 1px;
-    transform: scale(0.3); /* Slightly larger than ultra small but still tiny */
-  }
-
-  .bubble-text {
-    font-size: 0.4rem;
-    max-width: 30px;
-  }
-}
-
-/* Optimize content layout for different aspect ratios */
-@media (max-width: 480px) and (orientation: portrait) {
-  .content-container {
-    /* Stack more efficiently in portrait */
-    gap: 8px;
-  }
-
-  .skills-section,
-  .education-section {
-    /* Ensure content doesn't get too cramped */
-    min-height: 100px;
-  }
-}
-
-/* Special optimization for foldable phones and very wide screens */
-@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
-  .content-container {
-    gap: 150px; /* Reduce gap for medium screens */
-  }
-
-  .about-content {
-    max-width: 800px;
-  }
-
-  .floating-bubble {
-    position: fixed; /* Fixed positioning for absolute top right */
-    right: 8px; /* Close to right edge */
-    top: 8px; /* Close to top */
-    transform: scale(0.7); /* Smaller than default but readable */
+  .about-chibi-container {
+    display: none; /* Hide on mobile devices */
   }
 }

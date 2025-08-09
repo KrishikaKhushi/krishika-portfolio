@@ -1,85 +1,123 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Blog.css';
+import './BlogRes.css';
+
+// Intersection Observer Hook for animations - Triggers every time
+const useInViewAnimation = (options = {}) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px',
+        ...options
+      }
+    );
+
+    const currentRef = ref.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, [options]);
+
+  return [ref, isVisible];
+};
 
 const Blog = () => {
+  // Animation refs for each section
+  const [titleRef, isTitleVisible] = useInViewAnimation();
+  const [subtitleRef, isSubtitleVisible] = useInViewAnimation();
+  const [contentRef, isContentVisible] = useInViewAnimation();
+
   return (
     <section className="blog-section">
-      <h2 className="blog-title">Blog</h2>
+      {/* Grid background elements */}
+      <div className="vertical-lights"></div>
+      <div className="corner-glow-1"></div>
+      <div className="corner-glow-2"></div>
+      <div className="particle1"></div>
+      <div className="particle2"></div>
+      
+      <h2 
+        ref={titleRef}
+        className={`blog-title ${isTitleVisible ? 'fade-in-down' : ''}`}
+      >
+        Blog
+      </h2>
 
-      <h3 className="blog-subtitle">How I Built My Portfolio Website [Step-by-Step]</h3>
+      <h3 
+        ref={subtitleRef}
+        className={`blog-subtitle ${isSubtitleVisible ? 'slide-in-up' : ''}`}
+      >
+        My Coding Journey: From Confusion to Passion
+      </h3>
 
-      <div className="blog-content">
+      <div 
+        ref={contentRef}
+        className={`blog-content ${isContentVisible ? 'fade-in-up' : ''}`}
+      >
         <p>
-          Creating my personal portfolio was one of the most exciting and fulfilling projects I've worked on.
-          It wasn’t just about showcasing my skills—it was about expressing who I am as a person and developer.
-          Here’s a breakdown of how I made it happen:
+          My relationship with coding began in 6th grade through the ICSE curriculum, but honestly? It was rocky at first. 
+          By 9th standard, I was struggling with basic concepts like loops and conditionals—getting low marks in what was 
+          supposed to be a "scoring subject." The classroom environment made it hard to focus, and without understanding 
+          the fundamentals, I couldn't find any interest in the subject.
         </p>
 
-        <hr />
-
-        <h4>🔍 Step 1: Planning the Structure</h4>
-        <ul>
-          <li>What pages I want (Home, About Me, Projects, Professional Experience, Extracurricular, Blog, Contact etc.)</li>
-          <li>What I want each page to feel like—clean, a little animated, and full of personality</li>
-          <li>A consistent color theme: black background, gradient text, soft animations</li>
-        </ul>
-
-        <hr />
-
-        <h4>💻 Step 2: Choosing the Tech Stack</h4>
-        <ul>
-          <li>React.js for frontend (because it's flexible and interactive)</li>
-          <li>React Router for page navigation</li>
-          <li>Tailwind CSS for quick and modern styling</li>
-          <li>Floating animations and varying but neat fonts for a unique, soft aesthetic</li>
-        </ul>
-
-        <hr />
-
-        <h4>⚙️ Step 3: Building the Pages</h4>
-        <ul>
-          <li>Home – Short intro, eye-catching animations, buttons</li>
-          <li>About Me – Journey, education, with subtle motion</li>
-          <li>Projects – Cards with links, tools used, and what I learned</li>
-          <li>Professional Experience – Collection of my experience in this field</li>
-          <li>Extracurricular – My non-academic activities and interests</li>
-          <li>Blog – This section 😉</li>
-          <li>Contact Me – Email & LinkedIn, styled nicely</li>
-        </ul>
-
-        <hr />
-
-        <h4>✨ Step 4: Adding Animations & Style</h4>
-        <ul>
-          <li>Used Framer Motion for smooth transitions</li>
-          <li>Added gradient headings</li>
-          <li>Designed a flowing layout with clean spacing and rounded edges</li>
-        </ul>
-
-        <hr />
-
-        <h4>☁️ Step 5: Hosting It</h4>
-        <ul>
-          <li>Planning to host it on GitHub Pages or Netlify (still testing both)</li>
-          <li>Will later try deploying with Docker + AWS/GCP to learn cloud deployments</li>
-        </ul>
-
-        <hr />
-
-        <h4>💭 What I Learned</h4>
-        <ul>
-          <li>Tailwind is a lifesaver for design!</li>
-          <li>React Router makes page navigation super smooth</li>
-          <li>Animations make everything feel more you</li>
-          <li>Planning before coding saves a LOT of time</li>
-        </ul>
-
-        <hr />
-
-        <h4>Final Thought</h4>
         <p>
-          This portfolio isn’t just a collection of links—it’s my digital identity. And I’m still improving it every day.
-          Whether you're a recruiter, friend, or fellow dev, thanks for stopping by ❤️
+          Everything changed when I joined Mrs. Sunita's coaching classes with a friend who was facing similar challenges. 
+          Those first few months were tough since I had virtually no grasp of the basics, but she was incredibly patient 
+          with our small group. In that focused environment, things finally started clicking. I began to see the logic, 
+          the meaning behind every line of code, the elegant solutions to number problems and pattern challenges.
+        </p>
+
+        <p>
+          What really hooked me was when she'd throw us coding challenges to solve independently over a day or two. 
+          I became obsessed with cracking them on my own before the next class. That feeling when she'd say 
+          "Yes, this is correct—very good!" and suggest alternative approaches? Pure rush. I was officially addicted 
+          to problem-solving.
+        </p>
+
+        <p>
+          All that practice and passion paid off—I scored 99/100 in my 10th board exams. By then, my path was crystal clear. 
+          I wanted to dive deeper into the world of coding. In 11th-12th, I switched to CBSE and transitioned from Java 
+          to Python, got introduced to SQL and databases—every new concept felt like unlocking another level.
+        </p>
+
+        <p>
+          When college decision time came, computer science engineering was the obvious choice. At VIT Vellore, I initially 
+          focused on backend development with some AI and ML exploration on the side. But everything shifted during my final 
+          year when I had to develop my portfolio website—my first real dive into frontend.
+        </p>
+
+        <p>
+          That's when I discovered something unexpected: I absolutely love designing. There's a completely different kind 
+          of rush when you can visually see all the designs you had in mind coming to life, working seamlessly, and 
+          imagining how users will feel when they interact with what you've built. Watching my ideas transform from 
+          concepts to living, breathing applications was nothing short of magical.
+        </p>
+
+        <p>
+          That revelation turned me into a full-stack developer—I fell in love with the entire process. There's something 
+          incredibly satisfying about seeing all your efforts and ideas come to life and into action. From that struggling 
+          9th grader who couldn't understand loops to someone who now builds complete user experiences, the journey has 
+          been extraordinary.
+        </p>
+
+        <p>
+          Looking back, I'm grateful for those early struggles. They taught me persistence, the value of good mentorship, 
+          and that sometimes the subjects we find most challenging can become our greatest passions. Every line of code 
+          I write now carries the memory of that first "Eureka!" moment when everything finally clicked.
         </p>
       </div>
     </section>

@@ -1,0 +1,701 @@
+/* Mobile & Responsive Contact Page Styles - For screens 768px and below */
+
+/* Accessibility and Preference Styles (All Devices) */
+@media (prefers-reduced-motion: reduce) {
+  .contact-section::before,
+  .contact-section::after,
+  .contact-section .vertical-lights,
+  .contact-section .particle1,
+  .contact-section .particle2,
+  .contact-section .corner-glow-1,
+  .contact-section .corner-glow-2,
+  .container-animate,
+  .heading-animate,
+  .details-animate,
+  .chibi-animate,
+  .resume-button {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .contact-content {
+    border: 2px solid rgba(172, 148, 214, 0.6);
+    background: rgba(20, 15, 30, 0.9);
+  }
+
+  .contact-heading::after {
+    background: #d6c1ff;
+  }
+
+  .resume-button {
+    border: 2px solid rgba(172, 148, 214, 0.6);
+  }
+
+  .contact-link {
+    color: #e0d0ff;
+  }
+
+  .contact-heading {
+    text-shadow: 0 0 10px rgba(172, 148, 214, 0.8);
+  }
+}
+
+/* Responsive Design for Tablets (769px to 1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .contact-section {
+    padding: 40px 5%;
+    height: auto;
+    min-height: 80vh;
+  }
+
+  .contact-heading {
+    font-size: 2.8rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-heading::after {
+    width: 70px;
+  }
+
+  .contact-content {
+    font-size: 1.4rem;
+    width: 80%;
+    max-width: 700px;
+    padding: 0;
+    min-height: 450px;
+  }
+
+  .contact-content-inner {
+    padding: 2.5rem;
+  }
+
+  .contact-link {
+    font-size: 1.3rem;
+  }
+
+  .resume-button {
+    font-size: 1.05rem;
+    padding: 10px 24px;
+  }
+
+  /* Adjust background effects for tablets */
+  .contact-section .particle1 {
+    width: 150px;
+    height: 150px;
+  }
+
+  .contact-section .particle2 {
+    width: 120px;
+    height: 120px;
+  }
+
+  .contact-chibi-container {
+    right: 25px;
+    bottom: 10px;
+  }
+
+  .contact-chibi-image {
+    width: 85px;
+  }
+
+  .contact-dialogue-bubble {
+    right: 95px;
+    min-width: 170px;
+    padding: 9px 12px;
+  }
+}
+
+/* Responsive Design for Tablets (768px and below) */
+@media (max-width: 768px) {
+  .contact-section {
+    padding-top: 80px;
+    padding-bottom: 60px;
+    padding-left: 8%;
+    padding-right: 8%;
+    height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-heading {
+    font-size: 2.2rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .contact-heading::after {
+    width: 55px;
+    height: 1.5px;
+  }
+
+  .contact-content {
+    max-width: 95%;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    min-height: 350px;
+    width: 90%;
+  }
+
+  .contact-content-inner {
+    padding: 2rem;
+  }
+
+  .contact-content p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .contact-link {
+    font-size: 1.1rem;
+    padding: 3px 6px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+  }
+
+  .contact-link:hover,
+  .contact-link:focus {
+    background-color: rgba(172, 148, 214, 0.1);
+  }
+
+  .contact-link:focus,
+  .resume-button:focus {
+    outline: 2px solid #d6c1ff;
+    outline-offset: 2px;
+  }
+
+  .resume-button-container {
+    margin-top: 1rem;
+  }
+
+  /* Hide chibi only on actual mobile devices */
+  .contact-chibi-container {
+    display: none;
+  }
+
+  .resume-button {
+    font-size: 1rem;
+    padding: 10px 22px;
+    border-radius: 20px;
+    min-width: 140px;
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Keep chibi visible on tablets, adjust size and position */
+  .contact-chibi-container {
+    right: 15px;
+    bottom: 5px;
+    display: block;
+  }
+
+  .contact-chibi-image {
+    width: 75px;
+  }
+
+  .contact-dialogue-bubble {
+    right: 85px;
+    bottom: 70px;
+    min-width: 160px;
+    padding: 8px 10px;
+  }
+
+  .contact-dialogue-bubble p {
+    font-size: 0.75rem;
+  }
+
+  .contact-bubble-arrow {
+    right: 20px;
+  }
+
+  /* Reduce but keep background effects on tablet */
+  .contact-section::before {
+    background-size: 60px 60px;
+  }
+
+  .contact-section .particle1 {
+    width: 120px;
+    height: 120px;
+    top: 12%;
+    right: 12%;
+  }
+
+  .contact-section .particle2 {
+    width: 100px;
+    height: 100px;
+    bottom: 18%;
+    left: 8%;
+  }
+
+  .contact-section .corner-glow-1,
+  .contact-section .corner-glow-2 {
+    width: 150px;
+    height: 150px;
+  }
+
+  /* Faster animations on mobile */
+  .container-animate {
+    animation-duration: 0.6s;
+  }
+
+  .heading-animate {
+    animation-duration: 0.6s;
+    animation-delay: 0.3s;
+  }
+
+  .details-animate {
+    animation-duration: 0.6s;
+    animation-delay: 0.6s;
+  }
+
+  .chibi-animate {
+    animation-duration: 0.8s;
+    animation-delay: 0.9s;
+  }
+}
+
+/* Landscape orientation for tablets */
+@media (max-width: 768px) and (orientation: landscape) {
+  .contact-section {
+    padding-top: 50px;
+    padding-bottom: 40px;
+    padding-left: 6%;
+    padding-right: 6%;
+    height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-heading {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-content {
+    font-size: 1.05rem;
+    min-height: 280px;
+    max-width: 96%;
+  }
+
+  .contact-content-inner {
+    padding: 1.5rem;
+  }
+
+  .contact-content p {
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+  }
+
+  .contact-link {
+    font-size: 1rem;
+  }
+
+  .resume-button {
+    font-size: 0.9rem;
+    padding: 8px 18px;
+  }
+
+  .resume-button-container {
+    margin-top: 0.8rem;
+  }
+}
+
+/* Mobile Responsive Design (480px and below) */
+@media (max-width: 480px) {
+  .contact-section {
+    padding-top: 70px;
+    padding-bottom: 40px;
+    padding-left: 6%;
+    padding-right: 6%;
+    height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-heading {
+    font-size: 1.8rem;
+    margin-bottom: 1.4rem;
+    font-weight: 900;
+  }
+
+  .contact-heading::after {
+    width: 45px;
+    height: 1px;
+  }
+
+  .contact-content {
+    font-size: 0.95rem;
+    max-width: 98%;
+    min-height: 250px;
+    width: 95%;
+  }
+
+  .contact-content-inner {
+    padding: 1.5rem;
+  }
+
+  .contact-content:hover {
+    transform: none;
+    box-shadow: 0 6px 20px rgba(172, 148, 214, 0.15);
+  }
+
+  .contact-content p {
+    margin-bottom: 0.8rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    font-size: 0.9rem;
+  }
+
+  .contact-link {
+    font-size: 0.9rem;
+    word-break: break-all;
+  }
+
+  .resume-button-container {
+    margin-top: 1rem;
+  }
+
+  .resume-button {
+    font-size: 0.85rem;
+    padding: 8px 18px;
+    border-radius: 18px;
+    min-height: 36px;
+    min-width: 120px;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .resume-button:hover {
+    transform: none;
+  }
+
+  /* Keep background effects on mobile but reduce intensity */
+  .contact-section::before {
+    background-size: 50px 50px;
+    opacity: 0.7;
+  }
+
+  .contact-section::after {
+    opacity: 0.6;
+  }
+
+  .contact-section .vertical-lights {
+    opacity: 0.5;
+  }
+
+  .contact-section .particle1,
+  .contact-section .particle2 {
+    width: 80px;
+    height: 80px;
+  }
+
+  .contact-section .particle1 {
+    top: 8%;
+    right: 8%;
+  }
+
+  .contact-section .particle2 {
+    bottom: 12%;
+    left: 6%;
+  }
+
+  .contact-section .corner-glow-1,
+  .contact-section .corner-glow-2 {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* Small Mobile (360px and below) */
+@media (max-width: 360px) {
+  .contact-section {
+    padding-top: 60px;
+    padding-bottom: 35px;
+    padding-left: 4%;
+    padding-right: 4%;
+    height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-heading {
+    font-size: 1.6rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .contact-heading::after {
+    width: 35px;
+  }
+
+  .contact-content {
+    font-size: 0.85rem;
+    min-height: 200px;
+  }
+
+  .contact-content-inner {
+    padding: 1.2rem;
+  }
+
+  .contact-content p {
+    margin-bottom: 0.7rem;
+    font-size: 0.8rem;
+  }
+
+  .contact-link {
+    font-size: 0.8rem;
+  }
+
+  .resume-button-container {
+    margin-top: 0.8rem;
+  }
+
+  .resume-button {
+    font-size: 0.8rem;
+    padding: 7px 15px;
+    border-radius: 15px;
+    min-height: 32px;
+    min-width: 100px;
+  }
+
+  /* Keep reduced background effects on very small screens */
+  .contact-section .particle1,
+  .contact-section .particle2 {
+    width: 60px;
+    height: 60px;
+  }
+
+  .contact-section .corner-glow-1,
+  .contact-section .corner-glow-2 {
+    width: 80px;
+    height: 80px;
+  }
+
+  .contact-section::before {
+    background-size: 30px 30px;
+    opacity: 0.4;
+  }
+
+  .contact-section::after,
+  .contact-section .vertical-lights {
+    opacity: 0.3;
+  }
+}
+
+/* Very compact layout for portrait phones */
+@media (max-width: 320px) {
+  .contact-section {
+    padding: 50px 3%;
+    height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-heading {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .contact-heading::after {
+    width: 25px;
+  }
+
+  .contact-content {
+    font-size: 0.8rem;
+    min-height: 180px;
+  }
+
+  .contact-content-inner {
+    padding: 1rem;
+  }
+
+  .contact-content p {
+    margin-bottom: 0.6rem;
+    font-size: 0.75rem;
+  }
+
+  .contact-link {
+    font-size: 0.75rem;
+  }
+
+  .resume-button {
+    font-size: 0.75rem;
+    padding: 6px 12px;
+    border-radius: 12px;
+    min-height: 30px;
+    min-width: 90px;
+  }
+
+  .resume-button-container {
+    margin-top: 0.6rem;
+  }
+}
+
+/* Optimize for very wide mobile screens (landscape) */
+@media (max-width: 950px) and (orientation: landscape) and (max-height: 500px) {
+  .contact-section {
+    padding: 30px 4%;
+    height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-heading {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .contact-content {
+    max-width: 92%;
+    font-size: 0.9rem;
+    min-height: 200px;
+  }
+
+  .contact-content-inner {
+    padding: 1.2rem;
+  }
+
+  .contact-content p {
+    margin-bottom: 0.6rem;
+    font-size: 0.85rem;
+  }
+
+  .contact-link {
+    font-size: 0.85rem;
+  }
+
+  .resume-button {
+    font-size: 0.8rem;
+    padding: 6px 14px;
+  }
+
+  .resume-button-container {
+    margin-top: 0.7rem;
+  }
+
+  /* Keep subtle background effects on landscape */
+  .contact-section::before {
+    background-size: 40px 40px;
+    opacity: 0.5;
+  }
+
+  .contact-section .particle1 {
+    width: 70px;
+    height: 70px;
+  }
+
+  .contact-section .particle2 {
+    width: 60px;
+    height: 60px;
+  }
+
+  .contact-section .corner-glow-1,
+  .contact-section .corner-glow-2 {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* Touch-friendly interactions for mobile */
+@media (max-width: 768px) {
+  .contact-content:hover {
+    transform: none;
+  }
+
+  .resume-button:hover {
+    transform: none;
+    box-shadow: 0 4px 15px rgba(172, 148, 214, 0.3);
+  }
+
+  /* Add touch feedback */
+  .contact-content:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+
+  .resume-button:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+  }
+
+  .contact-link:active {
+    background-color: rgba(172, 148, 214, 0.2);
+  }
+}
+
+/* Ensure proper stacking and animation consistency */
+@media (max-width: 768px) {
+  .contact-content {
+    position: relative;
+    z-index: 10;
+  }
+
+  /* Ensure proper initial states for animations */
+  .contact-content {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  .contact-content.container-animate {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .contact-heading {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+
+  .contact-heading.heading-animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .contact-details {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  .contact-details.details-animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Background effects maintain desktop-like feel */
+  .contact-background,
+  .contact-overlay {
+    border-radius: 8px;
+  }
+}
+
+/* Email address responsive behavior */
+@media (max-width: 768px) {
+  .contact-content .email-address {
+    word-break: break-all;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-content .email-address {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .contact-content .email-address {
+    font-size: 0.8rem;
+  }
+}

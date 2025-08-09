@@ -1,0 +1,726 @@
+/* Mobile & Responsive About Page Styles - For screens 768px and below */
+
+/* CRITICAL: Prevent zoom-out requirement on mobile */
+html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+/* Ensure all elements fit within viewport */
+* {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Accessibility and Preference Styles (All Devices) */
+@media (prefers-reduced-motion: reduce) {
+  .about-section::before,
+  .about-section::after,
+  .about-section .vertical-lights,
+  .about-section .corner-glow-1,
+  .about-section .corner-glow-2,
+  .particle1,
+  .particle2,
+  .tech-stack-container,
+  .tech-logo-container,
+  .tech-particle-1,
+  .tech-particle-2,
+  .popup-overlay,
+  .popup-content,
+  .my-image-container,
+  .about-chibi-container,
+  .about-dialogue-bubble {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .scroll-animate.animate {
+    animation: none !important;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .about-content,
+  .tech-stack-container,
+  .popup-content,
+  .my-image-container,
+  .image-text-content {
+    border: 2px solid rgba(172, 148, 214, 0.6);
+    background: rgba(20, 15, 30, 0.95);
+  }
+
+  .section-title::after,
+  .education-main-title::after {
+    background: #d6c1ff;
+  }
+}
+
+@media (prefers-color-scheme: dark) and (max-width: 768px) {
+  .about-content,
+  .tech-stack-container,
+  .image-text-content {
+    background: rgba(15, 10, 25, 0.9);
+    border-color: rgba(172, 148, 214, 0.3);
+    color: #e8e8e8;
+  }
+
+  .popup-content {
+    background: rgba(15, 10, 25, 0.98);
+    border-color: rgba(172, 148, 214, 0.4);
+  }
+}
+
+/* Tablet Responsive Design (768px and below) */
+@media (max-width: 768px) {
+  .about-section {
+    padding-top: 45px;
+    padding-bottom: 50px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Background elements adjustments */
+  .about-section::before {
+    background-size: 60px 60px;
+  }
+
+  .about-section .corner-glow-1,
+  .about-section .corner-glow-2 {
+    width: 150px;
+    height: 150px;
+    filter: blur(60px);
+  }
+
+  .particle1,
+  .particle2 {
+    width: 120px;
+    height: 120px;
+    filter: blur(6px);
+  }
+
+  /* Section title */
+  .section-title {
+    font-size: 1.8rem;
+    margin-left: 0;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title::after {
+    width: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* About content */
+  .about-content {
+    max-width: 100%;
+    font-size: 1.1rem;
+    margin: 0 auto;
+    line-height: 1.6;
+    padding: 1.5rem;
+    border-radius: 10px;
+  }
+
+  /* KEEP About Chibi visible on tablet - MOVED SLIGHTLY LEFT */
+  .about-chibi-container {
+    margin: 50px auto -60px auto;
+    padding-right: 0px;
+    padding-left: 50px;
+    justify-content: flex-end;
+    display: flex !important; /* Override desktop hide */
+  }
+
+  .about-chibi-image {
+    width: 60px;
+  }
+
+  .about-dialogue-bubble {
+    right: 50px;
+    min-width: 160px;
+    padding: 6px 10px;
+  }
+
+  .about-dialogue-bubble p {
+    font-size: 0.75rem;
+  }
+
+  .about-bubble-arrow {
+    right: 10px;
+  }
+
+  /* Tech Stack Container - Tablet optimized */
+  .tech-stack-container {
+    max-width: 100%;
+    width: 100%;
+    height: 300px; /* Increased height for better spacing */
+    margin: 30px auto 60px auto;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tech-stack-title {
+    font-size: 1.1rem;
+    left: 15px;
+    top: 8px;
+    position: absolute;
+    z-index: 10;
+  }
+
+  /* Tech Logo Containers - Tablet sizing */
+  .tech-logo-container {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    will-change: transform;
+    contain: layout style paint;
+    user-select: none;
+    transition: z-index 0.1s ease;
+    width: 70px !important;
+    height: 70px !important;
+  }
+
+  .tech-logo-image {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    will-change: filter;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    pointer-events: none;
+  }
+
+  /* Preserve tech particles */
+  .tech-particle-1,
+  .tech-particle-2 {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Content container */
+  .content-container {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 20px;
+  }
+
+  /* Education section */
+  .education-main-title {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
+
+  .education-main-title::after {
+    width: 50px;
+  }
+
+  .education-grid {
+    margin-top: 15px;
+  }
+
+  .education-item {
+    padding: 25px;
+    max-width: 100%;
+    border-radius: 10px;
+  }
+
+  .education-degree {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+  }
+
+  .education-details {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  /* My Image Section */
+  .my-image-section {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    margin-top: 40px;
+    padding-left: 0;
+    width: 100%;
+  }
+
+  .my-image-container {
+    margin-left: 0;
+  }
+
+  .my-image {
+    max-width: 280px;
+  }
+
+  .image-text-content {
+    max-width: 100%;
+    text-align: center;
+    padding: 1.5rem;
+    margin-left: 0;
+  }
+
+  .image-text-greeting {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+  }
+
+  .image-text-description {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  /* Popup adjustments */
+  .popup-content {
+    width: 95%;
+    max-height: 85vh;
+    border-radius: 12px;
+  }
+
+  .popup-skills-section {
+    padding: 35px 20px 25px;
+  }
+
+  .popup-skills-title {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
+
+  .popup-skills-list {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .popup-skills-list li {
+    margin-bottom: 8px;
+    padding: 6px 8px;
+  }
+
+  .popup-close {
+    top: 10px;
+    right: 15px;
+    font-size: 1.8rem;
+    width: 35px;
+    height: 35px;
+  }
+}
+
+/* Mobile Responsive Design (480px and below) - OPTIMIZED GRID */
+@media (max-width: 480px) {
+  .about-section {
+    padding-top: 35px;
+    padding-bottom: 35px;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+  }
+
+  /* Reduce background effects for performance */
+  .about-section::before {
+    background-size: 40px 40px;
+    opacity: 0.5;
+  }
+
+  .about-section::after,
+  .about-section .vertical-lights {
+    opacity: 0.3;
+  }
+
+  .particle1,
+  .particle2 {
+    display: none;
+  }
+
+  .about-section .corner-glow-1,
+  .about-section .corner-glow-2 {
+    width: 100px;
+    height: 100px;
+    filter: blur(40px);
+  }
+
+  /* Typography */
+  .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .section-title::after {
+    width: 35px;
+  }
+
+  /* About content */
+  .about-content {
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 1.2rem;
+    border-radius: 8px;
+  }
+
+  /* Show chibi on mobile - MOVED SLIGHTLY LEFT */
+  .about-chibi-container {
+    margin: 30px auto -40px auto;
+    padding-right: 0px;
+    padding-left: 30px;
+    justify-content: flex-end;
+    display: flex !important;
+  }
+
+  .about-chibi-image {
+    width: 50px;
+  }
+
+  .about-dialogue-bubble {
+    right: 35px;
+    min-width: 140px;
+    padding: 5px 8px;
+  }
+
+  .about-dialogue-bubble p {
+    font-size: 0.7rem;
+  }
+
+  .about-bubble-arrow {
+    right: 6px;
+  }
+
+  /* OPTIMAL TECH STACK FOR MOBILE - 5 ROWS x 5 COLUMNS */
+  .tech-stack-container {
+    height: 350px !important; /* Perfect height for 5 rows */
+    margin: 20px auto 40px auto;
+    padding: 10px;
+    border-radius: 8px;
+    position: relative !important;
+    overflow: hidden !important;
+    width: 100% !important;
+  }
+
+  .tech-stack-title {
+    font-size: 1rem;
+    left: 15px;
+    top: 8px;
+    position: absolute;
+    z-index: 10;
+  }
+
+  /* Perfect logo sizing for mobile */
+  .tech-logo-container {
+    position: absolute !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 5 !important;
+    width: 55px !important; /* Optimal size */
+    height: 55px !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    border-radius: 8px !important;
+  }
+
+  /* Mobile hover effect */
+  .tech-logo-container:hover {
+    transform: translateY(-2px) scale(1.05) !important;
+    box-shadow: 0 4px 12px rgba(172, 148, 214, 0.3) !important;
+  }
+
+  /* PERFECT 5x5 GRID LAYOUT - ALL 25 LOGOS PERFECTLY SPACED */
+  /* Row 1 - 5 logos */
+  .tech-logo-container:nth-of-type(1) { left: 20px !important; top: 40px !important; }
+  .tech-logo-container:nth-of-type(2) { left: 85px !important; top: 40px !important; }
+  .tech-logo-container:nth-of-type(3) { left: 150px !important; top: 40px !important; }
+  .tech-logo-container:nth-of-type(4) { left: 215px !important; top: 40px !important; }
+  .tech-logo-container:nth-of-type(5) { left: 280px !important; top: 40px !important; }
+
+  /* Row 2 - 5 logos */
+  .tech-logo-container:nth-of-type(6) { left: 20px !important; top: 105px !important; }
+  .tech-logo-container:nth-of-type(7) { left: 85px !important; top: 105px !important; }
+  .tech-logo-container:nth-of-type(8) { left: 150px !important; top: 105px !important; }
+  .tech-logo-container:nth-of-type(9) { left: 215px !important; top: 105px !important; }
+  .tech-logo-container:nth-of-type(10) { left: 280px !important; top: 105px !important; }
+
+  /* Row 3 - 5 logos */
+  .tech-logo-container:nth-of-type(11) { left: 20px !important; top: 170px !important; }
+  .tech-logo-container:nth-of-type(12) { left: 85px !important; top: 170px !important; }
+  .tech-logo-container:nth-of-type(13) { left: 150px !important; top: 170px !important; }
+  .tech-logo-container:nth-of-type(14) { left: 215px !important; top: 170px !important; }
+  .tech-logo-container:nth-of-type(15) { left: 280px !important; top: 170px !important; }
+
+  /* Row 4 - 5 logos */
+  .tech-logo-container:nth-of-type(16) { left: 20px !important; top: 235px !important; }
+  .tech-logo-container:nth-of-type(17) { left: 85px !important; top: 235px !important; }
+  .tech-logo-container:nth-of-type(18) { left: 150px !important; top: 235px !important; }
+  .tech-logo-container:nth-of-type(19) { left: 215px !important; top: 235px !important; }
+  .tech-logo-container:nth-of-type(20) { left: 280px !important; top: 235px !important; }
+
+  /* Row 5 - 5 logos */
+  .tech-logo-container:nth-of-type(21) { left: 20px !important; top: 300px !important; }
+  .tech-logo-container:nth-of-type(22) { left: 85px !important; top: 300px !important; }
+  .tech-logo-container:nth-of-type(23) { left: 150px !important; top: 300px !important; }
+  .tech-logo-container:nth-of-type(24) { left: 215px !important; top: 300px !important; }
+  .tech-logo-container:nth-of-type(25) { left: 280px !important; top: 300px !important; }
+
+  .tech-logo-image {
+    width: 85% !important;
+    height: 85% !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    object-fit: contain !important;
+    transition: transform 0.3s ease !important;
+  }
+
+  .tech-logo-container:hover .tech-logo-image {
+    transform: scale(1.1) !important;
+  }
+
+  .tech-particle-1,
+  .tech-particle-2 {
+    width: 30px;
+    height: 30px;
+  }
+
+  /* Education section */
+  .education-main-title {
+    font-size: 1.4rem;
+    margin-bottom: 18px;
+  }
+
+  .education-main-title::after {
+    width: 40px;
+  }
+
+  .education-item {
+    padding: 18px;
+  }
+
+  .education-degree {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+
+  .education-details {
+    font-size: 0.9rem;
+  }
+
+  /* Image Section Mobile */
+  .my-image-section {
+    margin-top: 30px;
+    gap: 20px;
+  }
+
+  .my-image {
+    max-width: 240px;
+  }
+
+  .image-text-content {
+    padding: 1.2rem;
+  }
+
+  .image-text-greeting {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+  }
+
+  .image-text-description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  /* Popup Mobile */
+  .popup-content {
+    width: 98%;
+    max-height: 90vh;
+    border-radius: 10px;
+  }
+
+  .popup-skills-section {
+    padding: 30px 15px 20px;
+  }
+
+  .popup-skills-title {
+    font-size: 1.4rem;
+    margin-bottom: 18px;
+  }
+
+  .popup-skills-list {
+    font-size: 0.95rem;
+  }
+
+  .popup-skills-list li {
+    margin-bottom: 6px;
+    padding: 5px 8px;
+  }
+
+  .popup-close {
+    top: 8px;
+    right: 12px;
+    font-size: 1.6rem;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* Small Mobile (360px and below) - COMPACT 6x5 GRID */
+@media (max-width: 360px) {
+  .about-section {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .about-content {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    padding: 1rem;
+  }
+
+  /* Even smaller chibi - MOVED SLIGHTLY LEFT */
+  .about-chibi-container {
+    margin: 20px auto -30px auto;
+    padding-right: 0px;
+    padding-left: 25px;
+    justify-content: flex-end;
+  }
+
+  .about-chibi-image {
+    width: 45px;
+  }
+
+  .about-dialogue-bubble {
+    right: 30px;
+    min-width: 120px;
+    padding: 4px 6px;
+  }
+
+  .about-dialogue-bubble p {
+    font-size: 0.65rem;
+  }
+
+  .about-bubble-arrow {
+    right: 4px;
+  }
+
+  /* COMPACT TECH STACK - 6 LOGOS PER ROW, 5 ROWS */
+  .tech-stack-container {
+    height: 280px !important;
+    margin: 15px auto 30px auto;
+    padding: 8px;
+    border-radius: 8px;
+    position: relative !important;
+    overflow: hidden !important;
+    width: 100% !important;
+  }
+
+  .tech-stack-title {
+    font-size: 0.9rem;
+    left: 10px;
+    top: 5px;
+    position: absolute;
+    z-index: 10;
+  }
+
+  .tech-logo-container {
+    position: absolute !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 5 !important;
+    width: 38px !important;
+    height: 38px !important;
+  }
+
+  /* COMPACT 6x5 GRID - PERFECT FOR SMALL SCREENS */
+  /* Row 1 - 6 logos */
+  .tech-logo-container:nth-of-type(1) { left: 10px !important; top: 30px !important; }
+  .tech-logo-container:nth-of-type(2) { left: 55px !important; top: 30px !important; }
+  .tech-logo-container:nth-of-type(3) { left: 100px !important; top: 30px !important; }
+  .tech-logo-container:nth-of-type(4) { left: 145px !important; top: 30px !important; }
+  .tech-logo-container:nth-of-type(5) { left: 190px !important; top: 30px !important; }
+  .tech-logo-container:nth-of-type(6) { left: 235px !important; top: 30px !important; }
+
+  /* Row 2 - 6 logos */
+  .tech-logo-container:nth-of-type(7) { left: 10px !important; top: 75px !important; }
+  .tech-logo-container:nth-of-type(8) { left: 55px !important; top: 75px !important; }
+  .tech-logo-container:nth-of-type(9) { left: 100px !important; top: 75px !important; }
+  .tech-logo-container:nth-of-type(10) { left: 145px !important; top: 75px !important; }
+  .tech-logo-container:nth-of-type(11) { left: 190px !important; top: 75px !important; }
+  .tech-logo-container:nth-of-type(12) { left: 235px !important; top: 75px !important; }
+
+  /* Row 3 - 6 logos */
+  .tech-logo-container:nth-of-type(13) { left: 10px !important; top: 120px !important; }
+  .tech-logo-container:nth-of-type(14) { left: 55px !important; top: 120px !important; }
+  .tech-logo-container:nth-of-type(15) { left: 100px !important; top: 120px !important; }
+  .tech-logo-container:nth-of-type(16) { left: 145px !important; top: 120px !important; }
+  .tech-logo-container:nth-of-type(17) { left: 190px !important; top: 120px !important; }
+  .tech-logo-container:nth-of-type(18) { left: 235px !important; top: 120px !important; }
+
+  /* Row 4 - 6 logos */
+  .tech-logo-container:nth-of-type(19) { left: 10px !important; top: 165px !important; }
+  .tech-logo-container:nth-of-type(20) { left: 55px !important; top: 165px !important; }
+  .tech-logo-container:nth-of-type(21) { left: 100px !important; top: 165px !important; }
+  .tech-logo-container:nth-of-type(22) { left: 145px !important; top: 165px !important; }
+  .tech-logo-container:nth-of-type(23) { left: 190px !important; top: 165px !important; }
+  .tech-logo-container:nth-of-type(24) { left: 235px !important; top: 165px !important; }
+
+  /* Row 5 - 1 logo centered */
+  .tech-logo-container:nth-of-type(25) { left: 122px !important; top: 210px !important; }
+
+  .tech-logo-image {
+    width: 90% !important;
+    height: 90% !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    object-fit: contain !important;
+  }
+
+  .education-main-title {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+
+  .education-item {
+    padding: 15px;
+  }
+
+  .education-degree {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+  }
+
+  .education-details {
+    font-size: 0.8rem;
+  }
+
+  .my-image {
+    max-width: 200px;
+  }
+
+  .image-text-greeting {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+
+  .image-text-description {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+}

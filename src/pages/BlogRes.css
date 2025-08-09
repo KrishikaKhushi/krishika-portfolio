@@ -1,0 +1,610 @@
+/* Mobile & Responsive Blog Page Styles - For screens 768px and below */
+
+/* Accessibility and Preference Styles (All Devices) */
+@media (prefers-reduced-motion: reduce) {
+  .blog-section::before,
+  .blog-section::after,
+  .blog-section .vertical-lights,
+  .blog-section .particle1,
+  .blog-section .particle2,
+  .blog-section .corner-glow-1,
+  .blog-section .corner-glow-2,
+  .fade-in-down,
+  .slide-in-up,
+  .fade-in-up {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .blog-content {
+    border: 2px solid rgba(172, 148, 214, 0.6);
+    background: rgba(20, 15, 30, 0.9);
+  }
+
+  .blog-title::after {
+    background: #d6c1ff;
+  }
+
+  .blog-content hr {
+    background: #AC94D6;
+  }
+
+  .blog-title,
+  .blog-subtitle {
+    text-shadow: 0 0 10px rgba(172, 148, 214, 0.8);
+  }
+}
+
+/* Responsive Design for Tablets (769px to 1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .blog-section {
+    padding-top: 40px;
+    padding-bottom: 80px;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .blog-title {
+    font-size: 2.4rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .blog-title::after {
+    width: 80px;
+  }
+
+  .blog-subtitle {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+  }
+
+  .blog-content {
+    font-size: 1.2rem;
+    max-width: 800px;
+    padding: 2rem;
+    line-height: 1.7;
+  }
+
+  .blog-content h4 {
+    font-size: 1.25rem;
+  }
+
+  .blog-content p {
+    margin-bottom: 18px;
+    text-align: justify;
+  }
+
+  /* Adjust background effects for tablets */
+  .blog-section .particle1 {
+    width: 150px;
+    height: 150px;
+  }
+
+  .blog-section .particle2 {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* Responsive Design for Tablets (768px and below) */
+@media (max-width: 768px) {
+  .blog-section {
+    padding-top: 80px;
+    padding-bottom: 60px;
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+
+  .blog-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .blog-title::after {
+    width: 60px;
+  }
+
+  .blog-subtitle {
+    font-size: 1.4rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .blog-content {
+    font-size: 1.05rem;
+    max-width: 95%;
+    padding: 1.5rem;
+    text-align: left;
+    line-height: 1.6;
+    border-radius: 12px;
+    border-width: 1px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .blog-content::before {
+    height: 20px;
+  }
+
+  .blog-content h4 {
+    font-size: 1.15rem;
+    margin-top: 20px;
+    margin-bottom: 8px;
+  }
+
+  .blog-content ul {
+    padding-left: 2rem;
+    margin-bottom: 15px;
+  }
+
+  .blog-content ul li {
+    padding-bottom: 0.2rem;
+    text-align: justify;
+  }
+
+  .blog-content p {
+    margin-bottom: 15px;
+    text-align: justify;
+    line-height: 1.6;
+  }
+
+  .blog-content hr {
+    margin: 25px 0;
+  }
+
+  /* Reduce but keep background effects on tablet */
+  .blog-section::before {
+    background-size: 60px 60px;
+  }
+
+  .blog-section .particle1 {
+    width: 120px;
+    height: 120px;
+    top: 12%;
+    right: 12%;
+  }
+
+  .blog-section .particle2 {
+    width: 100px;
+    height: 100px;
+    bottom: 18%;
+    left: 8%;
+  }
+
+  .blog-section .corner-glow-1,
+  .blog-section .corner-glow-2 {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+/* Landscape orientation for tablets */
+@media (max-width: 768px) and (orientation: landscape) {
+  .blog-section {
+    padding-top: 50px;
+    padding-bottom: 40px;
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+
+  .blog-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .blog-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .blog-content {
+    font-size: 1rem;
+    padding: 1.2rem;
+    line-height: 1.5;
+    max-width: 96%;
+  }
+
+  .blog-content h4 {
+    font-size: 1.1rem;
+    margin-top: 15px;
+    margin-bottom: 6px;
+  }
+
+  .blog-content p {
+    margin-bottom: 12px;
+    text-align: justify;
+  }
+
+  .blog-content ul {
+    margin-bottom: 12px;
+    padding-left: 1.8rem;
+  }
+
+  .blog-content hr {
+    margin: 18px 0;
+  }
+}
+
+/* Mobile Responsive Design (480px and below) */
+@media (max-width: 480px) {
+  .blog-section {
+    padding-top: 70px;
+    padding-bottom: 40px;
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+
+  .blog-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
+    font-weight: 900;
+  }
+
+  .blog-title::after {
+    width: 45px;
+    height: 1.5px;
+  }
+
+  .blog-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 1.4rem;
+    font-weight: 800;
+  }
+
+  .blog-content {
+    font-size: 0.85rem;
+    max-width: 98%;
+    padding: 1.2rem;
+    line-height: 1.4;
+    border-radius: 8px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .blog-content:hover {
+    transform: none;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .blog-content::before {
+    height: 15px;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .blog-content h4 {
+    font-size: 0.95rem;
+    margin-top: 18px;
+    margin-bottom: 8px;
+    font-weight: 800;
+  }
+
+  .blog-content ul {
+    padding-left: 1.5rem;
+    margin-bottom: 12px;
+    list-style-position: inside;
+  }
+
+  .blog-content ul li {
+    margin-bottom: 0.4rem;
+    text-indent: -0.5rem;
+    padding-left: 0.5rem;
+    line-height: 1.4;
+    text-align: justify;
+  }
+
+  .blog-content p {
+    margin-bottom: 12px;
+    line-height: 1.4;
+    text-align: justify;
+  }
+
+  .blog-content p:hover {
+    transform: none;
+  }
+
+  .blog-content hr {
+    margin: 18px 0;
+    height: 1px;
+  }
+
+  /* Keep background effects on mobile but reduce intensity */
+  .blog-section::before {
+    background-size: 50px 50px;
+    opacity: 0.7;
+  }
+
+  .blog-section::after {
+    opacity: 0.6;
+  }
+
+  .blog-section .vertical-lights {
+    opacity: 0.5;
+  }
+
+  .blog-section .particle1,
+  .blog-section .particle2 {
+    width: 80px;
+    height: 80px;
+  }
+
+  .blog-section .particle1 {
+    top: 8%;
+    right: 8%;
+  }
+
+  .blog-section .particle2 {
+    bottom: 12%;
+    left: 6%;
+  }
+
+  .blog-section .corner-glow-1,
+  .blog-section .corner-glow-2 {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* Small Mobile (360px and below) */
+@media (max-width: 360px) {
+  .blog-section {
+    padding-top: 60px;
+    padding-bottom: 35px;
+    padding-left: 4%;
+    padding-right: 4%;
+  }
+
+  .blog-title {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .blog-title::after {
+    width: 35px;
+    height: 1px;
+  }
+
+  .blog-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .blog-content {
+    font-size: 0.8rem;
+    padding: 1rem;
+    border-radius: 6px;
+    line-height: 1.3;
+  }
+
+  .blog-content::before {
+    height: 12px;
+  }
+
+  .blog-content h4 {
+    font-size: 0.9rem;
+    margin-top: 15px;
+    margin-bottom: 6px;
+  }
+
+  .blog-content ul {
+    padding-left: 1.2rem;
+    margin-bottom: 10px;
+  }
+
+  .blog-content ul li {
+    margin-bottom: 0.3rem;
+    line-height: 1.3;
+    text-align: justify;
+  }
+
+  .blog-content p {
+    margin-bottom: 10px;
+    line-height: 1.3;
+    text-align: justify;
+  }
+
+  .blog-content hr {
+    margin: 15px 0;
+  }
+
+  /* Keep reduced background effects on very small screens */
+  .blog-section .particle1,
+  .blog-section .particle2 {
+    width: 60px;
+    height: 60px;
+  }
+
+  .blog-section .corner-glow-1,
+  .blog-section .corner-glow-2 {
+    width: 80px;
+    height: 80px;
+  }
+
+  .blog-section::before {
+    background-size: 30px 30px;
+    opacity: 0.4;
+  }
+
+  .blog-section::after,
+  .blog-section .vertical-lights {
+    opacity: 0.3;
+  }
+}
+
+/* Very compact layout for portrait phones */
+@media (max-width: 320px) {
+  .blog-section {
+    padding: 50px 3%;
+  }
+
+  .blog-title {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .blog-title::after {
+    width: 25px;
+  }
+
+  .blog-subtitle {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .blog-content {
+    font-size: 0.75rem;
+    padding: 0.8rem;
+    line-height: 1.25;
+  }
+
+  .blog-content h4 {
+    font-size: 0.85rem;
+    margin-top: 12px;
+    margin-bottom: 4px;
+  }
+
+  .blog-content p {
+    margin-bottom: 8px;
+    line-height: 1.25;
+    text-align: justify;
+  }
+
+  .blog-content ul {
+    padding-left: 1rem;
+  }
+
+  .blog-content ul li {
+    margin-bottom: 0.2rem;
+    line-height: 1.25;
+    text-align: justify;
+  }
+
+  .blog-content hr {
+    margin: 12px 0;
+  }
+}
+
+/* Optimize for very wide mobile screens (landscape) */
+@media (max-width: 950px) and (orientation: landscape) and (max-height: 500px) {
+  .blog-section {
+    padding: 30px 4%;
+  }
+
+  .blog-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .blog-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .blog-content {
+    max-width: 92%;
+    padding: 1rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+
+  .blog-content h4 {
+    font-size: 0.9rem;
+    margin-top: 12px;
+    margin-bottom: 4px;
+  }
+
+  .blog-content p {
+    margin-bottom: 8px;
+    text-align: justify;
+  }
+
+  .blog-content ul {
+    margin-bottom: 8px;
+    padding-left: 1.2rem;
+  }
+
+  .blog-content ul li {
+    text-align: justify;
+  }
+
+  /* Keep subtle background effects on landscape */
+  .blog-section::before {
+    background-size: 40px 40px;
+    opacity: 0.5;
+  }
+
+  .blog-section .particle1 {
+    width: 70px;
+    height: 70px;
+  }
+
+  .blog-section .particle2 {
+    width: 60px;
+    height: 60px;
+  }
+
+  .blog-section .corner-glow-1,
+  .blog-section .corner-glow-2 {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* Touch-friendly interactions for mobile */
+@media (max-width: 768px) {
+  .blog-content:hover {
+    transform: none;
+    box-shadow: 0 6px 20px rgba(172, 148, 214, 0.15);
+  }
+
+  .blog-content p:hover {
+    transform: none;
+  }
+
+  /* Add touch feedback */
+  .blog-content:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+}
+
+/* Animation adjustments for mobile */
+@media (max-width: 768px) {
+  .fade-in-down,
+  .slide-in-up,
+  .fade-in-up {
+    animation-duration: 0.6s;
+  }
+
+  /* Ensure proper initial states for animations */
+  .blog-title {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+
+  .blog-title.fade-in-down {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .blog-subtitle {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+
+  .blog-subtitle.slide-in-up {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .blog-content {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  .blog-content.fade-in-up {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
