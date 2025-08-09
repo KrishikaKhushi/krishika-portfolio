@@ -174,8 +174,6 @@
   transition: left 0.5s ease;
 }
 
-.tile:/* Desktop Main App & Hero Styles - For screens 769px and above */
-
 /* Main content wrapper for blur effect */
 .main-content {
   transition: filter 0.3s ease;
@@ -449,7 +447,7 @@ html {
   transition: left 0.5s ease;
 }
 
-.tile:.tile::before {
+.tile::before {
   content: "";
   position: absolute;
   top: 0;
