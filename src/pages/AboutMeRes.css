@@ -127,29 +127,37 @@ body {
     border-radius: 10px;
   }
 
-  /* Tech Stack Container - Tablet optimized */
+  /* Tech Stack Container - Tablet optimized with CSS Grid */
   .tech-stack-container {
     max-width: 100%;
     width: 100%;
-    height: 300px; /* Increased height for better spacing */
     margin: 30px auto 60px auto;
-    padding: 10px;
+    padding: 20px;
     border-radius: 10px;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 15px;
+    height: 350px;
+    align-items: center;
+    justify-items: center;
   }
 
   .tech-stack-title {
     font-size: 1.1rem;
+    position: absolute;
     left: 15px;
     top: 8px;
-    position: absolute;
     z-index: 10;
   }
 
   /* Tech Logo Containers - Tablet sizing */
   .tech-logo-container {
-    position: absolute;
+    position: relative;
+    left: auto !important;
+    top: auto !important;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -160,6 +168,7 @@ body {
     transition: z-index 0.1s ease;
     width: 70px !important;
     height: 70px !important;
+    margin: 0;
   }
 
   .tech-logo-image {
@@ -336,39 +345,50 @@ body {
     border-radius: 8px;
   }
 
-  /* OPTIMAL TECH STACK FOR MOBILE - 5 ROWS x 5 COLUMNS */
+  /* RESPONSIVE TECH STACK FOR MOBILE - USES CSS GRID */
   .tech-stack-container {
-    height: 350px !important; /* Perfect height for 5 rows */
+    display: grid !important;
+    grid-template-columns: repeat(5, 1fr) !important;
+    grid-template-rows: repeat(5, 1fr) !important;
+    gap: 8px !important;
+    padding: 15px !important;
+    height: 320px !important;
     margin: 20px auto 40px auto;
-    padding: 10px;
     border-radius: 8px;
+    align-items: center !important;
+    justify-items: center !important;
     position: relative !important;
-    overflow: hidden !important;
+    overflow: visible !important;
     width: 100% !important;
   }
 
   .tech-stack-title {
     font-size: 1rem;
-    left: 15px;
-    top: 8px;
-    position: absolute;
+    position: absolute !important;
+    left: 15px !important;
+    top: 8px !important;
     z-index: 10;
+    margin: 0;
   }
 
-  /* Perfect logo sizing for mobile */
+  /* Reset all positioning and use CSS grid */
   .tech-logo-container {
-    position: absolute !important;
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     opacity: 1 !important;
     visibility: visible !important;
     z-index: 5 !important;
-    width: 55px !important; /* Optimal size */
-    height: 55px !important;
+    width: 50px !important;
+    height: 50px !important;
+    margin: 0 !important;
     cursor: pointer !important;
     transition: all 0.3s ease !important;
     border-radius: 8px !important;
+    flex-shrink: 0 !important;
   }
 
   /* Mobile hover effect */
@@ -376,42 +396,6 @@ body {
     transform: translateY(-2px) scale(1.05) !important;
     box-shadow: 0 4px 12px rgba(172, 148, 214, 0.3) !important;
   }
-
-  /* PERFECT 5x5 GRID LAYOUT - ALL 25 LOGOS PERFECTLY SPACED */
-  /* Row 1 - 5 logos */
-  .tech-logo-container:nth-of-type(1) { left: 20px !important; top: 40px !important; }
-  .tech-logo-container:nth-of-type(2) { left: 85px !important; top: 40px !important; }
-  .tech-logo-container:nth-of-type(3) { left: 150px !important; top: 40px !important; }
-  .tech-logo-container:nth-of-type(4) { left: 215px !important; top: 40px !important; }
-  .tech-logo-container:nth-of-type(5) { left: 280px !important; top: 40px !important; }
-
-  /* Row 2 - 5 logos */
-  .tech-logo-container:nth-of-type(6) { left: 20px !important; top: 105px !important; }
-  .tech-logo-container:nth-of-type(7) { left: 85px !important; top: 105px !important; }
-  .tech-logo-container:nth-of-type(8) { left: 150px !important; top: 105px !important; }
-  .tech-logo-container:nth-of-type(9) { left: 215px !important; top: 105px !important; }
-  .tech-logo-container:nth-of-type(10) { left: 280px !important; top: 105px !important; }
-
-  /* Row 3 - 5 logos */
-  .tech-logo-container:nth-of-type(11) { left: 20px !important; top: 170px !important; }
-  .tech-logo-container:nth-of-type(12) { left: 85px !important; top: 170px !important; }
-  .tech-logo-container:nth-of-type(13) { left: 150px !important; top: 170px !important; }
-  .tech-logo-container:nth-of-type(14) { left: 215px !important; top: 170px !important; }
-  .tech-logo-container:nth-of-type(15) { left: 280px !important; top: 170px !important; }
-
-  /* Row 4 - 5 logos */
-  .tech-logo-container:nth-of-type(16) { left: 20px !important; top: 235px !important; }
-  .tech-logo-container:nth-of-type(17) { left: 85px !important; top: 235px !important; }
-  .tech-logo-container:nth-of-type(18) { left: 150px !important; top: 235px !important; }
-  .tech-logo-container:nth-of-type(19) { left: 215px !important; top: 235px !important; }
-  .tech-logo-container:nth-of-type(20) { left: 280px !important; top: 235px !important; }
-
-  /* Row 5 - 5 logos */
-  .tech-logo-container:nth-of-type(21) { left: 20px !important; top: 300px !important; }
-  .tech-logo-container:nth-of-type(22) { left: 85px !important; top: 300px !important; }
-  .tech-logo-container:nth-of-type(23) { left: 150px !important; top: 300px !important; }
-  .tech-logo-container:nth-of-type(24) { left: 215px !important; top: 300px !important; }
-  .tech-logo-container:nth-of-type(25) { left: 280px !important; top: 300px !important; }
 
   .tech-logo-image {
     width: 85% !important;
@@ -514,7 +498,7 @@ body {
   }
 }
 
-/* Small Mobile (360px and below) - COMPACT 6x5 GRID */
+/* Small Mobile (360px and below) - RESPONSIVE GRID */
 @media (max-width: 360px) {
   .about-section {
     padding-top: 30px;
@@ -534,72 +518,47 @@ body {
     padding: 1rem;
   }
 
-  /* COMPACT TECH STACK - 6 LOGOS PER ROW, 5 ROWS */
+  /* RESPONSIVE TECH STACK FOR SMALL MOBILE */
   .tech-stack-container {
+    display: grid !important;
+    grid-template-columns: repeat(6, 1fr) !important;
+    grid-template-rows: repeat(5, 1fr) !important;
+    gap: 5px !important;
+    padding: 12px !important;
     height: 280px !important;
     margin: 15px auto 30px auto;
-    padding: 8px;
     border-radius: 8px;
+    align-items: center !important;
+    justify-items: center !important;
     position: relative !important;
-    overflow: hidden !important;
+    overflow: visible !important;
     width: 100% !important;
   }
 
   .tech-stack-title {
     font-size: 0.9rem;
-    left: 10px;
-    top: 5px;
-    position: absolute;
+    position: absolute !important;
+    left: 10px !important;
+    top: 5px !important;
     z-index: 10;
+    margin: 0;
   }
 
   .tech-logo-container {
-    position: absolute !important;
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     opacity: 1 !important;
     visibility: visible !important;
     z-index: 5 !important;
-    width: 38px !important;
-    height: 38px !important;
+    width: 35px !important;
+    height: 35px !important;
+    margin: 0 !important;
+    border-radius: 6px !important;
   }
-
-  /* COMPACT 6x5 GRID - PERFECT FOR SMALL SCREENS */
-  /* Row 1 - 6 logos */
-  .tech-logo-container:nth-of-type(1) { left: 10px !important; top: 30px !important; }
-  .tech-logo-container:nth-of-type(2) { left: 55px !important; top: 30px !important; }
-  .tech-logo-container:nth-of-type(3) { left: 100px !important; top: 30px !important; }
-  .tech-logo-container:nth-of-type(4) { left: 145px !important; top: 30px !important; }
-  .tech-logo-container:nth-of-type(5) { left: 190px !important; top: 30px !important; }
-  .tech-logo-container:nth-of-type(6) { left: 235px !important; top: 30px !important; }
-
-  /* Row 2 - 6 logos */
-  .tech-logo-container:nth-of-type(7) { left: 10px !important; top: 75px !important; }
-  .tech-logo-container:nth-of-type(8) { left: 55px !important; top: 75px !important; }
-  .tech-logo-container:nth-of-type(9) { left: 100px !important; top: 75px !important; }
-  .tech-logo-container:nth-of-type(10) { left: 145px !important; top: 75px !important; }
-  .tech-logo-container:nth-of-type(11) { left: 190px !important; top: 75px !important; }
-  .tech-logo-container:nth-of-type(12) { left: 235px !important; top: 75px !important; }
-
-  /* Row 3 - 6 logos */
-  .tech-logo-container:nth-of-type(13) { left: 10px !important; top: 120px !important; }
-  .tech-logo-container:nth-of-type(14) { left: 55px !important; top: 120px !important; }
-  .tech-logo-container:nth-of-type(15) { left: 100px !important; top: 120px !important; }
-  .tech-logo-container:nth-of-type(16) { left: 145px !important; top: 120px !important; }
-  .tech-logo-container:nth-of-type(17) { left: 190px !important; top: 120px !important; }
-  .tech-logo-container:nth-of-type(18) { left: 235px !important; top: 120px !important; }
-
-  /* Row 4 - 6 logos */
-  .tech-logo-container:nth-of-type(19) { left: 10px !important; top: 165px !important; }
-  .tech-logo-container:nth-of-type(20) { left: 55px !important; top: 165px !important; }
-  .tech-logo-container:nth-of-type(21) { left: 100px !important; top: 165px !important; }
-  .tech-logo-container:nth-of-type(22) { left: 145px !important; top: 165px !important; }
-  .tech-logo-container:nth-of-type(23) { left: 190px !important; top: 165px !important; }
-  .tech-logo-container:nth-of-type(24) { left: 235px !important; top: 165px !important; }
-
-  /* Row 5 - 1 logo centered */
-  .tech-logo-container:nth-of-type(25) { left: 122px !important; top: 210px !important; }
 
   .tech-logo-image {
     width: 90% !important;
