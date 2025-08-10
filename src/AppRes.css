@@ -593,29 +593,47 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
   }
 }
 
-/* SOLUTION 6: Disable pull-to-refresh and overscroll behaviors */
+/* RECOMMENDED: Combine solutions for best results */
 @media (max-width: 768px) {
+  /* Use this combined approach */
+  
   html {
-    /* Prevent pull-to-refresh */
-    overscroll-behavior-y: none;
-    /* Prevent horizontal scroll */
-    overscroll-behavior-x: none;
-    /* Prevent elastic scroll */
+    overflow-x: hidden;
+    overscroll-behavior: none;
     -webkit-overflow-scrolling: touch;
   }
 
   body {
-    /* Additional overscroll prevention */
-    overscroll-behavior: none;
-    /* Prevent iOS bounce */
-    -webkit-overflow-scrolling: touch;
+    min-height: 100vh;
+    min-height: calc(var(--vh, 1vh) * 100);
+    min-height: -webkit-fill-available;
+    overflow-x: hidden;
   }
 
-  /* Prevent touch actions that might trigger browser chrome */
+  .scroll-section,
+  .cta-section-wrapper {
+    height: 100vh;
+    min-height: calc(var(--vh, 1vh) * 100);
+    min-height: -webkit-fill-available;
+  }
+
+  /* For modern browsers that support dvh */
+  @supports (height: 100dvh) {
+    .scroll-section,
+    .cta-section-wrapper {
+      height: 100dvh;
+    }
+    
+    .hero-section {
+      height: 400dvh;
+    }
+  }
+
+  /* Touch behavior */
   .hero-section,
   .scroll-section,
   .cta-section-wrapper {
-    touch-action: pan-y; /* Only allow vertical scrolling */
-    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    overscroll-behavior: none;
   }
 }
