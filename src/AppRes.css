@@ -3,17 +3,12 @@
 /* CRITICAL: Prevent zoom-out requirement on mobile */
 html {
   overflow-x: hidden;
-  /* ADDED: Prevent address bar auto-hide */
-  overscroll-behavior-y: none;
 }
 
 body {
   overflow-x: hidden;
   width: 100%;
   max-width: 100vw;
-  /* ADDED: Prevent address bar auto-hide */
-  overscroll-behavior-y: none;
-  -webkit-overflow-scrolling: auto;
 }
 
 /* Ensure all elements fit within viewport */
@@ -103,9 +98,7 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
     top: 0;
     left: 0;
     width: 100vw;
-    /* UPDATED: Use static viewport height to account for address bar */
     height: 100vh;
-    height: 100svh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -246,9 +239,7 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
     top: 0;
     left: 0;
     width: 100vw;
-    /* UPDATED: Use static viewport height to account for address bar */
     height: 100vh;
-    height: 100svh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -601,3 +592,4 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
     opacity: 0.2;
   }
 }
+
