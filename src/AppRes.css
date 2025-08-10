@@ -17,6 +17,26 @@ body {
   box-sizing: border-box;
 }
 
+/* Remove blue highlight on touch devices */
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Allow text selection for readable content */
+p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3, .cta-text, .cta-headline {
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
 /* Accessibility and Preference Styles (All Devices) */
 @media (prefers-reduced-motion: reduce) {
   .hero-bg-image,
@@ -292,43 +312,6 @@ body {
     padding: 8px 0;
   }
 
-  /* SHOW chibi on mobile - override the display: none from main CSS */
-  .chibi-sticker-container-home {
-    display: block !important;
-    left: 15px;
-    top: 70%;
-    transform: translateY(-50%) translateX(-200px);
-    z-index: 60;
-    pointer-events: none;
-    opacity: 0;
-  }
-
-  .chibi-sticker-container-home.slide-in {
-    opacity: 1;
-    transform: translateY(-50%) translateX(0);
-    transition: all 1s ease-out;
-  }
-
-  .chibi-sticker-container-home .chibi-image {
-    width: 60px;
-    height: auto;
-  }
-
-  .chibi-sticker-container-home .dialogue-bubble {
-    left: 70px;
-    top: -50px;
-    min-width: 160px;
-    padding: 6px 10px;
-  }
-
-  .chibi-sticker-container-home .dialogue-bubble p {
-    font-size: 0.75rem;
-  }
-
-  .chibi-sticker-container-home .bubble-arrow {
-    right: 120px;
-  }
-
   /* Reduce floating particle sizes on tablet */
   .hero-section::before {
     width: 100px;
@@ -386,10 +369,6 @@ body {
 
   .cta-text {
     font-size: 0.9rem;
-  }
-
-  .chibi-sticker-container-home {
-    top: 75%;
   }
 }
 
@@ -507,25 +486,6 @@ body {
     padding: 6px 0;
   }
 
-  .chibi-sticker-container-home {
-    left: 10px;
-    top: 75%;
-  }
-
-  .chibi-sticker-container-home .chibi-image {
-    width: 50px;
-  }
-
-  .chibi-sticker-container-home .dialogue-bubble {
-    left: 60px;
-    min-width: 140px;
-    padding: 5px 8px;
-  }
-
-  .chibi-sticker-container-home .dialogue-bubble p {
-    font-size: 0.7rem;
-  }
-
   /* Hide floating particles on very small screens to reduce clutter */
   .hero-section::before,
   .hero-section::after {
@@ -622,20 +582,6 @@ body {
     padding: 5px 0;
   }
 
-  .chibi-sticker-container-home .chibi-image {
-    width: 45px;
-  }
-
-  .chibi-sticker-container-home .dialogue-bubble {
-    left: 55px;
-    min-width: 120px;
-    padding: 4px 6px;
-  }
-
-  .chibi-sticker-container-home .dialogue-bubble p {
-    font-size: 0.65rem;
-  }
-
   /* Further reduce background elements for minimal clutter */
   body::before {
     opacity: 0.7;
@@ -644,5 +590,32 @@ body {
   body::after {
     background-size: 15px 15px;
     opacity: 0.2;
+  }
+}
+
+/* SOLUTION 6: Disable pull-to-refresh and overscroll behaviors */
+@media (max-width: 768px) {
+  html {
+    /* Prevent pull-to-refresh */
+    overscroll-behavior-y: none;
+    /* Prevent horizontal scroll */
+    overscroll-behavior-x: none;
+    /* Prevent elastic scroll */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body {
+    /* Additional overscroll prevention */
+    overscroll-behavior: none;
+    /* Prevent iOS bounce */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Prevent touch actions that might trigger browser chrome */
+  .hero-section,
+  .scroll-section,
+  .cta-section-wrapper {
+    touch-action: pan-y; /* Only allow vertical scrolling */
+    -ms-touch-action: pan-y;
   }
 }

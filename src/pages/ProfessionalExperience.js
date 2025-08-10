@@ -67,7 +67,7 @@ function ProfessionalExperience() {
             className="company-logo"
           />
           <h2 className="company-name gradient-text">
-            Berger Paints India Ltd. (British Paints Division)
+            Berger Paints India Ltd. (British Paints Division)—Backend Developer Intern
           </h2>
         </div>
 

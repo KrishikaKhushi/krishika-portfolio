@@ -170,11 +170,6 @@
     margin-top: 1rem;
   }
 
-  /* Hide chibi only on actual mobile devices */
-  .contact-chibi-container {
-    display: none;
-  }
-
   .resume-button {
     font-size: 1rem;
     padding: 10px 22px;
@@ -186,30 +181,9 @@
     justify-content: center;
   }
 
-  /* Keep chibi visible on tablets, adjust size and position */
+  /* Hide chibi on tablets and below */
   .contact-chibi-container {
-    right: 15px;
-    bottom: 5px;
-    display: block;
-  }
-
-  .contact-chibi-image {
-    width: 75px;
-  }
-
-  .contact-dialogue-bubble {
-    right: 85px;
-    bottom: 70px;
-    min-width: 160px;
-    padding: 8px 10px;
-  }
-
-  .contact-dialogue-bubble p {
-    font-size: 0.75rem;
-  }
-
-  .contact-bubble-arrow {
-    right: 20px;
+    display: none;
   }
 
   /* Reduce but keep background effects on tablet */

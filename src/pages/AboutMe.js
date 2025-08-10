@@ -68,6 +68,7 @@ const TechStackContainer = ({ onClick }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [logos, setLogos] = useState([]);
   const [isDraggingAny, setIsDraggingAny] = useState(false);
+  const animationFrameRef = useRef(null);
 
   // Initialize logos with orderly grid positions
   useEffect(() => {
@@ -121,7 +122,7 @@ const TechStackContainer = ({ onClick }) => {
     });
 
     setLogos(initialLogos);
-  }, []);
+  }, []); // Only run once on mount
 
   // Track if any logo is being dragged
   useEffect(() => {
@@ -131,18 +132,18 @@ const TechStackContainer = ({ onClick }) => {
 
   // Animation loop - chaos mode when hovered, orderly when not
   useEffect(() => {
-    if (logos.length === 0) return;
-
     const container = containerRef.current;
-    if (!container) return;
+    if (!container || logos.length === 0) return;
 
     const containerRect = container.getBoundingClientRect();
     const containerWidth = containerRect.width;
     const containerHeight = containerRect.height;
 
     const animationLoop = () => {
-      setLogos(prevLogos => 
-        prevLogos.map(logo => {
+      setLogos(prevLogos => {
+        if (prevLogos.length === 0) return prevLogos;
+        
+        return prevLogos.map(logo => {
           let { x, y, vx, vy, rotation, isDragging, orderlyX, orderlyY } = logo;
           const logoSize = logo.size;
 
@@ -193,13 +194,24 @@ const TechStackContainer = ({ onClick }) => {
           }
 
           return { ...logo, x, y, vx, vy, rotation };
-        })
-      );
+        });
+      });
+
+      if (animationFrameRef.current) {
+        animationFrameRef.current = requestAnimationFrame(animationLoop);
+      }
     };
 
-    const intervalId = setInterval(animationLoop, 20);
-    return () => clearInterval(intervalId);
-  }, [isHovered, logos.length]);
+    animationFrameRef.current = requestAnimationFrame(animationLoop);
+
+    return () => {
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+        animationFrameRef.current = null;
+      }
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isHovered]); // Only depend on isHovered to prevent infinite loops
 
   // Enhanced collision detection between logos (only in chaos mode)
   useEffect(() => {

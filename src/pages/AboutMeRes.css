@@ -32,9 +32,7 @@ body {
   .tech-particle-2,
   .popup-overlay,
   .popup-content,
-  .my-image-container,
-  .about-chibi-container,
-  .about-dialogue-bubble {
+  .my-image-container {
     animation: none !important;
     transition: none !important;
   }
@@ -127,33 +125,6 @@ body {
     line-height: 1.6;
     padding: 1.5rem;
     border-radius: 10px;
-  }
-
-  /* KEEP About Chibi visible on tablet - MOVED SLIGHTLY LEFT */
-  .about-chibi-container {
-    margin: 50px auto -60px auto;
-    padding-right: 0px;
-    padding-left: 50px;
-    justify-content: flex-end;
-    display: flex !important; /* Override desktop hide */
-  }
-
-  .about-chibi-image {
-    width: 60px;
-  }
-
-  .about-dialogue-bubble {
-    right: 50px;
-    min-width: 160px;
-    padding: 6px 10px;
-  }
-
-  .about-dialogue-bubble p {
-    font-size: 0.75rem;
-  }
-
-  .about-bubble-arrow {
-    right: 10px;
   }
 
   /* Tech Stack Container - Tablet optimized */
@@ -365,33 +336,6 @@ body {
     border-radius: 8px;
   }
 
-  /* Show chibi on mobile - MOVED SLIGHTLY LEFT */
-  .about-chibi-container {
-    margin: 30px auto -40px auto;
-    padding-right: 0px;
-    padding-left: 30px;
-    justify-content: flex-end;
-    display: flex !important;
-  }
-
-  .about-chibi-image {
-    width: 50px;
-  }
-
-  .about-dialogue-bubble {
-    right: 35px;
-    min-width: 140px;
-    padding: 5px 8px;
-  }
-
-  .about-dialogue-bubble p {
-    font-size: 0.7rem;
-  }
-
-  .about-bubble-arrow {
-    right: 6px;
-  }
-
   /* OPTIMAL TECH STACK FOR MOBILE - 5 ROWS x 5 COLUMNS */
   .tech-stack-container {
     height: 350px !important; /* Perfect height for 5 rows */
@@ -588,32 +532,6 @@ body {
     font-size: 0.9rem;
     line-height: 1.4;
     padding: 1rem;
-  }
-
-  /* Even smaller chibi - MOVED SLIGHTLY LEFT */
-  .about-chibi-container {
-    margin: 20px auto -30px auto;
-    padding-right: 0px;
-    padding-left: 25px;
-    justify-content: flex-end;
-  }
-
-  .about-chibi-image {
-    width: 45px;
-  }
-
-  .about-dialogue-bubble {
-    right: 30px;
-    min-width: 120px;
-    padding: 4px 6px;
-  }
-
-  .about-dialogue-bubble p {
-    font-size: 0.65rem;
-  }
-
-  .about-bubble-arrow {
-    right: 4px;
   }
 
   /* COMPACT TECH STACK - 6 LOGOS PER ROW, 5 ROWS */
