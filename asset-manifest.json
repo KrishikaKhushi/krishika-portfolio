@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/krishika-portfolio/static/css/main.969af61e.css",
+    "main.css": "/krishika-portfolio/static/css/main.35a571d4.css",
     "main.js": "/krishika-portfolio/static/js/main.6ecdd96f.js",
     "static/js/453.e9bfca4a.chunk.js": "/krishika-portfolio/static/js/453.e9bfca4a.chunk.js",
     "static/media/vit.png": "/krishika-portfolio/static/media/vit.87f8b7d0362c4e6affed.png",
@@ -47,12 +47,12 @@
     "static/media/tailwind.png": "/krishika-portfolio/static/media/tailwind.ebf87fe4cf897b355500.png",
     "static/media/github.png": "/krishika-portfolio/static/media/github.ba784b1b0217eb441bcc.png",
     "index.html": "/krishika-portfolio/index.html",
-    "main.969af61e.css.map": "/krishika-portfolio/static/css/main.969af61e.css.map",
+    "main.35a571d4.css.map": "/krishika-portfolio/static/css/main.35a571d4.css.map",
     "main.6ecdd96f.js.map": "/krishika-portfolio/static/js/main.6ecdd96f.js.map",
     "453.e9bfca4a.chunk.js.map": "/krishika-portfolio/static/js/453.e9bfca4a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.969af61e.css",
+    "static/css/main.35a571d4.css",
     "static/js/main.6ecdd96f.js"
   ]
 }
