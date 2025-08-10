@@ -1,15 +1,19 @@
 /* Mobile & Responsive Main App & Hero Styles - For screens 768px and below */
-/* UPDATED: Prevents mobile browser address bar from auto-hiding while keeping normal scrolling */
 
 /* CRITICAL: Prevent zoom-out requirement on mobile */
 html {
   overflow-x: hidden;
+  /* ADDED: Prevent address bar auto-hide */
+  overscroll-behavior-y: none;
 }
 
 body {
   overflow-x: hidden;
   width: 100%;
   max-width: 100vw;
+  /* ADDED: Prevent address bar auto-hide */
+  overscroll-behavior-y: none;
+  -webkit-overflow-scrolling: auto;
 }
 
 /* Ensure all elements fit within viewport */
@@ -87,41 +91,6 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
 
 /* Tablets (768px and below) */
 @media (max-width: 768px) {
-  /* UPDATED: Force address bar to always stay visible */
-  html {
-    /* Keep normal scrolling but force address bar visibility */
-    min-height: 100vh;
-    min-height: calc(100vh + 100px); /* Add extra height to account for address bar */
-  }
-
-  body {
-    /* Ensure body accounts for address bar space */
-    min-height: 100vh;
-    min-height: calc(100vh + 100px);
-    /* Prevent pull-to-refresh that can trigger address bar changes */
-    overscroll-behavior-y: none;
-  }
-
-  /* Force address bar to show by making initial content taller than viewport */
-  body::before {
-    content: '';
-    display: block;
-    height: 1px;
-    width: 100%;
-    position: absolute;
-    top: -1px;
-    /* This forces the browser to always show address bar */
-  }
-
-  /* Alternative method: Use viewport units that include address bar */
-  .scroll-section,
-  .cta-section-wrapper {
-    /* Use large viewport height that includes address bar */
-    height: 100vh;
-    /* For browsers that support it, use static viewport height */
-    height: 100svh;
-  }
-
   /* Keep scroll indicator but make it smaller */
   .scroll-indicator {
     right: 15px;
@@ -134,8 +103,9 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
     top: 0;
     left: 0;
     width: 100vw;
+    /* UPDATED: Use static viewport height to account for address bar */
     height: 100vh;
-    height: 100svh; /* Static viewport height - includes address bar */
+    height: 100svh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -156,8 +126,6 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
   /* Hero section adjustments for mobile - KEEP 400vh for scroll mechanics */
   .hero-section {
     height: 400vh;
-    /* Add minimum height to ensure address bar stays visible */
-    min-height: calc(400vh + 200px);
     padding: 0;
     margin: 0;
     display: flex;
@@ -179,7 +147,7 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
   .hero-bg-image {
     transform: scale(1.1);
     object-position: center;
-    width: 100%;
+    width: 100%; /* Reduced from 115% to prevent horizontal overflow */
     height: 100%;
     object-fit: cover;
   }
@@ -199,11 +167,11 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
   /* Hero text adjustments */
   .hero-text-wrapper {
     transform: translateY(-15vh);
-    max-width: 100%;
+    max-width: 100%; /* Ensure no overflow */
     position: relative;
     text-align: center;
     width: 100%;
-    padding: 0 0.5rem;
+    padding: 0 0.5rem; /* Reduced padding to prevent overflow */
   }
 
   .hero-title {
@@ -221,22 +189,23 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
   /* Personality tiles - positioned within the tiles scroll section */
   .personality-tiles {
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-start; /* Align to left instead of center */
     flex-wrap: wrap;
     gap: 0.8rem;
-    max-width: 100%;
-    padding: 0 1rem 0 0.1rem;
+    max-width: 100%; /* Full width container */
+    padding: 0 1rem 0 0.1rem; /* Almost no left padding */
     width: 100%;
-    transform: translateY(12vh) translateX(-25vw);
+    transform: translateY(12vh) translateX(-25vw); /* Move down a bit */
   }
 
   .tile {
-    flex: 1 1 calc(45% - 0.4rem);
-    max-width: calc(48% - 0.4rem);
-    min-width: 120px;
-    padding: 0.7rem 0.5rem;
+    flex: 1 1 calc(45% - 0.4rem); /* Ensure 2 tiles per row with proper spacing */
+    max-width: calc(48% - 0.4rem); /* Backup constraint */
+    min-width: 120px; /* Reduced min-width for mobile */
+    padding: 0.7rem 0.5rem; /* Compact padding */
     opacity: 0;
     transform: translateY(50px);
+    /* Keep the scroll-based animations */
   }
 
   /* Keep tile animations but adjust timing for mobile */
@@ -277,8 +246,9 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
     top: 0;
     left: 0;
     width: 100vw;
+    /* UPDATED: Use static viewport height to account for address bar */
     height: 100vh;
-    height: 100svh; /* Static viewport height */
+    height: 100svh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -298,8 +268,8 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
 
   .cta-section {
     text-align: center;
-    max-width: 100%;
-    padding: 0 0.5rem;
+    max-width: 100%; /* Ensure no overflow */
+    padding: 0 0.5rem; /* Reduced padding */
     opacity: 0;
     transform: translateY(30px);
   }
@@ -365,28 +335,6 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
     bottom: 10%;
     left: 10%;
   }
-
-  /* CRITICAL: Prevent address bar auto-hide behaviors */
-  
-  /* Method 1: Disable pull-to-refresh and bounce scroll */
-  html, body {
-    overscroll-behavior-y: none;
-    /* Prevent iOS Safari bounce that triggers address bar */
-    -webkit-overflow-scrolling: auto;
-  }
-
-  /* Method 2: Use meta viewport to suggest keeping address bar */
-  /* Add to HTML head:
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="mobile-web-app-capable" content="no">
-  <meta name="apple-mobile-web-app-capable" content="no">
-  */
-
-  /* Method 3: Force minimum scroll behavior */
-  body {
-    /* Add small padding that forces scroll calculation */
-    padding-bottom: 1px;
-  }
 }
 
 /* Landscape orientation for tablets */
@@ -412,8 +360,8 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
     flex-wrap: wrap;
     gap: 0.6rem;
     justify-content: center;
-    transform: translateY(8vh);
-    max-width: 85%;
+    transform: translateY(8vh); /* Slightly less shift for landscape */
+    max-width: 85%; /* Ensure tiles fit in landscape */
   }
 
   .tile {
@@ -437,7 +385,7 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
 @media (max-width: 480px) {
   .hero-bg-image {
     transform: scale(1.0);
-    width: 100%;
+    width: 100%; /* Ensure no horizontal overflow */
   }
 
   @keyframes bgFloat {
@@ -455,7 +403,7 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
   .hero-text-wrapper {
     transform: translateY(-10vh);
     max-width: 100%;
-    padding: 0 8px;
+    padding: 0 8px; /* Minimal padding to prevent overflow */
   }
 
   .hero-title {
@@ -473,20 +421,20 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
   /* Single column with left alignment */
   .personality-tiles {
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: flex-start; /* Align to left */
     gap: 0.5rem;
-    padding: 0 1rem 0 0.1rem;
-    transform: translateY(14vh) translateX(-30vw);
+    padding: 0 1rem 0 0.1rem; /* Almost no left padding */
+    transform: translateY(14vh) translateX(-30vw); /* Move down more on mobile */
     max-width: 100%;
   }
 
   .tile {
     flex: none;
-    max-width: 80%;
+    max-width: 80%; /* Limit width to ensure visibility */
     width: 80%;
     padding: 0.6rem 0.4rem;
     border-radius: 12px;
-    margin-left: 0;
+    margin-left: 0; /* Ensure left alignment */
   }
 
   .tile-icon {
@@ -564,7 +512,7 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
 @media (max-width: 360px) {
   .hero-text-wrapper {
     transform: translateY(-8vh);
-    padding: 0 4px;
+    padding: 0 4px; /* Minimal padding */
   }
 
   .hero-title {
@@ -584,13 +532,13 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
     flex-direction: column;
     justify-content: flex-start;
     gap: 0.4rem;
-    transform: translateY(12vh) translateX(-35vw);
-    padding: 0 1rem 0 0;
+    transform: translateY(12vh) translateX(-35vw); /* Move down on small mobile too */
+    padding: 0 1rem 0 0; /* Zero left padding */
   }
 
   .tile {
     flex: none;
-    max-width: 75%;
+    max-width: 75%; /* Smaller width for tiny screens */
     width: 75%;
     padding: 0.5rem 0.3rem;
     border-radius: 10px;
