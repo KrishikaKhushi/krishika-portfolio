@@ -1,4 +1,5 @@
 /* Mobile & Responsive Main App & Hero Styles - For screens 768px and below */
+/* UPDATED: Prevents mobile browser address bar from hiding */
 
 /* CRITICAL: Prevent zoom-out requirement on mobile */
 html {
@@ -86,19 +87,52 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
 
 /* Tablets (768px and below) */
 @media (max-width: 768px) {
+  /* UPDATED: Prevent document scrolling to keep address bar visible */
+  html {
+    height: 100%;
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
+
+  body {
+    height: 100vh;
+    height: 100dvh; /* Modern browsers */
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overscroll-behavior: none;
+  }
+
+  /* NEW: Main scroll container to handle all scrolling */
+  .main-scroll-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: none;
+  }
+
   /* Keep scroll indicator but make it smaller */
   .scroll-indicator {
     right: 15px;
     transform: translateY(-50%) scale(0.8);
   }
 
-  /* KEEP scroll sections working on mobile - maintain the JavaScript-controlled system */
+  /* UPDATED: Change scroll sections from fixed to absolute positioning */
   .scroll-section {
-    position: fixed;
+    position: absolute; /* Changed from fixed */
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
+    height: 100dvh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -127,7 +161,7 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
     align-items: center;
     background-color: transparent;
     overflow: hidden;
-    position: relative;
+    position: relative; /* Changed from any fixed positioning */
     z-index: 0;
   }
 
@@ -140,7 +174,7 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
   .hero-bg-image {
     transform: scale(1.1);
     object-position: center;
-    width: 100%; /* Reduced from 115% to prevent horizontal overflow */
+    width: 100%;
     height: 100%;
     object-fit: cover;
   }
@@ -160,11 +194,11 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
   /* Hero text adjustments */
   .hero-text-wrapper {
     transform: translateY(-15vh);
-    max-width: 100%; /* Ensure no overflow */
+    max-width: 100%;
     position: relative;
     text-align: center;
     width: 100%;
-    padding: 0 0.5rem; /* Reduced padding to prevent overflow */
+    padding: 0 0.5rem;
   }
 
   .hero-title {
@@ -182,23 +216,25 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
   /* Personality tiles - positioned within the tiles scroll section */
   .personality-tiles {
     display: flex;
-    justify-content: flex-start; /* Align to left instead of center */
+    justify-content: flex-start;
     flex-wrap: wrap;
     gap: 0.8rem;
-    max-width: 100%; /* Full width container */
-    padding: 0 1rem 0 0.1rem; /* Almost no left padding */
+    max-width: 100%;
+    padding: 0 1rem 0 0.1rem;
     width: 100%;
-    transform: translateY(12vh) translateX(-25vw); /* Move down a bit */
+    transform: translateY(12vh) translateX(-25vw);
   }
 
   .tile {
-    flex: 1 1 calc(45% - 0.4rem); /* Ensure 2 tiles per row with proper spacing */
-    max-width: calc(48% - 0.4rem); /* Backup constraint */
-    min-width: 120px; /* Reduced min-width for mobile */
-    padding: 0.7rem 0.5rem; /* Compact padding */
+    flex: 1 1 calc(45% - 0.4rem);
+    max-width: calc(48% - 0.4rem);
+    min-width: 120px;
+    padding: 0.7rem 0.5rem;
     opacity: 0;
     transform: translateY(50px);
-    /* Keep the scroll-based animations */
+    /* Prevent any scrolling behavior */
+    touch-action: pan-y pan-x;
+    overscroll-behavior: contain;
   }
 
   /* Keep tile animations but adjust timing for mobile */
@@ -233,13 +269,14 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
     line-height: 1.3;
   }
 
-  /* CTA section - KEEP as fixed scroll section with JavaScript control */
+  /* UPDATED: CTA section - changed from fixed to absolute positioning */
   .cta-section-wrapper {
-    position: fixed;
+    position: absolute; /* Changed from fixed */
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
+    height: 100dvh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -259,8 +296,8 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
 
   .cta-section {
     text-align: center;
-    max-width: 100%; /* Ensure no overflow */
-    padding: 0 0.5rem; /* Reduced padding */
+    max-width: 100%;
+    padding: 0 0.5rem;
     opacity: 0;
     transform: translateY(30px);
   }
@@ -326,6 +363,15 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
     bottom: 10%;
     left: 10%;
   }
+
+  /* Prevent any element from triggering document scroll */
+  .hero-section,
+  .scroll-section,
+  .cta-section-wrapper,
+  .personality-tiles {
+    touch-action: pan-y pan-x;
+    overscroll-behavior: contain;
+  }
 }
 
 /* Landscape orientation for tablets */
@@ -351,8 +397,8 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
     flex-wrap: wrap;
     gap: 0.6rem;
     justify-content: center;
-    transform: translateY(8vh); /* Slightly less shift for landscape */
-    max-width: 85%; /* Ensure tiles fit in landscape */
+    transform: translateY(8vh);
+    max-width: 85%;
   }
 
   .tile {
@@ -376,7 +422,7 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
 @media (max-width: 480px) {
   .hero-bg-image {
     transform: scale(1.0);
-    width: 100%; /* Ensure no horizontal overflow */
+    width: 100%;
   }
 
   @keyframes bgFloat {
@@ -394,7 +440,7 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
   .hero-text-wrapper {
     transform: translateY(-10vh);
     max-width: 100%;
-    padding: 0 8px; /* Minimal padding to prevent overflow */
+    padding: 0 8px;
   }
 
   .hero-title {
@@ -412,20 +458,20 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
   /* Single column with left alignment */
   .personality-tiles {
     flex-direction: column;
-    justify-content: flex-start; /* Align to left */
+    justify-content: flex-start;
     gap: 0.5rem;
-    padding: 0 1rem 0 0.1rem; /* Almost no left padding */
-    transform: translateY(14vh) translateX(-30vw); /* Move down more on mobile */
+    padding: 0 1rem 0 0.1rem;
+    transform: translateY(14vh) translateX(-30vw);
     max-width: 100%;
   }
 
   .tile {
     flex: none;
-    max-width: 80%; /* Limit width to ensure visibility */
+    max-width: 80%;
     width: 80%;
     padding: 0.6rem 0.4rem;
     border-radius: 12px;
-    margin-left: 0; /* Ensure left alignment */
+    margin-left: 0;
   }
 
   .tile-icon {
@@ -503,7 +549,7 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
 @media (max-width: 360px) {
   .hero-text-wrapper {
     transform: translateY(-8vh);
-    padding: 0 4px; /* Minimal padding */
+    padding: 0 4px;
   }
 
   .hero-title {
@@ -523,13 +569,13 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
     flex-direction: column;
     justify-content: flex-start;
     gap: 0.4rem;
-    transform: translateY(12vh) translateX(-35vw); /* Move down on small mobile too */
-    padding: 0 1rem 0 0; /* Zero left padding */
+    transform: translateY(12vh) translateX(-35vw);
+    padding: 0 1rem 0 0;
   }
 
   .tile {
     flex: none;
-    max-width: 75%; /* Smaller width for tiny screens */
+    max-width: 75%;
     width: 75%;
     padding: 0.5rem 0.3rem;
     border-radius: 10px;
@@ -590,50 +636,5 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
   body::after {
     background-size: 15px 15px;
     opacity: 0.2;
-  }
-}
-
-/* RECOMMENDED: Combine solutions for best results */
-@media (max-width: 768px) {
-  /* Use this combined approach */
-  
-  html {
-    overflow-x: hidden;
-    overscroll-behavior: none;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  body {
-    min-height: 100vh;
-    min-height: calc(var(--vh, 1vh) * 100);
-    min-height: -webkit-fill-available;
-    overflow-x: hidden;
-  }
-
-  .scroll-section,
-  .cta-section-wrapper {
-    height: 100vh;
-    min-height: calc(var(--vh, 1vh) * 100);
-    min-height: -webkit-fill-available;
-  }
-
-  /* For modern browsers that support dvh */
-  @supports (height: 100dvh) {
-    .scroll-section,
-    .cta-section-wrapper {
-      height: 100dvh;
-    }
-    
-    .hero-section {
-      height: 400dvh;
-    }
-  }
-
-  /* Touch behavior */
-  .hero-section,
-  .scroll-section,
-  .cta-section-wrapper {
-    touch-action: pan-y;
-    overscroll-behavior: none;
   }
 }
