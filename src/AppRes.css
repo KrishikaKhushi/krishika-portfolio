@@ -1,5 +1,5 @@
 /* Mobile & Responsive Main App & Hero Styles - For screens 768px and below */
-/* UPDATED: Prevents mobile browser address bar from hiding */
+/* UPDATED: Prevents mobile browser address bar from auto-hiding while keeping normal scrolling */
 
 /* CRITICAL: Prevent zoom-out requirement on mobile */
 html {
@@ -87,36 +87,39 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
 
 /* Tablets (768px and below) */
 @media (max-width: 768px) {
-  /* UPDATED: Prevent document scrolling to keep address bar visible */
+  /* UPDATED: Force address bar to always stay visible */
   html {
-    height: 100%;
-    overflow: hidden;
-    overscroll-behavior: none;
+    /* Keep normal scrolling but force address bar visibility */
+    min-height: 100vh;
+    min-height: calc(100vh + 100px); /* Add extra height to account for address bar */
   }
 
   body {
-    height: 100vh;
-    height: 100dvh; /* Modern browsers */
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    overscroll-behavior: none;
+    /* Ensure body accounts for address bar space */
+    min-height: 100vh;
+    min-height: calc(100vh + 100px);
+    /* Prevent pull-to-refresh that can trigger address bar changes */
+    overscroll-behavior-y: none;
   }
 
-  /* NEW: Main scroll container to handle all scrolling */
-  .main-scroll-container {
-    position: absolute;
-    top: 0;
-    left: 0;
+  /* Force address bar to show by making initial content taller than viewport */
+  body::before {
+    content: '';
+    display: block;
+    height: 1px;
     width: 100%;
+    position: absolute;
+    top: -1px;
+    /* This forces the browser to always show address bar */
+  }
+
+  /* Alternative method: Use viewport units that include address bar */
+  .scroll-section,
+  .cta-section-wrapper {
+    /* Use large viewport height that includes address bar */
     height: 100vh;
-    height: 100dvh;
-    overflow-y: auto;
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior: none;
+    /* For browsers that support it, use static viewport height */
+    height: 100svh;
   }
 
   /* Keep scroll indicator but make it smaller */
@@ -125,14 +128,14 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
     transform: translateY(-50%) scale(0.8);
   }
 
-  /* UPDATED: Change scroll sections from fixed to absolute positioning */
+  /* KEEP scroll sections working on mobile - maintain the JavaScript-controlled system */
   .scroll-section {
-    position: absolute; /* Changed from fixed */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    height: 100dvh;
+    height: 100svh; /* Static viewport height - includes address bar */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -153,6 +156,8 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
   /* Hero section adjustments for mobile - KEEP 400vh for scroll mechanics */
   .hero-section {
     height: 400vh;
+    /* Add minimum height to ensure address bar stays visible */
+    min-height: calc(400vh + 200px);
     padding: 0;
     margin: 0;
     display: flex;
@@ -161,7 +166,7 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
     align-items: center;
     background-color: transparent;
     overflow: hidden;
-    position: relative; /* Changed from any fixed positioning */
+    position: relative;
     z-index: 0;
   }
 
@@ -232,9 +237,6 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
     padding: 0.7rem 0.5rem;
     opacity: 0;
     transform: translateY(50px);
-    /* Prevent any scrolling behavior */
-    touch-action: pan-y pan-x;
-    overscroll-behavior: contain;
   }
 
   /* Keep tile animations but adjust timing for mobile */
@@ -269,14 +271,14 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
     line-height: 1.3;
   }
 
-  /* UPDATED: CTA section - changed from fixed to absolute positioning */
+  /* CTA section - KEEP as fixed scroll section with JavaScript control */
   .cta-section-wrapper {
-    position: absolute; /* Changed from fixed */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    height: 100dvh;
+    height: 100svh; /* Static viewport height */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -364,13 +366,26 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
     left: 10%;
   }
 
-  /* Prevent any element from triggering document scroll */
-  .hero-section,
-  .scroll-section,
-  .cta-section-wrapper,
-  .personality-tiles {
-    touch-action: pan-y pan-x;
-    overscroll-behavior: contain;
+  /* CRITICAL: Prevent address bar auto-hide behaviors */
+  
+  /* Method 1: Disable pull-to-refresh and bounce scroll */
+  html, body {
+    overscroll-behavior-y: none;
+    /* Prevent iOS Safari bounce that triggers address bar */
+    -webkit-overflow-scrolling: auto;
+  }
+
+  /* Method 2: Use meta viewport to suggest keeping address bar */
+  /* Add to HTML head:
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="mobile-web-app-capable" content="no">
+  <meta name="apple-mobile-web-app-capable" content="no">
+  */
+
+  /* Method 3: Force minimum scroll behavior */
+  body {
+    /* Add small padding that forces scroll calculation */
+    padding-bottom: 1px;
   }
 }
 
