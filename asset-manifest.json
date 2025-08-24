@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/krishika-portfolio/static/css/main.ce44fd7e.css",
-    "main.js": "/krishika-portfolio/static/js/main.6ecdd96f.js",
+    "main.css": "/krishika-portfolio/static/css/main.87070882.css",
+    "main.js": "/krishika-portfolio/static/js/main.b836ed4d.js",
     "static/js/453.e9bfca4a.chunk.js": "/krishika-portfolio/static/js/453.e9bfca4a.chunk.js",
     "static/media/vit.png": "/krishika-portfolio/static/media/vit.87f8b7d0362c4e6affed.png",
     "static/media/mc3.png": "/krishika-portfolio/static/media/mc3.aeec26946f28545022b0.png",
@@ -11,16 +11,20 @@
     "static/media/wanderlog.png": "/krishika-portfolio/static/media/wanderlog.116e3fd1b8482e455864.png",
     "static/media/contactbg.png": "/krishika-portfolio/static/media/contactbg.e1dd09d37fda91c97023.png",
     "static/media/mc2.png": "/krishika-portfolio/static/media/mc2.0306bd3c2007f1ae0d37.png",
-    "static/media/smarthome.png": "/krishika-portfolio/static/media/smarthome.dc58a0692af81f0fede4.png",
+    "static/media/reading.png": "/krishika-portfolio/static/media/reading.4116ec71e0ec683d274b.png",
+    "static/media/sketching.png": "/krishika-portfolio/static/media/sketching.1ea8810c75cc4d79d6e0.png",
     "static/media/mc1.png": "/krishika-portfolio/static/media/mc1.00ebf0636d2a8ccccb30.png",
     "static/media/hyperparameter.png": "/krishika-portfolio/static/media/hyperparameter.16281f01791e42cc7625.png",
     "static/media/airesume.png": "/krishika-portfolio/static/media/airesume.8bd79477c767644c9889.png",
     "static/media/clinic.png": "/krishika-portfolio/static/media/clinic.20d97cb95fc040002f17.png",
+    "static/media/music.png": "/krishika-portfolio/static/media/music.56bbb12600bb1ba2ce2d.png",
+    "static/media/anchor.png": "/krishika-portfolio/static/media/anchor.f9183d9d8afd43e1c824.png",
     "static/media/canva.png": "/krishika-portfolio/static/media/canva.d8c3a47116877ec0e351.png",
     "static/media/left.png": "/krishika-portfolio/static/media/left.8132d11ed568fd3074c7.png",
     "static/media/right.png": "/krishika-portfolio/static/media/right.d84ac48d57c6d48be2fa.png",
     "static/media/normal.png": "/krishika-portfolio/static/media/normal.af2089733b211d72c4c1.png",
     "static/media/react.png": "/krishika-portfolio/static/media/react.b4058efe986119c326c9.png",
+    "static/media/Resume.pdf": "/krishika-portfolio/static/media/Resume.6d493472e740e40b0585.pdf",
     "static/media/sql.png": "/krishika-portfolio/static/media/sql.598b6670a3b63d12c0c5.png",
     "static/media/invision.png": "/krishika-portfolio/static/media/invision.15acfb3605e8f3f88d89.png",
     "static/media/up.png": "/krishika-portfolio/static/media/up.8bdb2a4bcd724cd45b62.png",
@@ -47,12 +51,12 @@
     "static/media/tailwind.png": "/krishika-portfolio/static/media/tailwind.ebf87fe4cf897b355500.png",
     "static/media/github.png": "/krishika-portfolio/static/media/github.ba784b1b0217eb441bcc.png",
     "index.html": "/krishika-portfolio/index.html",
-    "main.ce44fd7e.css.map": "/krishika-portfolio/static/css/main.ce44fd7e.css.map",
-    "main.6ecdd96f.js.map": "/krishika-portfolio/static/js/main.6ecdd96f.js.map",
+    "main.87070882.css.map": "/krishika-portfolio/static/css/main.87070882.css.map",
+    "main.b836ed4d.js.map": "/krishika-portfolio/static/js/main.b836ed4d.js.map",
     "453.e9bfca4a.chunk.js.map": "/krishika-portfolio/static/js/453.e9bfca4a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ce44fd7e.css",
-    "static/js/main.6ecdd96f.js"
+    "static/css/main.87070882.css",
+    "static/js/main.b836ed4d.js"
   ]
 }
