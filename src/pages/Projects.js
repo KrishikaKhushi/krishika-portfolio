@@ -3,7 +3,7 @@ import './Projects.css';
 import './ProjectsRes.css';
 import clinicImage from '../assets/projects/clinic.png';
 import aiRemoteImage from '../assets/projects/airemote.jpg';
-import smartHomeImage from '../assets/projects/smarthome.png';
+
 import wanderlogImage from '../assets/projects/wanderlog.png';
 import portfolioImage from '../assets/projects/portfolio.png';
 import hyperparameterImage from '../assets/projects/hyperparameter.png';
@@ -48,12 +48,12 @@ function Projects() {
   // Animation refs for each container
   const [titleRef, isTitleVisible] = useInViewAnimation();
   const [clinicRef, isClinicVisible] = useInViewAnimation();
-  const [aiRemoteRef, isAiRemoteVisible] = useInViewAnimation();
-  const [smartHomeRef, isSmartHomeVisible] = useInViewAnimation();
   const [wanderlogRef, isWanderlogVisible] = useInViewAnimation();
-  const [hyperparameterRef, isHyperparameterVisible] = useInViewAnimation();
   const [portfolioRef, isPortfolioVisible] = useInViewAnimation();
+  const [aiRemoteRef, isAiRemoteVisible] = useInViewAnimation();
+  const [hyperparameterRef, isHyperparameterVisible] = useInViewAnimation();
   const [aiResumeRef, isAiResumeVisible] = useInViewAnimation();
+
   const [githubRef, isGithubVisible] = useInViewAnimation();
 
   return (
@@ -83,7 +83,7 @@ function Projects() {
         Projects
       </h1>
 
-      {/* First Project - With Background Image */}
+      {/* First Project - Clinic Database Web Application */}
       <div 
         ref={clinicRef}
         className={`project-card clinic-project ${isClinicVisible ? 'slide-in-left' : ''}`}
@@ -109,10 +109,94 @@ function Projects() {
             <li>Developed and optimized RESTful APIs for smooth communication between front-end and back-end.</li>
             <li>Implemented user authentication and data validation to ensure security.</li>
           </ul>
+          <div className="project-button-container">
+            <a
+              href="https://clinic-management-system-inky-rho.vercel.app/login"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-visit-button"
+            >
+              Visit Website
+            </a>
+          </div>
         </div>
       </div>
 
-      {/* Second Project */}
+      {/* Second Project - WanderLog */}
+      <div 
+        ref={wanderlogRef}
+        className={`project-card wanderlog-project ${isWanderlogVisible ? 'slide-in-right' : ''}`}
+      >
+        <div className="wanderlog-background" style={{
+          backgroundImage: `url(${wanderlogImage})`
+        }}></div>
+        <div className="wanderlog-overlay"></div>
+        <div className="wanderlog-content">
+          <h3 className="project-title">
+            <a
+              href="https://github.com/KrishikaKhushi/wanderlog"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="gradient-text"
+            >
+              WanderLog – Dream Destination Explorer [IN PROGRESS]<br />
+              <span className="tech-stack">(React.js, TailwindCSS, Leaflet.js/Mapbox)</span>
+            </a>
+          </h3>
+          <ul className="project-description">
+            <li>A globe-based travel journal app to pin dream destinations and visited places.</li>
+            <li>Adding features for photo uploads, journal entries, and smooth navigation transitions.</li>
+            <li>Implementing a social media layout with responsive design for users to connect and explore.</li>
+            <li>Focused on creating an immersive, visually engaging frontend experience.</li>
+          </ul>
+          <div className="project-button-container">
+            <a
+              href="https://wanderlog-zeta.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-visit-button"
+            >
+              Visit Website
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Third Project - Portfolio */}
+      <div 
+        ref={portfolioRef}
+        className={`project-card portfolio-project ${isPortfolioVisible ? 'slide-in-left' : ''}`}
+      >
+        <div className="portfolio-background" style={{
+          backgroundImage: `url(${portfolioImage})`
+        }}></div>
+        <div className="portfolio-overlay"></div>
+        <div className="portfolio-content">
+          <h3 className="project-title">
+            <a
+              href="https://github.com/KrishikaKhushi/krishika-portfolio"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="gradient-text"
+            >
+              Krishika's Dev Portfolio<br />
+              <span className="tech-stack">(React, JavaScript, HTML, CSS, Git, GitHub, Node.js, Express.js, SQL)</span>
+            </a>
+          </h3>
+          <ul className="project-description">
+            <li>Developed a personal portfolio website to showcase skills, projects, and experience.</li>
+            <li>Integrated responsive design, animations, and seamless navigation using React Router.</li>
+            <li>Deployed the website on a cloud platform, ensuring real-time access and version control with GitHub.</li>
+          </ul>
+          <div className="project-button-container">
+            <span className="project-current-button">
+              Currently Viewing
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Fourth Project - AI Doctor Consultation */}
       <div 
         ref={aiRemoteRef}
         className={`project-card ai-remote-project ${isAiRemoteVisible ? 'slide-in-right' : ''}`}
@@ -141,67 +225,7 @@ function Projects() {
         </div>
       </div>
 
-      {/* Third Project */}
-      <div 
-        ref={smartHomeRef}
-        className={`project-card smart-home-project ${isSmartHomeVisible ? 'slide-in-left' : ''}`}
-      >
-        <div className="smart-home-background" style={{
-          backgroundImage: `url(${smartHomeImage})`
-        }}></div>
-        <div className="smart-home-overlay"></div>
-        <div className="smart-home-content">
-          <h3 className="project-title">
-            <a
-              href="https://github.com/KrishikaKhushi/smart-home-automation"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="gradient-text"
-            >
-              AI-Powered Smart Home Automation System<br />
-              <span className="tech-stack">(Python, Flask, REST APIs, MySQL, Docker, AWS/GCP, Git/GitHub)</span>
-            </a>
-          </h3>
-          <ul className="project-description">
-            <li>Developed a smart home solution using AI and ML technologies.</li>
-            <li>Integrated image and voice processing into household devices for improved automation.</li>
-            <li>Enhanced user interaction with appliances, creating a more intelligent living environment.</li>
-            <li>Focused on seamless control and automation of home systems.</li>
-          </ul>
-        </div>
-      </div>
-
-      {/* Fourth Project - NEW WanderLog Project */}
-      <div 
-        ref={wanderlogRef}
-        className={`project-card wanderlog-project ${isWanderlogVisible ? 'slide-in-right' : ''}`}
-      >
-        <div className="wanderlog-background" style={{
-          backgroundImage: `url(${wanderlogImage})`
-        }}></div>
-        <div className="wanderlog-overlay"></div>
-        <div className="wanderlog-content">
-          <h3 className="project-title">
-            <a
-              href="https://github.com/KrishikaKhushi/wanderlog"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="gradient-text"
-            >
-              WanderLog – Dream Destination Explorer [IN PROGRESS]<br />
-              <span className="tech-stack">(React.js, TailwindCSS, Leaflet.js/Mapbox)</span>
-            </a>
-          </h3>
-          <ul className="project-description">
-            <li>A globe-based travel journal app to pin dream destinations and visited places.</li>
-            <li>Adding features for photo uploads, journal entries, and smooth navigation transitions.</li>
-            <li>Implementing a social media layout with responsive design for users to connect and explore.</li>
-            <li>Focused on creating an immersive, visually engaging frontend experience.</li>
-          </ul>
-        </div>
-      </div>
-
-      {/* Fifth Project */}
+      {/* Fifth Project - Hyperparameter */}
       <div 
         ref={hyperparameterRef}
         className={`project-card hyperparameter-project ${isHyperparameterVisible ? 'slide-in-left' : ''}`}
@@ -230,39 +254,10 @@ function Projects() {
         </div>
       </div>
 
-      {/* Sixth Project */}
-      <div 
-        ref={portfolioRef}
-        className={`project-card portfolio-project ${isPortfolioVisible ? 'slide-in-right' : ''}`}
-      >
-        <div className="portfolio-background" style={{
-          backgroundImage: `url(${portfolioImage})`
-        }}></div>
-        <div className="portfolio-overlay"></div>
-        <div className="portfolio-content">
-          <h3 className="project-title">
-            <a
-              href="https://github.com/KrishikaKhushi/krishika-portfolio"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="gradient-text"
-            >
-              Krishika's Dev Portfolio<br />
-              <span className="tech-stack">(React, JavaScript, HTML, CSS, Git, GitHub, Node.js, Express.js, SQL)</span>
-            </a>
-          </h3>
-          <ul className="project-description">
-            <li>Developed a personal portfolio website to showcase skills, projects, and experience.</li>
-            <li>Integrated responsive design, animations, and seamless navigation using React Router.</li>
-            <li>Deployed the website on a cloud platform, ensuring real-time access and version control with GitHub.</li>
-          </ul>
-        </div>
-      </div>
-
-      {/* Seventh Project */}
+      {/* Sixth Project - AI Resume Screener */}
       <div 
         ref={aiResumeRef}
-        className={`project-card ai-resume-project ${isAiResumeVisible ? 'slide-in-left' : ''}`}
+        className={`project-card ai-resume-project ${isAiResumeVisible ? 'slide-in-right' : ''}`}
       >
         <div className="ai-resume-background" style={{
           backgroundImage: `url(${aiResumeImage})`

@@ -67,7 +67,7 @@ function ProfessionalExperience() {
             className="company-logo"
           />
           <h2 className="company-name gradient-text">
-            Berger Paints India Ltd. (British Paints Division)—Backend Developer Intern
+            Berger Paints India Ltd. (British Paints Division)—IT Systems Intern
           </h2>
         </div>
 
@@ -77,8 +77,8 @@ function ProfessionalExperience() {
             Company Overview:
           </h3>
           <p className="subheading-content">
-            British Paints, a division of Berger Paints India Ltd., is committed to innovation and sustainability. 
-            The IT department plays a key role in driving the digital transformation across the company.
+            British Paints, a division of Berger Paints India Ltd., focuses on innovation and sustainability in the coatings industry. 
+            The IT division supports enterprise systems and internal digital solutions.
           </p>
         </div>
 
@@ -89,13 +89,16 @@ function ProfessionalExperience() {
           </h3>
           <ul className="subheading-content">
             <li>
-              Gained hands-on experience in ERP system implementation with Oracle Database, including configuration, customization, and troubleshooting.
+              Studied ERP workflows and Oracle Database applications, gaining exposure to enterprise system functionalities and business processes.
             </li>
             <li>
-              Gained in-depth knowledge of the Order-to-Cash (O2C) cycle, enhancing understanding of order management, inventory control, billing, and cash collection.
+              Explored the Order-to-Cash (O2C) cycle, building an understanding of order management, billing, and inventory flow.
             </li>
             <li>
-              Explored network system administration across multiple locations, improving connectivity, security, and performance.
+              Analyzed the British Paints development application's codebase to identify usability gaps.
+            </li>
+            <li>
+              Researched approaches for improving system usability and internal application design.
             </li>
           </ul>
         </div>
@@ -107,13 +110,13 @@ function ProfessionalExperience() {
           </h3>
           <ul className="subheading-content">
             <li>
-              Contributed to ERP system optimization, streamlining business processes and improving user experience.
+              Proposed a user-friendly redesign concept for the development application, improving visual appeal and usability by ~30%.
             </li>
             <li>
-              Applied insights to optimize the O2C cycle, reducing lead times and improving order fulfillment accuracy.
+              Applied ERP workflow learnings to understand how technology supports process efficiency in large organizations.
             </li>
             <li>
-              Enhanced network performance by implementing best practices in administration and security measures.
+              Contributed ideas for better system navigation and user experience within internal applications.
             </li>
           </ul>
         </div>
@@ -125,13 +128,10 @@ function ProfessionalExperience() {
           </h3>
           <ul className="subheading-content">
             <li>
-              Technical skills in Oracle Database, ERP system integration, and network infrastructure.
+              Technical: Oracle Database basics, ERP workflows, application usability and redesign concepts.
             </li>
             <li>
-              Strong analytical and problem-solving abilities through data analysis, process optimization, and troubleshooting.
-            </li>
-            <li>
-              Improved communication and collaboration through interaction with cross-functional teams.
+              Professional: Analytical problem-solving, technical research, and effective communication with IT team members.
             </li>
           </ul>
         </div>

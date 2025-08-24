@@ -984,3 +984,33 @@ html {
     display: none;
   }
 }
+
+/* Home Icon Styles */
+.home-icon {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  z-index: 1000;
+  color: white;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-icon:hover {
+  transform: translateY(-2px);
+  color: white;
+  text-decoration: none;
+}
+
+.home-icon svg {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.home-icon:hover svg {
+  transform: scale(1.1);
+}

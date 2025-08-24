@@ -5,6 +5,10 @@ import musicClubImage from '../assets/musiclub.png';
 import mc1Image from '../assets/mc1.png';
 import mc2Image from '../assets/mc2.png';
 import mc3Image from '../assets/mc3.png';
+import sketchingImage from '../assets/sketching.png';
+import musicImage from '../assets/music.png';
+import anchorImage from '../assets/anchor.png';
+import readingImage from '../assets/reading.png';
 
 // Intersection Observer Hook for animations - Triggers every time
 const useInViewAnimation = (options = {}) => {
@@ -46,7 +50,9 @@ function Extracurricular() {
   const [musicClubImageRef, isMusicClubImageVisible] = useInViewAnimation();
   const [galleryRef, isGalleryVisible] = useInViewAnimation();
   const [othersRef, isOthersVisible] = useInViewAnimation();
-  const [hobbiesRef, isHobbiesVisible] = useInViewAnimation();
+  const [technicalRef, isTechnicalVisible] = useInViewAnimation();
+  const [hobbiesTitleRef, isHobbiesTitleVisible] = useInViewAnimation();
+  const [hobbiesContainerRef, isHobbiesContainerVisible] = useInViewAnimation();
 
   return (
     <div className="extras-section">
@@ -61,7 +67,7 @@ function Extracurricular() {
         ref={titleRef}
         className={`section-heading gradient-text ${isTitleVisible ? 'fade-in-down' : ''}`}
       >
-        Extracurricular
+        Beyond the Classroom
       </h1>
 
       {/* Club Activities Card */}
@@ -69,7 +75,7 @@ function Extracurricular() {
         ref={clubActivitiesRef}
         className={`card-wrapper ${isClubActivitiesVisible ? 'slide-in-up' : ''}`}
       >
-        <h2 className="subheading gradient-text">Club Activities</h2>
+        <h2 className="subheading gradient-text">Extracurriculars</h2>
 
         <div className="music-club-container">
           <div 
@@ -147,17 +153,54 @@ function Extracurricular() {
             <li>Was a part of Creativity Club</li>
           </ul>
         </div>
+
+        <div 
+          ref={technicalRef}
+          className={`technical-section ${isTechnicalVisible ? 'slide-in-up' : ''}`}
+        >
+          <h3 className="gradient-text">Technical</h3>
+          <ul className="content-list">
+            <li>Selected as <strong>Top 5 Finalist at DevSoc Hackathon</strong> (team of 3) for developing a Clinic Database Web Application.</li>
+            <li>Developed academic group projects including <strong>Hyperparameter Visualization in Generative AI Models</strong> and <strong>AI-Driven Enhancements in Remote Doctor Consultation</strong>, gaining hands-on <strong>AI/ML exposure</strong> along with <strong>teamwork, collaboration</strong>, and <strong>problem-solving</strong> experience.</li>
+          </ul>
+        </div>
       </div>
 
-      {/* Hobbies Card */}
-      <div 
-        ref={hobbiesRef}
-        className={`card-wrapper ${isHobbiesVisible ? 'slide-in-up' : ''}`}
+      {/* Hobbies Section */}
+      <h2 
+        ref={hobbiesTitleRef}
+        className={`hobbies-title gradient-text ${isHobbiesTitleVisible ? 'fade-in-down' : ''}`}
       >
-        <h2 className="subheading">Hobbies</h2>
-        <p className="hobbies-text">
-          Anchoring, Music Enthusiast, Reading, Sketching, Poetry
-        </p>
+        Hobbies
+      </h2>
+
+      <div 
+        ref={hobbiesContainerRef}
+        className={`hobbies-cards-container ${isHobbiesContainerVisible ? 'hobbies-visible' : ''}`}
+      >
+        <div className="hobby-card">
+          <img src={sketchingImage} alt="Sketching" className="hobby-image" />
+          <h3 className="hobby-name">Sketching</h3>
+          <p className="hobby-quote">"Drawing is the honesty of the art. There is no possibility of cheating." - Salvador Dalí</p>
+        </div>
+
+        <div className="hobby-card">
+          <img src={musicImage} alt="Music" className="hobby-image" />
+          <h3 className="hobby-name">Music</h3>
+          <p className="hobby-quote">"Music is the universal language of mankind." - Henry Wadsworth Longfellow</p>
+        </div>
+
+        <div className="hobby-card">
+          <img src={anchorImage} alt="Anchoring" className="hobby-image" />
+          <h3 className="hobby-name">Anchoring</h3>
+          <p className="hobby-quote">"The art of communication is the language of leadership." - James Humes</p>
+        </div>
+
+        <div className="hobby-card">
+          <img src={readingImage} alt="Reading" className="hobby-image" />
+          <h3 className="hobby-name">Reading</h3>
+          <p className="hobby-quote">"A reader lives a thousand lives before he dies." - George R.R. Martin</p>
+        </div>
       </div>
     </div>
   );

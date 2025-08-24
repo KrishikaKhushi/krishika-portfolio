@@ -911,3 +911,54 @@
     animation-duration: 0.6s;
   }
 }
+
+/* Project Button Container */
+.project-button-container {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 5;
+}
+
+/* Visit Website Button */
+.project-visit-button {
+  display: inline-block;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #AC94D6, #7c5da6);
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+  font-family: 'Arial Black', sans-serif;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(172, 148, 214, 0.3);
+  border: 1px solid rgba(172, 148, 214, 0.2);
+}
+
+.project-visit-button:hover {
+  background: linear-gradient(135deg, #d6c1ff, #AC94D6);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(172, 148, 214, 0.4);
+  color: white;
+  text-decoration: none;
+}
+
+.project-visit-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(172, 148, 214, 0.3);
+}
+
+/* Currently Viewing Button (Non-interactive) */
+.project-current-button {
+  display: inline-block;
+  padding: 8px 16px;
+  background: rgba(172, 148, 214, 0.2);
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: bold;
+  font-size: 0.9rem;
+  font-family: 'Arial Black', sans-serif;
+  border-radius: 20px;
+  border: 1px solid rgba(172, 148, 214, 0.3);
+  cursor: default;
+}

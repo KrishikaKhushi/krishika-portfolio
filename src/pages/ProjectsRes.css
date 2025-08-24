@@ -639,3 +639,286 @@
     transition: transform 0.1s ease;
   }
 }
+
+/* OPTIMIZED RESPONSIVE DESIGN FOR VISIT WEBSITE BUTTONS */
+
+/* Default Desktop Styles (1025px+) */
+.project-button-container {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  z-index: 15;
+}
+
+.project-visit-button,
+.project-current-button {
+  padding: 10px 18px;
+  font-size: 0.95rem;
+  border-radius: 22px;
+  min-height: 44px;
+  min-width: 120px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+/* Large Desktop (1440px+) - Match section spacing */
+@media (min-width: 1440px) {
+  .project-button-container {
+    bottom: 28px;
+    right: 28px;
+  }
+  
+  .project-visit-button,
+  .project-current-button {
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 24px;
+    min-height: 48px;
+    min-width: 130px;
+  }
+}
+
+/* Desktop (1024px - 1439px) - Align with project card padding */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .project-button-container {
+    bottom: 24px;
+    right: 24px;
+  }
+  
+  .project-visit-button,
+  .project-current-button {
+    padding: 10px 18px;
+    font-size: 0.95rem;
+    border-radius: 22px;
+    min-height: 44px;
+    min-width: 120px;
+  }
+}
+
+/* Tablet Landscape (769px - 1024px) - Match tablet breakpoint */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .project-button-container {
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .project-visit-button,
+  .project-current-button {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    border-radius: 20px;
+    min-height: 42px;
+    min-width: 110px;
+  }
+}
+
+/* Tablet Portrait (768px and below) - Match main tablet breakpoint */
+@media (max-width: 768px) {
+  .project-button-container {
+    bottom: 18px;
+    right: 18px;
+  }
+  
+  .project-visit-button,
+  .project-current-button {
+    padding: 9px 15px;
+    font-size: 0.85rem;
+    border-radius: 18px;
+    min-height: 40px;
+    min-width: 100px;
+    font-weight: 700;
+  }
+  
+  /* Match touch-friendly hover behavior */
+  .project-visit-button:hover,
+  .project-current-button:hover {
+    transform: none;
+    box-shadow: 0 4px 12px rgba(172, 148, 214, 0.3);
+  }
+  
+  .project-visit-button:active,
+  .project-current-button:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+  }
+}
+
+/* Landscape Tablet Optimization */
+@media (max-width: 768px) and (orientation: landscape) {
+  .project-button-container {
+    bottom: 15px;
+    right: 15px;
+  }
+  
+  .project-visit-button,
+  .project-current-button {
+    padding: 8px 14px;
+    font-size: 0.8rem;
+    border-radius: 16px;
+    min-height: 36px;
+    min-width: 90px;
+  }
+}
+
+/* Mobile (480px and below) - Match main mobile breakpoint */
+@media (max-width: 480px) {
+  .project-button-container {
+    bottom: 4px;
+    right: 10px;
+  }
+  
+  .project-visit-button,
+  .project-current-button {
+    padding: 6px 10px;
+    font-size: 0.7rem;
+    border-radius: 12px;
+    min-height: 30px;
+    min-width: 70px;
+    font-weight: 800;
+  }
+  
+  /* Maintain visibility with background effects */
+  .project-visit-button,
+  .project-current-button {
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Small Mobile (360px and below) - Match small mobile breakpoint */
+@media (max-width: 360px) {
+  .project-button-container {
+    bottom: 3px;
+    right: 8px;
+  }
+  
+  .project-visit-button,
+  .project-current-button {
+    padding: 5px 8px;
+    font-size: 0.65rem;
+    border-radius: 10px;
+    min-height: 28px;
+    min-width: 65px;
+  }
+}
+
+/* Very Small Mobile (320px and below) - Match ultra-compact breakpoint */
+@media (max-width: 320px) {
+  .project-button-container {
+    bottom: -9px;
+    right: 65px;
+  }
+  
+  .project-visit-button,
+  .project-current-button {
+    padding: 4px 8px;
+    font-size: 0.6rem;
+    border-radius: 8px;
+    min-height: 26px;
+    min-width: 60px;
+  }
+}
+
+/* Ultra-Wide Mobile Landscape - Match wide landscape optimization */
+@media (max-width: 950px) and (orientation: landscape) and (max-height: 500px) {
+  .project-button-container {
+    bottom: 4px;
+    right: 6px;
+  }
+  
+  .project-visit-button,
+  .project-current-button {
+    padding: 4px 8px;
+    font-size: 0.6rem;
+    border-radius: 8px;
+    min-height: 24px;
+    min-width: 55px;
+  }
+}
+
+/* Accessibility - Match existing accessibility patterns */
+@media (prefers-reduced-motion: reduce) {
+  .project-visit-button,
+  .project-current-button {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  .project-visit-button:active,
+  .project-current-button:active {
+    transform: none !important;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .project-visit-button,
+  .project-current-button {
+    border-width: 2px;
+    font-weight: 800;
+    text-shadow: 0 0 4px rgba(172, 148, 214, 0.6);
+  }
+}
+
+/* Touch Device Optimization - Enhanced for consistency */
+@media (pointer: coarse) {
+  .project-visit-button,
+  .project-current-button {
+    min-height: 30px; /* Smaller touch target for mobile */
+    min-width: 70px;
+    padding: 6px 10px;
+  }
+  
+  /* Remove hover effects on touch devices */
+  .project-visit-button:hover,
+  .project-current-button:hover {
+    transform: none;
+    transition: box-shadow 0.2s ease;
+  }
+  
+  /* Enhanced active states for touch feedback */
+  .project-visit-button:active,
+  .project-current-button:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+    opacity: 0.9;
+  }
+}
+
+/* High DPI Display Optimization */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .project-visit-button,
+  .project-current-button {
+    border-width: 0.5px;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Print Styles - Hide buttons in print */
+@media print {
+  .project-button-container {
+    display: none;
+  }
+}
+
+/* Focus States for Keyboard Navigation */
+.project-visit-button:focus,
+.project-current-button:focus {
+  outline: 2px solid rgba(172, 148, 214, 0.8);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(172, 148, 214, 0.2);
+}
+
+/* Dark Theme Compatibility (if applicable) */
+@media (prefers-color-scheme: dark) {
+  .project-visit-button,
+  .project-current-button {
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+}

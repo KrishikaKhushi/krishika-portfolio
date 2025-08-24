@@ -592,3 +592,28 @@ p, h1, h2, h3, h4, h5, h6, span, .hero-title, .hero-subtitle, .tile p, .tile h3,
     opacity: 0.2;
   }
 }
+
+/* Responsive adjustments for home icon */
+@media (max-width: 768px) {
+  .home-icon {
+    top: 20px;
+    right: 20px;
+  }
+  
+  .home-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-icon {
+    top: 15px;
+    right: 15px;
+  }
+  
+  .home-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+}
