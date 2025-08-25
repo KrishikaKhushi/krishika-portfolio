@@ -455,13 +455,13 @@ const SkillsPopup = ({ isOpen, onClose }) => {
         <div className="popup-skills-section">
           <h2 className="popup-skills-title">Key Technical Skills</h2>
           <ul className="popup-skills-list">
-            <li><strong>Languages:</strong> <span>Python, Java</span></li>
-            <li><strong>Data Handling:</strong> <span>SQL, MongoDB (NoSQL)</span></li>
-            <li><strong>APIs & Frameworks:</strong> <span>Flask, FastAPI, REST APIs</span></li>
-            <li><strong>Cloud & DevOps:</strong> <span>Docker, AWS, GCP</span></li>
+            <li><strong>Languages:</strong> <span>Python, Java, Javascript</span></li>
+            <li><strong>Data Handling:</strong> <span>SQL, MongoDB, Pandas, NumPy</span></li>
+            <li><strong>APIs & Frameworks:</strong> <span>Flask, FastAPI, REST APIs, Node.js, Express.js, Vite</span></li>
+            <li><strong>Cloud & DevOps:</strong> <span>Docker, AWS, GCP, Render, Vercel, Netlify</span></li>
             <li><strong>Version Control:</strong> <span>Git, GitHub</span></li>
             <li><strong>DSA & Problem Solving</strong></li>
-            <li><strong>Frontend:</strong> <span>React.js, Javascript, CSS</span></li>
+            <li><strong>Frontend:</strong> <span>React.js, CSS, Tailwind CSS, React Query</span></li>
             <li><strong>Design & Prototyping Tools:</strong> <span>Figma, InVision, Balsamiq, Maze, Canva</span></li>
           </ul>
         </div>
@@ -549,7 +549,7 @@ function AboutMe() {
       {/* Chibi Sticker with Dialogue - Between about content and tech stack */}
       <div className="about-chibi-container">
         <div className="about-dialogue-bubble">
-          <p>Hello Again! <br />You can click to view skills. <br />Hover for chaos! </p>
+          <p>Hello Again! <br />You can click to view skills. <br />Hold and drag an icon for chaos! </p>
           <div className="about-bubble-arrow"></div>
         </div>
         <div className="about-chibi-sticker">
